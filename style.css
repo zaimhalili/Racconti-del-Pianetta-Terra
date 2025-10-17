@@ -46,19 +46,20 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
+  background-image:
+    repeating-linear-gradient(0deg,
       transparent,
       transparent 2px,
       rgba(0, 242, 254, 0.03) 2px,
-      rgba(0, 242, 254, 0.03) 4px
-    );
+      rgba(0, 242, 254, 0.03) 4px);
   pointer-events: none;
   z-index: 1;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: "Bruno Ace", cursive;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -101,8 +102,15 @@ h1, h2, h3, h4 {
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .logo {
@@ -196,8 +204,13 @@ h1, h2, h3, h4 {
 }
 
 @keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 /* Scan Line Effect */
@@ -213,8 +226,13 @@ h1, h2, h3, h4 {
 }
 
 @keyframes scan {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 .hero-content {
@@ -260,21 +278,51 @@ h1, h2, h3, h4 {
 }
 
 @keyframes glitch {
-  2%, 64% { transform: translate(0, 0) skew(0deg); }
-  4% { transform: translate(-2px, 0) skew(0deg); }
-  62% { transform: translate(0, 0) skew(5deg); }
+
+  2%,
+  64% {
+    transform: translate(0, 0) skew(0deg);
+  }
+
+  4% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
 }
 
 @keyframes glitchTop {
-  2%, 64% { transform: translate(0, 0); }
-  4% { transform: translate(3px, -3px); }
-  62% { transform: translate(13px, -1px); }
+
+  2%,
+  64% {
+    transform: translate(0, 0);
+  }
+
+  4% {
+    transform: translate(3px, -3px);
+  }
+
+  62% {
+    transform: translate(13px, -1px);
+  }
 }
 
 @keyframes glitchBottom {
-  2%, 64% { transform: translate(0, 0); }
-  4% { transform: translate(-3px, 3px); }
-  62% { transform: translate(-8px, 2px); }
+
+  2%,
+  64% {
+    transform: translate(0, 0);
+  }
+
+  4% {
+    transform: translate(-3px, 3px);
+  }
+
+  62% {
+    transform: translate(-8px, 2px);
+  }
 }
 
 .hero-subtitle {
@@ -358,13 +406,27 @@ h1, h2, h3, h4 {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
 }
 
 /* ========================================
@@ -705,8 +767,13 @@ h1, h2, h3, h4 {
 }
 
 @keyframes rotateSlow {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 /* Character Cards */
@@ -979,21 +1046,22 @@ h1, h2, h3, h4 {
    ======================================== */
 
 @media (max-width: 1024px) {
+
   .chapter-split,
   .chapter-split.reverse {
     grid-template-columns: 1fr;
   }
-  
+
   .chapter-visual {
     min-height: 50vh;
   }
-  
+
   .chapter-content-split {
     border-left: none;
     border-right: none;
     border-top: 2px solid var(--border-color);
   }
-  
+
   .info-cards,
   .character-cards,
   .reflection-cards {
@@ -1005,44 +1073,44 @@ h1, h2, h3, h4 {
   .nav {
     padding: 1rem 1.5rem;
   }
-  
+
   .nav-links {
     gap: 1rem;
   }
-  
+
   .nav-links a {
     font-size: 0.8rem;
   }
-  
+
   .nav-links a span {
     display: none;
   }
-  
+
   .glitch {
     font-size: 3rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1rem;
   }
-  
+
   .chapter-content-split,
   .chapter-content-overlay,
   .chapter-content-center {
     padding: 2rem;
   }
-  
+
   .chapter-header h2,
   .chapter-header-center h2 {
     font-size: 2rem;
   }
-  
+
   .data-overlay {
     flex-direction: column;
     left: 1rem;
     bottom: 1rem;
   }
-  
+
   .timeline-overlay {
     display: none;
   }
@@ -1052,24 +1120,24 @@ h1, h2, h3, h4 {
   .glitch {
     font-size: 2.5rem;
   }
-  
+
   .logo span {
     display: none;
   }
-  
+
   .cta-button {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
   }
-  
+
   .chapter-text p {
     font-size: 1rem;
   }
-  
+
   .stat-card {
     padding: 0.75rem 1rem;
   }
-  
+
   .epilogue-content h2 {
     font-size: 2rem;
   }

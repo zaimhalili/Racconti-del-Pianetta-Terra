@@ -5,6 +5,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const chapterItems = document.querySelectorAll('.chapter-item');
     const sections = document.querySelectorAll('.story-section');
     const chapterIndicator = document.querySelector('#current-chapter');
+    const loadingScreen = document.querySelector('.loading-screen');
+    
+    // Hide loading screen immediately and load images in background
+    const hideLoading = () => {
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }
+    };
+
+    // Hide loading screen immediately
+    hideLoading();
+
+    // Load images in background
+    const loadImages = () => {
+        const images = document.querySelectorAll('.section-image');
+        images.forEach(image => {
+            const src = image.getAttribute('data-src');
+            if (src) {
+                image.style.backgroundImage = `url(${src})`;
+            }
+        });
+    };
+
+    // Start loading images in background
+    loadImages();
+
+    // Create particles for hero section
+    const createParticles = () => {
+        const particles = document.querySelector('.hero-particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.setProperty('--delay', `${Math.random() * 4}s`);
+            particle.style.setProperty('--size', `${Math.random() * 3 + 1}px`);
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particles.appendChild(particle);
+        }
+    };
+
+    createParticles();
     
     // Toggle side navigation
     navToggle.addEventListener('click', () => {

@@ -1,0 +1,224 @@
+/* Base styles and CSS variables */
+:root {
+    --primary-color: #1a1a1a;
+    --text-color: #ffffff;
+    --accent-color: #4a90e2;
+    --transition-speed: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Overlay for background effects */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Timeline Navigation */
+.timeline-nav {
+    position: fixed;
+    bottom: 2rem;
+    width: 100%;
+    z-index: 100;
+    padding: 0 2rem;
+}
+
+.timeline-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+.timeline-point {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-speed);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-point:hover,
+.timeline-point.active {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* Content Sections */
+.content-container {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.era-section {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-speed);
+    display: none;
+}
+
+.era-section.active {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+.era-section h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--text-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Memory Fragments */
+.memory-fragments {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.memory-fragment {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-50px) translateX(50px);
+    }
+    50% {
+        transform: translateY(-100px) translateX(-50px);
+    }
+    75% {
+        transform: translateY(-50px) translateX(-100px);
+    }
+}
+
+/* Era-specific background styles */
+body[data-era="primordial"] {
+    background: linear-gradient(45deg, #ff4400, #8B0000);
+}
+
+body[data-era="dinosaurs"] {
+    background: linear-gradient(45deg, #1a472a, #2d5a27);
+}
+
+body[data-era="ice-age"] {
+    background: linear-gradient(45deg, #a5f2f3, #a6cfe2);
+}
+
+body[data-era="ancient"] {
+    background: linear-gradient(45deg, #c5a572, #8b7355);
+}
+
+body[data-era="medieval"] {
+    background: linear-gradient(45deg, #4a4a4a, #2b2b2b);
+}
+
+body[data-era="modern"] {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+}
+
+body[data-era="future"] {
+    background: linear-gradient(45deg, #16222a, #3a6073);
+}
+
+body[data-era="apocalypse"] {
+    background: linear-gradient(45deg, #8B0000, #000000);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline-track {
+        padding: 0.5rem;
+    }
+
+    .timeline-point {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .era-section h2 {
+        font-size: 2rem;
+    }
+
+    .content-wrapper {
+        padding: 1.5rem;
+    }
+
+    .content-wrapper p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-nav {
+        bottom: 1rem;
+        padding: 0 1rem;
+    }
+
+    .era-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-container {
+        padding: 2rem 1rem;
+    }
+}

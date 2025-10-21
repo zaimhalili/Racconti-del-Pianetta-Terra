@@ -1,0 +1,115 @@
+/* Tema: natura + sfumatura distopica */
+:root{
+	--bg-1:#0a1a12; /* very dark green */
+	--green-d:#2b6b3d; /* desaturated green */
+	--accent:#8a2b2b; /* faint rust red for tension */
+	--panel:#eef3ea;
+	--text:#dfeee3;
+}
+*{box-sizing:border-box}
+body{
+	margin:0;
+	font-family: 'Rajdhani', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: radial-gradient(1200px 600px at 10% 10%, rgba(43,107,61,0.06), transparent), linear-gradient(180deg,var(--bg-1), #0f2a18 60%);
+	color:var(--text);
+	-webkit-font-smoothing:antialiased;
+}
+/* avoid horizontal scroll when using full-bleed panels */
+body,html{overflow-x:hidden}
+html,body{height:100%}
+body{height:100%;margin:0}
+
+/* viewport: main scrollable area where hero + panels snap */
+#viewport{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory}
+
+/* container: unified definition farther below */
+.hero{
+	position:relative;
+	min-height:100vh;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	color:var(--text);
+	padding:2.5rem 1rem;
+	overflow:hidden;
+	scroll-snap-align:start;
+}
+.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);background-size:40px 40px;mix-blend-mode:overlay;opacity:0.25}
+.scan-line{position:absolute;inset:0;background:linear-gradient(transparent 48%, rgba(255,255,255,0.02) 50%, transparent 52%);background-size:100% 120px;animation:scan 6s linear infinite;opacity:0.08}
+@keyframes scan{from{background-position:0 0}to{background-position:0 120px}}
+
+.nav{position:relative;z-index:3;width:100%;max-width:1100px;margin:0 auto;padding:0 1rem;display:flex;flex-direction:column;align-items:center;gap:0.6rem}
+.logo{display:flex;align-items:center;gap:0.6rem;font-weight:700;color:var(--panel);justify-content:center}
+.logo i{font-size:1.2rem}
+.nav-links{list-style:none;display:flex;gap:1rem;margin:0;padding:0;justify-content:center}
+.nav-links a{color:rgba(223,238,227,0.9);text-decoration:none;font-weight:600}
+
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:2rem 1rem}
+.hero-title{font-family:'Orbitron', sans-serif;font-size:2.4rem;margin:0;color:var(--green-d);letter-spacing:1px}
+.hero-subtitle{margin:.5rem 0;color:rgba(200,230,200,0.9)}
+.hero-description{opacity:0.9;color:rgba(200,220,200,0.85)}
+.cta-button{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;padding:.6rem 1rem;border-radius:999px;background:linear-gradient(180deg,var(--green-d),#1f5a33);color:white;text-decoration:none;font-weight:700}
+
+.container{max-width:1000px;margin:0 auto;padding:2rem;background:transparent;border-radius:12px}
+.story-section{padding:1rem 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.story-section h2{color:var(--green-d);margin-top:0}
+.lead{line-height:1.6;color:rgba(223,238,227,0.95)}
+.meta{display:flex;gap:1rem;margin-top:0.5rem;color:rgba(160,200,160,0.9);font-size:0.95rem}
+
+.btn{display:inline-block;margin-top:1rem;padding:0.5rem 1rem;background:linear-gradient(90deg,var(--green-d),#1f5532);color:#fff;border:0;border-radius:999px;cursor:pointer;font-weight:700}
+.hero-title{font-family:'Orbitron', sans-serif;font-size:2.4rem;margin:0;color:var(--green-d);letter-spacing:1px;text-align:center}
+.hero-subtitle{margin:.5rem 0;color:rgba(200,230,200,0.9);text-align:center}
+
+.hidden{display:none}
+pre{white-space:pre-wrap;font-family:inherit;line-height:1.5;color:rgba(220,235,220,0.95);background:linear-gradient(180deg,rgba(0,0,0,0.12),transparent);padding:1rem;border-radius:8px}
+
+.summary-nav{position:fixed;top:22px;left:50%;transform:translateX(-50%);z-index:90;display:flex;flex-direction:row;gap:0.6rem;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.25));padding:0.6rem 1rem;border-radius:12px;backdrop-filter:blur(6px);box-shadow:0 6px 18px rgba(0,0,0,0.45)}
+.summary-nav a{color:var(--text);padding:0.6rem 1rem;text-decoration:none;font-weight:900;opacity:1;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:10px;font-size:1.15rem}
+.summary-nav a:hover{transform:translateY(-4px);transition:transform 160ms ease}
+.summary-nav a.active{background:linear-gradient(180deg,rgba(40,90,50,0.35),rgba(20,60,30,0.25));color:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.45)}
+/* Summary container centered box: panels share available height so all are visible */
+.container{display:block;max-width:1100px;margin:0 auto;padding:0}
+.panel{position:relative;background-repeat:no-repeat;background-size:cover;background-position:center}
+#summaryContainer{width:100vw;/* full-bleed panels */height:auto;overflow:visible;border-radius:0;display:block;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+#summaryContainer .panel{min-height:100vh;width:100vw;display:flex;align-items:center;justify-content:center;border-radius:0;overflow:hidden;scroll-snap-align:start;background-color:rgba(0,0,0,0.08)}
+.panel-overlay{position:relative;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.45));padding:2.5rem;border-radius:0;max-width:900px;color:var(--panel);width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background-color:rgba(0,0,0,0.45)}
+.panel-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0.98}
+.panel-overlay h3{margin:0 0 .8rem;font-size:1.5rem;color:var(--green-d);text-shadow:0 2px 10px rgba(0,0,0,0.8)}
+.panel-overlay p{margin:0;color:rgba(235,245,235,0.98);line-height:1.6;font-size:1.12rem;max-width:880px;text-shadow:0 1px 6px rgba(0,0,0,0.75)}
+
+/* Entrance animation for panel overlay */
+.panel-overlay{opacity:0;transform:translateY(12px);transition:opacity 420ms ease, transform 420ms cubic-bezier(0.2,0.9,0.2,1);will-change:opacity,transform}
+.panel-overlay.visible{opacity:1;transform:none}
+
+/* Placeholder backgrounds for panels */
+.bg-1{background-image:url('https://via.placeholder.com/1600x900?text=Bosco+1');}
+.bg-2{background-image:url('https://via.placeholder.com/1600x900?text=Voragine');}
+.bg-3{background-image:url('https://via.placeholder.com/1600x900?text=Guardacaccia');}
+.bg-4{background-image:url('https://via.placeholder.com/1600x900?text=Parcheggio');}
+.panel{background-repeat:no-repeat;background-size:cover;background-position:center}
+
+/* Ensure hero title block sits centered above panels (not used once header removed) */
+.hero-content{z-index:20}
+
+/* Keep nav top-centered on wider screens */
+@media (min-width:900px){
+	.summary-nav{top:22px;left:50%;transform:translateX(-50%);flex-direction:row}
+}
+
+/* On small screens, make nav compact and scrollable horizontally if needed */
+@media (max-width:900px){
+	.summary-nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);flex-direction:row;gap:0.4rem;padding:0.4rem 0.6rem}
+	.summary-nav a{font-size:1rem;padding:0.45rem 0.75rem}
+}
+/* Glitch effect for title */
+.glitch{position:relative}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;opacity:0.7}
+.glitch::before{color:#ff6b6b;clip-path:rect(0,900px,45%,0);transform:translate(2px,-2px)}
+.glitch::after{color:#9be5b3;clip-path:rect(55%,900px,100%,0);transform:translate(-2px,2px)}
+
+@media (max-width:560px){
+	.hero-title{font-size:1.4rem}
+	.container{margin:-2rem 1rem 1rem;padding:1rem}
+}
+

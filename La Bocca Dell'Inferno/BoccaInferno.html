@@ -1,13 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bocca Dell'Inferno | Luca Arduini</title>
-    <link rel="stylesheet" href="./styleBoccaInferno.css">
-</head>
-<body>
-    
-    <script src="./scriptBoccaInferno.js"></script>
-</body>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>La Bocca dell'Inferno - Racconti del Pianeta Terra</title>
+        <link rel="stylesheet" href="./styleBoccaInferno.css" />
+        <!-- Futuristic / Distopic Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Remix Icons -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+
+    <div id="viewport">
+
+    <header class="hero">
+            <div class="grid-overlay"></div>
+            <div class="scan-line"></div>
+
+            <nav class="nav">
+                <div class="logo">
+                    <i class="ri-plant-line"></i>
+                    <span>LA BOCCA DELL'INFERNO</span>
+                </div>
+            </nav>
+
+            <div class="hero-content">
+                <div class="glitch-container">
+                    <h1 class="hero-title glitch" data-text="LA BOCCA DELL'INFERNO">LA BOCCA DELL'INFERNO</h1>
+                </div>
+                <p class="hero-subtitle"><i class="ri-earth-line"></i> Racconti della Terra</p>
+                <p class="hero-description">Un racconto di segreti del bosco e di ciò che inghiotte chi trasgredisce</p>
+            </div>
+        </header>
+
+    <main class="container">
+            <!-- Summary navigation always visible -->
+            <nav class="summary-nav" aria-label="Navigazione riassunto">
+                <a href="#para1">Introduzione</a>
+                <a href="#para2">L'Incontro</a>
+                <a href="#para3">Lo Sfruttamento</a>
+                <a href="#para4">Epilogo</a>
+            </nav>
+
+            <!-- Summary container: visible by default -->
+            <div id="summaryContainer">
+
+                <section id="para1" class="panel bg-1">
+                    <img class="panel-bg" src="img/introduzione.jpg" alt="Bosco" />
+                    <div class="panel-overlay">
+                        <h3>Introduzione</h3>
+                        <p>In un giorno di novembre il guardacaccia Creel, mentre girava a cavallo, incontra un uomo reduce da una battuta di caccia in un bosco protetto. Creel gli chiede la licenza e l'uomo mostra un bigliettino da reverendo. Creel rimane sospettoso, attento alle regole dell'area protetta, e decide di approfondire la questione con cura.</p>
+                    </div>
+                </section>
+
+                <section id="para2" class="panel bg-2">
+                    <img class="panel-bg" src="img/Voragine.jpeg" alt="Voragine" />
+                    <div class="panel-overlay">
+                        <h3>L'Incontro e la Voragine</h3>
+                        <p>Mentre Creel sta compilando la multa, l'uomo perde l'equilibrio e cade. Inaspettatamente si apre una fossa enorme che lo inghiotte, e dopo pochi istanti la terra si richiude come niente fosse. Il fatto suscita paura e meraviglia: la foresta sembra custodire un segreto inquietante e inspiegabile.</p>
+                    </div>
+                </section>
+
+                <section id="para3" class="panel bg-3">
+                    <img class="panel-bg" src="img/Guardacaccia.jpg" alt="Guardacaccia" />
+                    <div class="panel-overlay">
+                        <h3>Lo Sfruttamento</h3>
+                        <p>Pochi giorni dopo, Creel scopre che la voragine si ripete: tre uomini senza licenza vengono inghiottiti nello stesso punto. La notizia si diffonde tra i guardacaccia, che, invece di parlarne, cominciano a usare il luogo per evitare di scrivere multe. Ciò genera una strana complicità: il bosco diventa teatro di rituali silenziosi.</p>
+                    </div>
+                </section>
+
+                <section id="para4" class="panel bg-4">
+                    <img class="panel-bg" src="img/Epilogo.jpg" alt="Parcheggio" />
+                    <div class="panel-overlay">
+                        <h3>Epilogo</h3>
+                        <p>La stagione successiva la forestale spiana la piazzola e costruisce un grande parcheggio: la bocca dell'inferno sembra scomparsa e il luogo perde la sua aura misteriosa. Creel e un amico brindano per l'anno in cui hanno "tirato la coda al diavolo", ma resta il dubbio su quanto fosse reale quel potere della terra.</p>
+                    </div>
+                </section>
+
+                </div> <!-- /#summaryContainer -->
+
+            </main>
+
+        </div> <!-- /#viewport -->
+
+        <footer class="foot">Pagina creata per il progetto &mdash; apri nel browser per vedere lo stile distopico.</footer>
+
+        <script src="./scriptBoccaInferno.js"></script>
+    </body>
 </html>

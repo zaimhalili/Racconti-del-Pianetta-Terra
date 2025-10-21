@@ -5,85 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gli Immortali</title>
     <link rel="stylesheet" href="Immortali.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="overlay"></div>
-    
-    <!-- Timeline Navigation -->
-    <nav class="timeline-nav">
-        <div class="timeline-track">
-            <div class="timeline-point" data-era="primordial">Era Primordiale</div>
-            <div class="timeline-point" data-era="dinosaurs">Era dei Dinosauri</div>
-            <div class="timeline-point" data-era="ice-age">Era Glaciale</div>
-            <div class="timeline-point" data-era="ancient">Civiltà Antiche</div>
-            <div class="timeline-point" data-era="medieval">Medioevo</div>
-            <div class="timeline-point" data-era="modern">Era Moderna</div>
-            <div class="timeline-point" data-era="future">2045</div>
-            <div class="timeline-point" data-era="apocalypse">Post-Apocalisse</div>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="chapter-indicator">
+            <i class="fas fa-book-open"></i>
+            <span id="current-chapter">Prologo</span>
         </div>
     </nav>
 
-    <!-- Main Content Sections -->
-    <main class="content-container">
-        <section id="primordial" class="era-section">
-            <h2>L'Inizio</h2>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Gli Immortali</h1>
+            <p class="tagline">Un viaggio attraverso l'eternità</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Sections -->
+    <main class="story-container">
+        <!-- Origin -->
+        <section class="story-section" id="origin">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>La nascita della Terra, un terreno rovente e desolato. La solitudine nel vuoto primordiale...</p>
+                <div class="section-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h2>La Nascita del Mondo</h2>
+                <div class="story-content">
+                    <p>In principio, c'era solo il narratore e la Terra in formazione. Un terreno rovente e desolato, dove la solitudine regnava suprema nel vuoto primordiale. Testimone silenzioso della creazione stessa.</p>
+                </div>
             </div>
         </section>
 
-        <section id="dinosaurs" class="era-section">
-            <h2>L'Era dei Dinosauri</h2>
+        <!-- Prehistoric Era -->
+        <section class="story-section" id="prehistoric">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1519568262015-82abaa81fd85?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>Le prime forme di vita, i dinosauri. La frustrazione di essere circondato da creature incapaci di comunicare...</p>
+                <div class="section-icon">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <h2>L'Era dei Dinosauri</h2>
+                <div class="story-content">
+                    <p>Le prime forme di vita emergono, ma sono compagni inadeguati. I dinosauri, maestosi ma incapaci di comunicare, aumentano solo il senso di isolamento del nostro immortale osservatore.</p>
+                </div>
             </div>
         </section>
 
-        <section id="ice-age" class="era-section">
-            <h2>L'Era Glaciale</h2>
+        <!-- Early Humans -->
+        <section class="story-section" id="early-humans">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>I primi umanoidi, le interazioni primitive, il dispiacere per la loro mortalità...</p>
+                <div class="section-icon">
+                    <i class="fas fa-people-group"></i>
+                </div>
+                <h2>I Primi Umani</h2>
+                <div class="story-content">
+                    <p>Con l'arrivo dei primi umanoidi, nasce una nuova speranza di connessione. Nonostante la loro primitività, offrono un primo assaggio di vera compagnia, anche se destinata a essere effimera.</p>
+                </div>
             </div>
         </section>
 
-        <section id="ancient" class="era-section">
-            <h2>Le Civiltà Antiche</h2>
+        <!-- Ancient Civilizations -->
+        <section class="story-section" id="ancient">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1602472097151-72eeec7a3185?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>L'impero romano, la scoperta del vino, cinque anni di ebbrezza costante...</p>
+                <div class="section-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h2>L'Impero Romano</h2>
+                <div class="story-content">
+                    <p>Nell'antica Roma, scopre i piaceri del vino e della civiltà. Cinque anni di ebbrezza costante segnano il suo primo vero tentativo di perdere sé stesso nei piaceri mortali.</p>
+                </div>
             </div>
         </section>
 
-        <section id="medieval" class="era-section">
-            <h2>Il Medioevo e Oltre</h2>
+        <!-- Medieval Japan -->
+        <section class="story-section" id="medieval">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>Il commercio in Giappone, il letargo centenario, il risveglio nel periodo barocco...</p>
+                <div class="section-icon">
+                    <i class="fas fa-torii-gate"></i>
+                </div>
+                <h2>Il Giappone Feudale</h2>
+                <div class="story-content">
+                    <p>Come ricco mercante in Giappone, vive nel lusso fino a quando una misteriosa malattia lo porta a un letargo centenario. Al risveglio, trova un mondo trasformato dall'arte e dalla tecnologia.</p>
+                </div>
             </div>
         </section>
 
-        <section id="modern" class="era-section">
-            <h2>L'Era Moderna</h2>
+        <!-- Modern Era -->
+        <section class="story-section" id="modern">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>La rivoluzione industriale, il progresso dell'umanità, le meraviglie della tecnologia...</p>
+                <div class="section-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h2>L'Era Moderna</h2>
+                <div class="story-content">
+                    <p>Il mondo si evolve rapidamente, la rivoluzione industriale trasforma la società. Le meraviglie della tecnologia moderna lo affascinano, ma il peso dell'eternità diventa sempre più pesante.</p>
+                </div>
             </div>
         </section>
 
-        <section id="future" class="era-section">
-            <h2>2045</h2>
+        <!-- Future -->
+        <section class="story-section" id="future">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>Il mondo devastato dalla guerra, il tentativo di suicidio alla Tokyo Tower...</p>
+                <div class="section-icon">
+                    <i class="fas fa-radiation"></i>
+                </div>
+                <h2>2045: La Guerra Nucleare</h2>
+                <div class="story-content">
+                    <p>Nel 2045, il mondo sprofonda nel caos della guerra nucleare. Alla Tokyo Tower, cerca la fine nella devastazione atomica, ma emerge con solo un mal di testa, ancora immortale.</p>
+                </div>
             </div>
         </section>
 
-        <section id="apocalypse" class="era-section">
-            <h2>La Fine?</h2>
+        <!-- Epilogue -->
+        <section class="story-section" id="epilogue">
+            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80')">
+                <div class="image-overlay"></div>
+            </div>
             <div class="content-wrapper">
-                <p>I sopravvissuti, il pozzo, la verità della sua mortalità o immortalità...</p>
+                <div class="section-icon">
+                    <i class="fas fa-question"></i>
+                </div>
+                <h2>La Verità?</h2>
+                <div class="story-content">
+                    <p>Presso un pozzo, tra gli ultimi sopravvissuti, emerge il dubbio: è davvero immortale o è tutto un delirio? I ricordi di una vita da professore neozelandese si confrontano con millenni di memorie. La verità rimane sfuggente mentre si dirige verso il sole cocente, seguito da altri che si credono immortali.</p>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Memory Fragments -->
-    <div class="memory-fragments"></div>
+    <!-- Side Navigation -->
+    <aside class="chapter-nav">
+        <div class="chapter-list">
+            <div class="chapter-item" data-section="hero">
+                <i class="fas fa-home"></i>
+                <span>Inizio</span>
+            </div>
+            <div class="chapter-item" data-section="origin">
+                <i class="fas fa-fire"></i>
+                <span>La Nascita</span>
+            </div>
+            <div class="chapter-item" data-section="prehistoric">
+                <i class="fas fa-dragon"></i>
+                <span>I Dinosauri</span>
+            </div>
+            <div class="chapter-item" data-section="early-humans">
+                <i class="fas fa-people-group"></i>
+                <span>I Primi Umani</span>
+            </div>
+            <div class="chapter-item" data-section="ancient">
+                <i class="fas fa-landmark"></i>
+                <span>Roma</span>
+            </div>
+            <div class="chapter-item" data-section="medieval">
+                <i class="fas fa-torii-gate"></i>
+                <span>Giappone</span>
+            </div>
+            <div class="chapter-item" data-section="modern">
+                <i class="fas fa-city"></i>
+                <span>Era Moderna</span>
+            </div>
+            <div class="chapter-item" data-section="future">
+                <i class="fas fa-radiation"></i>
+                <span>2045</span>
+            </div>
+            <div class="chapter-item" data-section="epilogue">
+                <i class="fas fa-question"></i>
+                <span>La Fine?</span>
+            </div>
+        </div>
+    </aside>
 
     <script src="Immortali.js"></script>
 </body>

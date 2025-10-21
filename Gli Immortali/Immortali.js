@@ -1,61 +1,77 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize variables
-    const timelinePoints = document.querySelectorAll('.timeline-point');
-    const sections = document.querySelectorAll('.era-section');
-    const memoryFragments = document.querySelector('.memory-fragments');
+    const navToggle = document.querySelector('.nav-toggle');
+    const chapterNav = document.querySelector('.chapter-nav');
+    const chapterItems = document.querySelectorAll('.chapter-item');
+    const sections = document.querySelectorAll('.story-section');
+    const chapterIndicator = document.querySelector('#current-chapter');
     
-    // Create memory fragments
-    createMemoryFragments();
+    // Toggle side navigation
+    navToggle.addEventListener('click', () => {
+        chapterNav.classList.toggle('open');
+    });
 
-    // Set initial state
-    setActiveEra('primordial');
-
-    // Add event listeners to timeline points
-    timelinePoints.forEach(point => {
-        point.addEventListener('click', () => {
-            const era = point.getAttribute('data-era');
-            setActiveEra(era);
+    // Handle chapter navigation
+    chapterItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetSection = item.getAttribute('data-section');
+            document.getElementById(targetSection).scrollIntoView({ behavior: 'smooth' });
+            chapterNav.classList.remove('open');
         });
     });
 
-    // Function to set active era
-    function setActiveEra(era) {
-        // Update timeline points
-        timelinePoints.forEach(point => {
-            point.classList.remove('active');
-            if (point.getAttribute('data-era') === era) {
-                point.classList.add('active');
+    // Intersection Observer for sections
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add active class to section
+                entry.target.classList.add('active');
+                
+                // Update chapter indicator and navigation
+                const sectionId = entry.target.id;
+                const sectionTitle = entry.target.querySelector('h2')?.textContent || '';
+                chapterIndicator.textContent = sectionTitle;
+                
+                // Update active chapter in navigation
+                chapterItems.forEach(item => {
+                    item.classList.toggle('active', item.getAttribute('data-section') === sectionId);
+                });
+            } else {
+                entry.target.classList.remove('active');
             }
         });
+    }, {
+        threshold: 0.3
+    });
 
-        // Update sections
-        sections.forEach(section => {
-            section.classList.remove('active');
-            if (section.id === era) {
-                section.classList.add('active');
+    // Observe all sections
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Parallax effect for section images
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.section-image').forEach(image => {
+            const parent = image.parentElement;
+            const parentRect = parent.getBoundingClientRect();
+            if (parentRect.top < window.innerHeight && parentRect.bottom > 0) {
+                image.style.transform = `translateY(${scrolled * 0.2}px)`;
             }
         });
+    });
 
-        // Update body background
-        document.body.setAttribute('data-era', era);
-
-        // Update memory fragments
-        updateMemoryFragments(era);
-    }
-
-    // Function to create memory fragments
-    function createMemoryFragments() {
-        for (let i = 0; i < 20; i++) {
-            const fragment = document.createElement('div');
-            fragment.className = 'memory-fragment';
-            fragment.style.width = `${Math.random() * 20 + 5}px`;
-            fragment.style.height = fragment.style.width;
-            fragment.style.left = `${Math.random() * 100}%`;
-            fragment.style.top = `${Math.random() * 100}%`;
-            fragment.style.animationDelay = `${Math.random() * 20}s`;
-            memoryFragments.appendChild(fragment);
+    // Close navigation when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.chapter-nav') && !e.target.closest('.nav-toggle')) {
+            chapterNav.classList.remove('open');
         }
-    }
+    });
+
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            chapterNav.classList.remove('open');
+        }
+    });
 
     // Function to update memory fragments based on era
     function updateMemoryFragments(era) {

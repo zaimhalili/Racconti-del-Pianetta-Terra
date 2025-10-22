@@ -74,13 +74,21 @@ pre{white-space:pre-wrap;font-family:inherit;line-height:1.5;color:rgba(220,235,
 #summaryContainer{width:100vw;/* full-bleed panels */height:auto;overflow:visible;border-radius:0;display:block;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
 #summaryContainer .panel{min-height:100vh;width:100vw;display:flex;align-items:center;justify-content:center;border-radius:0;overflow:hidden;scroll-snap-align:start;background-color:rgba(0,0,0,0.08)}
 .panel-overlay{position:relative;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.45));padding:2.5rem;border-radius:0;max-width:900px;color:var(--panel);width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background-color:rgba(0,0,0,0.45)}
-.panel-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0.98}
-.panel-overlay h3{margin:0 0 1.4rem;font-size:2.8rem;color:var(--green-d);text-shadow:0 2px 10px rgba(0,0,0,0.8)}
-.panel-overlay p{margin:0;color:rgba(235,245,235,0.98);line-height:1.6;font-size:1.12rem;max-width:880px;text-shadow:0 1px 6px rgba(0,0,0,0.75)}
+.panel-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0.75;transform:scale(1.08) translateY(18px);transition:opacity 840ms cubic-bezier(0.2,0.9,0.2,1), transform 840ms cubic-bezier(0.2,0.9,0.2,1), filter 840ms ease;will-change:opacity,transform;filter:grayscale(10%) blur(1px)}
+.panel-overlay h3{margin:0 0 1.4rem;font-size:2.8rem;color:var(--green-d);text-shadow:0 2px 14px rgba(0,0,0,0.9);transform:translateY(12px);opacity:0;transition:transform 720ms cubic-bezier(0.2,0.9,0.2,1), opacity 720ms ease}
+.panel-overlay p{margin:0;color:rgba(235,245,235,0.98);line-height:1.6;font-size:1.12rem;max-width:880px;text-shadow:0 1px 8px rgba(0,0,0,0.8);transform:translateY(16px);opacity:0;transition:transform 760ms cubic-bezier(0.2,0.9,0.2,1), opacity 760ms ease}
 
 /* Entrance animation for panel overlay */
-.panel-overlay{opacity:0;transform:translateY(12px);transition:opacity 420ms ease, transform 420ms cubic-bezier(0.2,0.9,0.2,1);will-change:opacity,transform}
+.panel-overlay{opacity:0;transform:translateY(24px);transition:opacity 720ms ease, transform 720ms cubic-bezier(0.2,0.9,0.2,1);will-change:opacity,transform}
 .panel-overlay.visible{opacity:1;transform:none}
+
+/* make child elements animate more visibly when the overlay becomes visible */
+.panel-overlay.visible h3{transform:none;opacity:1}
+.panel-overlay.visible p{transform:none;opacity:1}
+
+/* Image enter/exit states tied to panel.active */
+.panel.active .panel-bg{opacity:1;transform:scale(1) translateY(0);filter:grayscale(0%) blur(0);}
+.panel:not(.active) .panel-bg{opacity:0.6;transform:scale(1.12) translateY(22px);filter:grayscale(12%) blur(1px)}
 
 /* Placeholder backgrounds for panels */
 .bg-1{background-image:url('https://via.placeholder.com/1600x900?text=Bosco+1');}

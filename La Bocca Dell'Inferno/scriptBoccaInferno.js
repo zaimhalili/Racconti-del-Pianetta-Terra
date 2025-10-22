@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function(){
 					panels.forEach((p,i)=>{
 						const overlay = p.querySelector('.panel-overlay');
 						if(overlay) overlay.classList.toggle('visible', i===idx);
+						// also toggle active class on panel for image animations
+						p.classList.toggle('active', i===idx);
 					});
 				}
 			}
@@ -80,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function(){
 			panels.forEach((p,i)=>{
 				const overlay = p.querySelector('.panel-overlay');
 				if(overlay) overlay.classList.toggle('visible', i===idx);
+				// toggle active class for image transitions
+				p.classList.toggle('active', i===idx);
 			});
 		}
 		if(viewport){

@@ -19,6 +19,100 @@
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <button class="control-btn" id="darkModeToggle" title="Toggle Dark Mode">
+            <span class="icon">🌙</span>
+        </button>
+        <button class="control-btn" id="audioToggle" title="Toggle Audio">
+            <span class="icon">🔇</span>
+        </button>
+        <button class="control-btn" id="typewriterToggle" title="Toggle Typewriter">
+            <span class="icon">⌨️</span>
+        </button>
+        <button class="control-btn" id="mapToggle" title="Show Map">
+            <span class="icon">🗺️</span>
+        </button>
+    </div>
+
+    <!-- Timeline Scrubber -->
+    <div class="timeline-scrubber">
+        <div class="timeline-track">
+            <div class="timeline-progress" id="timelineProgress"></div>
+            <div class="timeline-handle" id="timelineHandle">
+                <div class="timeline-year" id="timelineYear">4.5B anni fa</div>
+            </div>
+        </div>
+        <div class="timeline-markers">
+            <div class="timeline-marker" data-year="-4500000000" data-chapter="nascita">4.5B</div>
+            <div class="timeline-marker" data-year="-230000000" data-chapter="dinosauri">230M</div>
+            <div class="timeline-marker" data-year="-2000000" data-chapter="umani">2M</div>
+            <div class="timeline-marker" data-year="-753" data-chapter="roma">753 a.C.</div>
+            <div class="timeline-marker" data-year="1600" data-chapter="giappone">1600</div>
+            <div class="timeline-marker" data-year="1900" data-chapter="moderna">1900</div>
+            <div class="timeline-marker" data-year="2045" data-chapter="apocalisse">2045</div>
+            <div class="timeline-marker" data-year="2045" data-chapter="verita">Fine?</div>
+        </div>
+    </div>
+
+    <!-- Stat Counter Dashboard -->
+    <div class="stat-dashboard" id="statDashboard">
+        <div class="stat-card" data-aos="fade-up">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-value" data-count="4500000000">0</div>
+            <div class="stat-label">Anni Vissuti</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-icon">🏛️</div>
+            <div class="stat-value" data-count="47">0</div>
+            <div class="stat-label">Civiltà</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-icon">🗣️</div>
+            <div class="stat-value" data-count="312">0</div>
+            <div class="stat-label">Lingue</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-icon">💔</div>
+            <div class="stat-value">∞</div>
+            <div class="stat-label">Perdite</div>
+        </div>
+    </div>
+
+    <!-- Interactive Map Modal -->
+    <div class="map-modal" id="mapModal">
+        <div class="map-overlay" id="mapOverlay"></div>
+        <div class="map-content">
+            <button class="map-close" id="mapClose">✕</button>
+            <h2 class="map-title">Viaggio dell'Immortale</h2>
+            <div class="map-container">
+                <svg class="world-map" viewBox="0 0 1000 500">
+                    <!-- Simplified world map paths -->
+                    <path class="continent" d="M100,200 L150,180 L200,190 L220,210 L180,240 L120,230 Z" />
+                    <path class="continent" d="M300,150 L400,140 L450,160 L420,200 L350,210 L300,180 Z" />
+                    <path class="continent" d="M500,180 L600,170 L650,200 L620,250 L550,240 Z" />
+                    <path class="continent" d="M700,200 L800,190 L850,220 L800,260 L720,250 Z" />
+
+                    <!-- Location markers -->
+                    <circle class="map-marker" cx="100" cy="200" r="8" data-chapter="nascita" />
+                    <circle class="map-marker" cx="300" cy="180" r="8" data-chapter="dinosauri" />
+                    <circle class="map-marker" cx="400" cy="190" r="8" data-chapter="umani" />
+                    <circle class="map-marker" cx="450" cy="200" r="8" data-chapter="roma" />
+                    <circle class="map-marker" cx="700" cy="210" r="8" data-chapter="giappone" />
+                    <circle class="map-marker" cx="600" cy="200" r="8" data-chapter="moderna" />
+                    <circle class="map-marker" cx="750" cy="220" r="8" data-chapter="apocalisse" />
+
+                    <!-- Travel lines -->
+                    <polyline class="travel-line" points="100,200 300,180 400,190 450,200 700,210 600,200 750,220" />
+                </svg>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><span class="legend-dot"></span> Luoghi visitati</div>
+                <div class="legend-item"><span class="legend-line"></span> Percorso temporale</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav-timeline">
         <div class="nav-logo">Gli Immortali</div>

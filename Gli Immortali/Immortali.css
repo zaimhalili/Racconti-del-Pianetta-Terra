@@ -832,3 +832,456 @@ blockquote,
 ::-webkit-scrollbar-thumb:hover {
     background: var(--dark-gray);
 }
+
+/* === CONTROL PANEL === */
+.control-panel {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 0px var(--black);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px var(--black);
+}
+
+.control-btn.active {
+    background: var(--black);
+    color: var(--white);
+}
+
+.control-btn .icon {
+    filter: grayscale(1);
+}
+
+.control-btn.active .icon {
+    filter: none;
+}
+
+/* === TIMELINE SCRUBBER === */
+.timeline-scrubber {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 3px solid var(--black);
+    padding: 20px 40px;
+    z-index: 999;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-track {
+    position: relative;
+    height: 8px;
+    background: var(--light-gray);
+    border: 2px solid var(--black);
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.timeline-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--black);
+    transition: width 0.3s ease;
+}
+
+.timeline-handle {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--red);
+    border: 3px solid var(--black);
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+.timeline-handle:active {
+    cursor: grabbing;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.timeline-year {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Nosifer', cursive;
+    font-size: 0.9rem;
+    color: var(--black);
+    white-space: nowrap;
+    background: var(--white);
+    padding: 5px 10px;
+    border: 2px solid var(--black);
+}
+
+.timeline-markers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.timeline-marker {
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.timeline-marker:hover {
+    color: var(--red);
+    transform: scale(1.1);
+}
+
+/* === STAT DASHBOARD === */
+.stat-dashboard {
+    position: fixed;
+    top: 100px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 998;
+}
+
+.stat-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    padding: 15px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 3px 3px 0px var(--black);
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateX(-5px);
+    box-shadow: 5px 5px 0px var(--black);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-family: 'Nosifer', cursive;
+    font-size: 1.5rem;
+    color: var(--black);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-family: 'Metal Mania', cursive;
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === INTERACTIVE MAP === */
+.map-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-modal.active {
+    display: flex;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.map-content {
+    position: relative;
+    background: var(--white);
+    border: 5px solid var(--black);
+    padding: 40px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 10px 10px 0px var(--black);
+}
+
+.map-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--red);
+    border: 2px solid var(--black);
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.map-close:hover {
+    transform: rotate(90deg);
+}
+
+.map-title {
+    font-family: 'Nosifer', cursive;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.map-container {
+    margin-bottom: 30px;
+}
+
+.world-map {
+    width: 100%;
+    height: auto;
+}
+
+.continent {
+    fill: var(--light-gray);
+    stroke: var(--black);
+    stroke-width: 2;
+}
+
+.map-marker {
+    fill: var(--red);
+    stroke: var(--black);
+    stroke-width: 2;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.map-marker:hover {
+    r: 12;
+    fill: var(--black);
+}
+
+.travel-line {
+    fill: none;
+    stroke: var(--black);
+    stroke-width: 2;
+    stroke-dasharray: 10, 5;
+    animation: dash 30s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}
+
+.map-legend {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    font-family: 'Special Elite', cursive;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--red);
+    border: 2px solid var(--black);
+    border-radius: 50%;
+}
+
+.legend-line {
+    width: 30px;
+    height: 2px;
+    background: var(--black);
+}
+
+/* === DARK MODE === */
+body.dark-mode {
+    --white: #0a0a0a;
+    --off-white: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --mid-gray: #cccccc;
+    --dark-gray: #e0e0e0;
+    --black: #ffffff;
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+body.dark-mode .progress-bar {
+    background: var(--red);
+}
+
+body.dark-mode .control-btn {
+    background: #1a1a1a;
+    border-color: #ffffff;
+    box-shadow: 3px 3px 0px #ffffff;
+}
+
+body.dark-mode .control-btn:hover {
+    box-shadow: 5px 5px 0px #ffffff;
+}
+
+body.dark-mode .control-btn.active {
+    background: #ffffff;
+    color: #0a0a0a;
+}
+
+body.dark-mode .chapter {
+    background: #0a0a0a;
+}
+
+body.dark-mode .chapter-image img {
+    filter: grayscale(100%) contrast(1.5) brightness(0.7);
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .timeline-scrubber,
+body.dark-mode .map-content {
+    background: #1a1a1a;
+    border-color: #ffffff;
+    box-shadow: 3px 3px 0px #ffffff;
+}
+
+body.dark-mode .footer {
+    background: #000000;
+    border-top-color: #ffffff;
+}
+
+/* === TYPEWRITER MODE === */
+body.typewriter-mode .story-text p {
+    opacity: 0;
+}
+
+body.typewriter-mode .story-text p.typed {
+    opacity: 1;
+}
+
+/* === RESPONSIVE FOR NEW ELEMENTS === */
+@media (max-width: 768px) {
+    .control-panel {
+        top: 10px;
+        left: 10px;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .stat-dashboard {
+        top: 70px;
+        right: 10px;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 10px;
+        min-width: 80px;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+    }
+
+    .timeline-scrubber {
+        padding: 15px 20px;
+    }
+
+    .timeline-markers {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .timeline-marker {
+        font-size: 0.65rem;
+    }
+
+    .map-content {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .map-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .map-legend {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .stat-dashboard {
+        display: none;
+    }
+
+    .timeline-year {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+    }
+}

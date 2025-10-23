@@ -18,10 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeNavigationDots();
     typewriterEffect();
     initializeTimelineScrubber();
-    initializeStatCounters();
     initializeAudioSystem();
     initializeDarkMode();
-    initializeTypewriterToggle();
     initializeMap();
 });
 
@@ -314,47 +312,7 @@ function initializeTimelineScrubber() {
     });
 }
 
-// === 4. STAT COUNTER DASHBOARD ===
-function initializeStatCounters() {
-    const counters = document.querySelectorAll('.stat-value[data-count]');
-
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-count'));
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        if (target > 1000000) {
-                            counter.textContent = (current / 1000000000).toFixed(1) + 'B';
-                        } else {
-                            counter.textContent = Math.floor(current).toLocaleString();
-                        }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        if (target > 1000000) {
-                            counter.textContent = (target / 1000000000).toFixed(1) + 'B';
-                        } else {
-                            counter.textContent = target.toLocaleString();
-                        }
-                    }
-                };
-
-                updateCounter();
-                counterObserver.unobserve(counter);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
-}
-
-// === 6. INTERACTIVE MAP ===
+// === INTERACTIVE MAP ===
 function initializeMap() {
     const mapToggle = document.getElementById('mapToggle');
     const mapModal = document.getElementById('mapModal');
@@ -374,11 +332,11 @@ function initializeMap() {
         document.body.style.overflow = '';
     }
 
-    // Animate markers on hover
-    const markers = document.querySelectorAll('.map-marker');
-    markers.forEach(marker => {
-        marker.addEventListener('mouseenter', () => {
-            const chapter = marker.getAttribute('data-chapter');
+    // Animate tree nodes on hover and click
+    const nodes = document.querySelectorAll('.tree-node');
+    nodes.forEach(node => {
+        node.addEventListener('mouseenter', () => {
+            const chapter = node.getAttribute('data-chapter');
             const tooltip = document.createElement('div');
             tooltip.className = 'map-tooltip';
             tooltip.textContent = chapter.charAt(0).toUpperCase() + chapter.slice(1);
@@ -386,25 +344,27 @@ function initializeMap() {
                 position: absolute;
                 background: black;
                 color: white;
-                padding: 5px 10px;
+                padding: 8px 15px;
                 font-family: 'Metal Mania', cursive;
                 font-size: 0.9rem;
                 pointer-events: none;
+                border: 2px solid white;
+                z-index: 10000;
             `;
-            marker.parentElement.appendChild(tooltip);
+            document.body.appendChild(tooltip);
 
-            const rect = marker.getBoundingClientRect();
-            tooltip.style.left = (parseFloat(marker.getAttribute('cx')) + 10) + 'px';
-            tooltip.style.top = (parseFloat(marker.getAttribute('cy')) - 20) + 'px';
+            const rect = node.getBoundingClientRect();
+            tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+            tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
         });
 
-        marker.addEventListener('mouseleave', () => {
+        node.addEventListener('mouseleave', () => {
             const tooltip = document.querySelector('.map-tooltip');
             if (tooltip) tooltip.remove();
         });
 
-        marker.addEventListener('click', () => {
-            const chapter = marker.getAttribute('data-chapter');
+        node.addEventListener('click', () => {
+            const chapter = node.getAttribute('data-chapter');
             const targetChapter = document.getElementById(chapter);
             if (targetChapter) {
                 closeMap();
@@ -416,17 +376,15 @@ function initializeMap() {
     });
 }
 
-// === 5. AUDIO AMBIENCE SYSTEM ===
+// === AUDIO AMBIENCE SYSTEM ===
 function initializeAudioSystem() {
     const audioToggle = document.getElementById('audioToggle');
     let audioEnabled = false;
-    let currentAudio = null;
+    let audio = null;
 
-    // Audio context for generating tones
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioContext = null;
-    let oscillator = null;
-    let gainNode = null;
+    // Free apocalyptic/dark ambient music from YouTube Audio Library or similar
+    // You can replace this with any free apocalyptic music URL
+    const musicUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Placeholder - replace with apocalyptic music
 
     audioToggle.addEventListener('click', () => {
         audioEnabled = !audioEnabled;
@@ -434,141 +392,32 @@ function initializeAudioSystem() {
         audioToggle.querySelector('.icon').textContent = audioEnabled ? '🔊' : '🔇';
 
         if (audioEnabled) {
-            if (!audioContext) {
-                audioContext = new AudioContext();
-            }
-            playAmbience();
+            playMusic();
         } else {
-            stopAmbience();
+            stopMusic();
         }
     });
 
-    function playAmbience() {
-        if (!audioEnabled || !audioContext) return;
-
-        stopAmbience();
-
-        gainNode = audioContext.createGain();
-        gainNode.connect(audioContext.destination);
-        gainNode.gain.value = 0.05;
-
-        oscillator = audioContext.createOscillator();
-        oscillator.type = 'sine';
-        oscillator.frequency.value = 50; // Deep rumble
-        oscillator.connect(gainNode);
-        oscillator.start();
-
-        // Add some randomness
-        setInterval(() => {
-            if (oscillator && audioEnabled) {
-                oscillator.frequency.value = 40 + Math.random() * 30;
-            }
-        }, 2000);
-    }
-
-    function stopAmbience() {
-        if (oscillator) {
-            oscillator.stop();
-            oscillator = null;
+    function playMusic() {
+        if (!audio) {
+            audio = new Audio(musicUrl);
+            audio.loop = true;
+            audio.volume = 0.3; // Set to 30% volume for background
         }
-    }
-
-    // Change ambience based on chapter
-    const chapterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && audioEnabled) {
-                const chapterId = entry.target.getAttribute('id');
-                updateAmbienceForChapter(chapterId);
-            }
+        audio.play().catch(err => {
+            console.log('Audio playback failed:', err);
         });
-    }, { threshold: 0.5 });
+    }
 
-    document.querySelectorAll('.chapter').forEach(chapter => {
-        chapterObserver.observe(chapter);
-    });
-
-    function updateAmbienceForChapter(chapterId) {
-        if (!oscillator) return;
-
-        const frequencies = {
-            'nascita': 40,
-            'dinosauri': 60,
-            'umani': 80,
-            'roma': 100,
-            'giappone': 120,
-            'moderna': 150,
-            'apocalisse': 200,
-            'verita': 100
-        };
-
-        oscillator.frequency.setValueAtTime(frequencies[chapterId] || 50, audioContext.currentTime);
+    function stopMusic() {
+        if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
     }
 }
 
-// === 11. TYPEWRITER TOGGLE ===
-function initializeTypewriterToggle() {
-    const typewriterToggle = document.getElementById('typewriterToggle');
-    let typewriterEnabled = false;
-
-    typewriterToggle.addEventListener('click', () => {
-        typewriterEnabled = !typewriterEnabled;
-        typewriterToggle.classList.toggle('active');
-        document.body.classList.toggle('typewriter-mode', typewriterEnabled);
-
-        if (typewriterEnabled) {
-            enableTypewriter();
-        } else {
-            disableTypewriter();
-        }
-    });
-
-    function enableTypewriter() {
-        const paragraphs = document.querySelectorAll('.story-text p');
-
-        const paragraphObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('typed')) {
-                    typeText(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        paragraphs.forEach(p => {
-            p.classList.remove('typed');
-            paragraphObserver.observe(p);
-        });
-    }
-
-    function disableTypewriter() {
-        const paragraphs = document.querySelectorAll('.story-text p');
-        paragraphs.forEach(p => {
-            p.classList.add('typed');
-            p.style.opacity = '1';
-        });
-    }
-
-    function typeText(element) {
-        const text = element.textContent;
-        element.textContent = '';
-        element.classList.add('typed');
-        element.style.opacity = '1';
-
-        let i = 0;
-        const speed = 30;
-
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-
-        type();
-    }
-}
-
-// === 13. DARK MODE TOGGLE ===
+// === DARK MODE TOGGLE ===
 function initializeDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     let darkMode = false;

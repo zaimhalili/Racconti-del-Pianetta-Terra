@@ -27,9 +27,6 @@
         <button class="control-btn" id="audioToggle" title="Toggle Audio">
             <span class="icon">🔇</span>
         </button>
-        <button class="control-btn" id="typewriterToggle" title="Toggle Typewriter">
-            <span class="icon">⌨️</span>
-        </button>
         <button class="control-btn" id="mapToggle" title="Show Map">
             <span class="icon">🗺️</span>
         </button>
@@ -55,30 +52,6 @@
         </div>
     </div>
 
-    <!-- Stat Counter Dashboard -->
-    <div class="stat-dashboard" id="statDashboard">
-        <div class="stat-card" data-aos="fade-up">
-            <div class="stat-icon">⏳</div>
-            <div class="stat-value" data-count="4500000000">0</div>
-            <div class="stat-label">Anni Vissuti</div>
-        </div>
-        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="stat-icon">🏛️</div>
-            <div class="stat-value" data-count="47">0</div>
-            <div class="stat-label">Civiltà</div>
-        </div>
-        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="stat-icon">🗣️</div>
-            <div class="stat-value" data-count="312">0</div>
-            <div class="stat-label">Lingue</div>
-        </div>
-        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="stat-icon">💔</div>
-            <div class="stat-value">∞</div>
-            <div class="stat-label">Perdite</div>
-        </div>
-    </div>
-
     <!-- Interactive Map Modal -->
     <div class="map-modal" id="mapModal">
         <div class="map-overlay" id="mapOverlay"></div>
@@ -86,28 +59,57 @@
             <button class="map-close" id="mapClose">✕</button>
             <h2 class="map-title">Viaggio dell'Immortale</h2>
             <div class="map-container">
-                <svg class="world-map" viewBox="0 0 1000 500">
-                    <!-- Simplified world map paths -->
-                    <path class="continent" d="M100,200 L150,180 L200,190 L220,210 L180,240 L120,230 Z" />
-                    <path class="continent" d="M300,150 L400,140 L450,160 L420,200 L350,210 L300,180 Z" />
-                    <path class="continent" d="M500,180 L600,170 L650,200 L620,250 L550,240 Z" />
-                    <path class="continent" d="M700,200 L800,190 L850,220 L800,260 L720,250 Z" />
+                <svg class="world-map" viewBox="0 0 1000 600">
+                    <!-- Tree Structure: Connected Nodes -->
 
-                    <!-- Location markers -->
-                    <circle class="map-marker" cx="100" cy="200" r="8" data-chapter="nascita" />
-                    <circle class="map-marker" cx="300" cy="180" r="8" data-chapter="dinosauri" />
-                    <circle class="map-marker" cx="400" cy="190" r="8" data-chapter="umani" />
-                    <circle class="map-marker" cx="450" cy="200" r="8" data-chapter="roma" />
-                    <circle class="map-marker" cx="700" cy="210" r="8" data-chapter="giappone" />
-                    <circle class="map-marker" cx="600" cy="200" r="8" data-chapter="moderna" />
-                    <circle class="map-marker" cx="750" cy="220" r="8" data-chapter="apocalisse" />
+                    <!-- Root Node - Nascita -->
+                    <circle class="tree-node" cx="500" cy="80" r="30" data-chapter="nascita" />
+                    <text class="node-label" x="500" y="85" text-anchor="middle">Nascita</text>
 
-                    <!-- Travel lines -->
-                    <polyline class="travel-line" points="100,200 300,180 400,190 450,200 700,210 600,200 750,220" />
+                    <!-- Branch: Nascita -> Dinosauri -->
+                    <line class="tree-branch" x1="500" y1="110" x2="500" y2="160" />
+                    <circle class="tree-node" cx="500" cy="190" r="30" data-chapter="dinosauri" />
+                    <text class="node-label" x="500" y="195" text-anchor="middle">Dinosauri</text>
+
+                    <!-- Branch splits into two paths -->
+                    <line class="tree-branch" x1="500" y1="220" x2="350" y2="280" />
+                    <line class="tree-branch" x1="500" y1="220" x2="650" y2="280" />
+
+                    <!-- Left Path: Umani -->
+                    <circle class="tree-node" cx="350" cy="310" r="30" data-chapter="umani" />
+                    <text class="node-label" x="350" y="315" text-anchor="middle">Umani</text>
+
+                    <!-- Right Path: Roma -->
+                    <circle class="tree-node" cx="650" cy="310" r="30" data-chapter="roma" />
+                    <text class="node-label" x="650" y="315" text-anchor="middle">Roma</text>
+
+                    <!-- Paths converge to Giappone -->
+                    <line class="tree-branch" x1="350" y1="340" x2="500" y2="390" />
+                    <line class="tree-branch" x1="650" y1="340" x2="500" y2="390" />
+                    <circle class="tree-node" cx="500" cy="420" r="30" data-chapter="giappone" />
+                    <text class="node-label" x="500" y="425" text-anchor="middle">Giappone</text>
+
+                    <!-- Final stretch -->
+                    <line class="tree-branch" x1="500" y1="450" x2="400" y2="490" />
+                    <line class="tree-branch" x1="500" y1="450" x2="600" y2="490" />
+
+                    <!-- Moderna -->
+                    <circle class="tree-node" cx="400" cy="520" r="30" data-chapter="moderna" />
+                    <text class="node-label" x="400" y="525" text-anchor="middle">Moderna</text>
+
+                    <!-- Apocalisse (in red) -->
+                    <circle class="tree-node apocalypse-node" cx="600" cy="520" r="30" data-chapter="apocalisse" />
+                    <text class="node-label red-label" x="600" y="525" text-anchor="middle">2045</text>
+
+                    <!-- Final node - Verità (merge) -->
+                    <line class="tree-branch final-branch" x1="400" y1="550" x2="500" y2="580" />
+                    <line class="tree-branch final-branch" x1="600" y1="550" x2="500" y2="580" />
+                    <circle class="tree-node final-node" cx="500" cy="580" r="35" data-chapter="verita" />
+                    <text class="node-label final-label" x="500" y="585" text-anchor="middle">?</text>
                 </svg>
             </div>
             <div class="map-legend">
-                <div class="legend-item"><span class="legend-dot"></span> Luoghi visitati</div>
+                <div class="legend-item"><span class="legend-dot"></span> Capitolo</div>
                 <div class="legend-item"><span class="legend-line"></span> Percorso temporale</div>
             </div>
         </div>

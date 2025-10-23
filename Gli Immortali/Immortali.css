@@ -959,52 +959,6 @@ blockquote,
     transform: scale(1.1);
 }
 
-/* === STAT DASHBOARD === */
-.stat-dashboard {
-    position: fixed;
-    top: 100px;
-    right: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 998;
-}
-
-.stat-card {
-    background: var(--white);
-    border: 2px solid var(--black);
-    padding: 15px;
-    min-width: 120px;
-    text-align: center;
-    box-shadow: 3px 3px 0px var(--black);
-    transition: all 0.3s;
-}
-
-.stat-card:hover {
-    transform: translateX(-5px);
-    box-shadow: 5px 5px 0px var(--black);
-}
-
-.stat-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.stat-value {
-    font-family: 'Nosifer', cursive;
-    font-size: 1.5rem;
-    color: var(--black);
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-family: 'Metal Mania', cursive;
-    font-size: 0.75rem;
-    color: var(--mid-gray);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 /* === INTERACTIVE MAP === */
 .map-modal {
     position: fixed;
@@ -1080,37 +1034,69 @@ blockquote,
     height: auto;
 }
 
-.continent {
+/* Tree structure styles */
+.tree-node {
     fill: var(--light-gray);
     stroke: var(--black);
-    stroke-width: 2;
-}
-
-.map-marker {
-    fill: var(--red);
-    stroke: var(--black);
-    stroke-width: 2;
+    stroke-width: 3;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.map-marker:hover {
-    r: 12;
+.tree-node:hover {
     fill: var(--black);
+    r: 35;
 }
 
-.travel-line {
-    fill: none;
+.apocalypse-node {
+    fill: var(--red);
     stroke: var(--black);
-    stroke-width: 2;
-    stroke-dasharray: 10, 5;
-    animation: dash 30s linear infinite;
+    stroke-width: 3;
 }
 
-@keyframes dash {
-    to {
-        stroke-dashoffset: -1000;
-    }
+.apocalypse-node:hover {
+    fill: var(--blood-red);
+}
+
+.final-node {
+    fill: var(--black);
+    stroke: var(--red);
+    stroke-width: 4;
+}
+
+.final-node:hover {
+    stroke-width: 6;
+    r: 40;
+}
+
+.tree-branch {
+    stroke: var(--black);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.final-branch {
+    stroke: var(--red);
+    stroke-width: 4;
+    stroke-dasharray: 10, 5;
+}
+
+.node-label {
+    font-family: 'Metal Mania', cursive;
+    font-size: 14px;
+    fill: var(--black);
+    pointer-events: none;
+}
+
+.red-label {
+    fill: var(--white);
+    font-weight: bold;
+}
+
+.final-label {
+    fill: var(--white);
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .map-legend {
@@ -1179,7 +1165,6 @@ body.dark-mode .chapter-image img {
     filter: grayscale(100%) contrast(1.5) brightness(0.7);
 }
 
-body.dark-mode .stat-card,
 body.dark-mode .timeline-scrubber,
 body.dark-mode .map-content {
     background: #1a1a1a;
@@ -1190,15 +1175,6 @@ body.dark-mode .map-content {
 body.dark-mode .footer {
     background: #000000;
     border-top-color: #ffffff;
-}
-
-/* === TYPEWRITER MODE === */
-body.typewriter-mode .story-text p {
-    opacity: 0;
-}
-
-body.typewriter-mode .story-text p.typed {
-    opacity: 1;
 }
 
 /* === RESPONSIVE FOR NEW ELEMENTS === */
@@ -1214,30 +1190,6 @@ body.typewriter-mode .story-text p.typed {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
-    }
-
-    .stat-dashboard {
-        top: 70px;
-        right: 10px;
-        gap: 10px;
-    }
-
-    .stat-card {
-        padding: 10px;
-        min-width: 80px;
-    }
-
-    .stat-icon {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-    }
-
-    .stat-value {
-        font-size: 1.2rem;
-    }
-
-    .stat-label {
-        font-size: 0.65rem;
     }
 
     .timeline-scrubber {
@@ -1274,10 +1226,6 @@ body.typewriter-mode .story-text p.typed {
         width: 35px;
         height: 35px;
         font-size: 1rem;
-    }
-
-    .stat-dashboard {
-        display: none;
     }
 
     .timeline-year {

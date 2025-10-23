@@ -374,7 +374,7 @@ function initAudioSystem() {
   audioToggle.addEventListener('click', (e) => {
     e.preventDefault();
     audioEnabled = !audioEnabled;
-    
+
     if (audioEnabled) {
       audioToggle.classList.add('active');
       const icon = audioToggle.querySelector('i');
@@ -398,12 +398,12 @@ function initAudioSystem() {
         audio.volume = 0.3;
         audio.preload = "auto";
       }
-      
+
       // Reset audio if it was stopped
       if (audio.paused) {
         audio.currentTime = 0;
       }
-      
+
       // Play audio - must be triggered by user interaction
       audio.play()
         .then(() => {

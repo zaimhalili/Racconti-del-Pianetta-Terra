@@ -1,219 +1,343 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gli Immortali</title>
+    <title>Gli Immortali - Un Viaggio Nell'Eternità</title>
     <link rel="stylesheet" href="Immortali.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Metal+Mania&family=Special+Elite&family=Shadows+Into+Light+Two&display=swap"
+        rel="stylesheet">
+    <!-- AOS - Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
     <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="chapter-indicator">
-            <i class="fas fa-book-open"></i>
-            <span id="current-chapter">Prologo</span>
+    <nav class="nav-timeline">
+        <div class="nav-logo">Gli Immortali</div>
+        <div class="nav-chapters">
+            <a href="#nascita" class="nav-dot" data-chapter="1">
+                <span class="tooltip">La Nascita</span>
+            </a>
+            <a href="#dinosauri" class="nav-dot" data-chapter="2">
+                <span class="tooltip">I Dinosauri</span>
+            </a>
+            <a href="#umani" class="nav-dot" data-chapter="3">
+                <span class="tooltip">Primi Umani</span>
+            </a>
+            <a href="#roma" class="nav-dot" data-chapter="4">
+                <span class="tooltip">Roma</span>
+            </a>
+            <a href="#giappone" class="nav-dot" data-chapter="5">
+                <span class="tooltip">Giappone</span>
+            </a>
+            <a href="#moderna" class="nav-dot" data-chapter="6">
+                <span class="tooltip">Era Moderna</span>
+            </a>
+            <a href="#apocalisse" class="nav-dot" data-chapter="7">
+                <span class="tooltip">2045</span>
+            </a>
+            <a href="#verita" class="nav-dot" data-chapter="8">
+                <span class="tooltip">La Verità</span>
+            </a>
         </div>
     </nav>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen hidden">
-        <div class="loader"></div>
-        <p>Caricamento del viaggio temporale...</p>
-    </div>
-
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-particles"></div>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="floating-particles"></div>
         <div class="hero-content">
-            <h1>Gli Immortali</h1>
-            <p class="tagline">Un viaggio attraverso l'eternità</p>
-            <div class="hero-quote">
-                <p>"Il tempo è un cerchio infinito, e io sono il suo unico testimone eterno."</p>
+            <h1 class="hero-title fade-in-up">GLI IMMORTALI</h1>
+            <p class="hero-subtitle fade-in-up delay-1">Un Viaggio Attraverso 4.5 Miliardi di Anni</p>
+            <div class="hero-quote fade-in-up delay-2">
+                <div class="quote-mark">"</div>
+                <p>Il tempo è un cerchio infinito, e io sono il suo unico testimone eterno.</p>
+                <div class="quote-mark closing">"</div>
             </div>
-            <div class="scroll-indicator">
-                <span class="scroll-text">Inizia il Viaggio</span>
-                <i class="fas fa-chevron-down"></i>
+            <button class="scroll-btn fade-in-up delay-3"
+                onclick="document.getElementById('nascita').scrollIntoView({behavior: 'smooth'})">
+                Inizia il Viaggio
+                <span class="arrow">↓</span>
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
             </div>
         </div>
     </section>
 
-    <!-- Story Sections -->
-    <main class="story-container">
-        <!-- Origin -->
-        <section class="story-section" id="origin">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1579033461380-adb47c3eb938?q=80')" data-src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?q=80">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-fire"></i>
+    <!-- Chapter 1: La Nascita -->
+    <section id="nascita" class="chapter left-layout" data-chapter="1">
+        <div class="chapter-image">
+            <img src="../assets/vuoto.jpg" alt="Il Vuoto Primordiale">
+            <div class="image-caption">4.5 Miliardi di Anni Fa</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">01</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">La Nascita della Terra</h2>
+                <div class="divider" data-aos="fade-right" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        In principio: <span class="highlight">vuoto</span> e <span class="highlight">fuoco</span>.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Roccia fusa nel cosmo. Silenzio assordante. Terreno rovente, desolato. Esisteva, e basta.
+                    </p>
+                    <blockquote data-aos="fade-up" data-aos-delay="500">
+                        "La noia del vuoto primordiale è un peso che nessuna anima dovrebbe portare."
+                    </blockquote>
                 </div>
-                <h2>La Nascita del Mondo</h2>
-                <div class="story-content">
-                    <p>In principio, c'era solo il narratore e la Terra in formazione. Un terreno rovente e desolato, dove la solitudine regnava suprema nel vuoto primordiale. Testimone silenzioso della creazione stessa.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Prehistoric Era -->
-        <section class="story-section" id="prehistoric">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1500939225098-d29a995c4b49?q=80')" data-src="https://images.unsplash.com/photo-1500939225098-d29a995c4b49?q=80">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-dragon"></i>
-                </div>
-                <h2>L'Era dei Dinosauri</h2>
-                <div class="story-content">
-                    <p>Le prime forme di vita emergono, ma sono compagni inadeguati. I dinosauri, maestosi ma incapaci di comunicare, aumentano solo il senso di isolamento del nostro immortale osservatore.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Early Humans -->
-        <section class="story-section" id="early-humans">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80')">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-people-group"></i>
-                </div>
-                <h2>I Primi Umani</h2>
-                <div class="story-content">
-                    <p>Con l'arrivo dei primi umanoidi, nasce una nuova speranza di connessione. Nonostante la loro primitività, offrono un primo assaggio di vera compagnia, anche se destinata a essere effimera.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ancient Civilizations -->
-        <section class="story-section" id="ancient">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1602472097151-72eeec7a3185?q=80')">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-landmark"></i>
-                </div>
-                <h2>L'Impero Romano</h2>
-                <div class="story-content">
-                    <p>Nell'antica Roma, scopre i piaceri del vino e della civiltà. Cinque anni di ebbrezza costante segnano il suo primo vero tentativo di perdere sé stesso nei piaceri mortali.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Medieval Japan -->
-        <section class="story-section" id="medieval">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80')">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-torii-gate"></i>
-                </div>
-                <h2>Il Giappone Feudale</h2>
-                <div class="story-content">
-                    <p>Come ricco mercante in Giappone, vive nel lusso fino a quando una misteriosa malattia lo porta a un letargo centenario. Al risveglio, trova un mondo trasformato dall'arte e dalla tecnologia.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modern Era -->
-        <section class="story-section" id="modern">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80')">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-city"></i>
-                </div>
-                <h2>L'Era Moderna</h2>
-                <div class="story-content">
-                    <p>Il mondo si evolve rapidamente, la rivoluzione industriale trasforma la società. Le meraviglie della tecnologia moderna lo affascinano, ma il peso dell'eternità diventa sempre più pesante.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Future -->
-        <section class="story-section" id="future">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80')">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-radiation"></i>
-                </div>
-                <h2>2045: La Guerra Nucleare</h2>
-                <div class="story-content">
-                    <p>Nel 2045, il mondo sprofonda nel caos della guerra nucleare. Alla Tokyo Tower, cerca la fine nella devastazione atomica, ma emerge con solo un mal di testa, ancora immortale.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Epilogue -->
-        <section class="story-section" id="epilogue">
-            <div class="section-image" style="background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80')">
-                <div class="image-overlay"></div>
-            </div>
-            <div class="content-wrapper">
-                <div class="section-icon">
-                    <i class="fas fa-question"></i>
-                </div>
-                <h2>La Verità?</h2>
-                <div class="story-content">
-                    <p>Presso un pozzo, tra gli ultimi sopravvissuti, emerge il dubbio: è davvero immortale o è tutto un delirio? I ricordi di una vita da professore neozelandese si confrontano con millenni di memorie. La verità rimane sfuggente mentre si dirige verso il sole cocente, seguito da altri che si credono immortali.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Side Navigation -->
-    <aside class="chapter-nav">
-        <div class="chapter-list">
-            <div class="chapter-item" data-section="hero">
-                <i class="fas fa-home"></i>
-                <span>Inizio</span>
-            </div>
-            <div class="chapter-item" data-section="origin">
-                <i class="fas fa-fire"></i>
-                <span>La Nascita</span>
-            </div>
-            <div class="chapter-item" data-section="prehistoric">
-                <i class="fas fa-dragon"></i>
-                <span>I Dinosauri</span>
-            </div>
-            <div class="chapter-item" data-section="early-humans">
-                <i class="fas fa-people-group"></i>
-                <span>I Primi Umani</span>
-            </div>
-            <div class="chapter-item" data-section="ancient">
-                <i class="fas fa-landmark"></i>
-                <span>Roma</span>
-            </div>
-            <div class="chapter-item" data-section="medieval">
-                <i class="fas fa-torii-gate"></i>
-                <span>Giappone</span>
-            </div>
-            <div class="chapter-item" data-section="modern">
-                <i class="fas fa-city"></i>
-                <span>Era Moderna</span>
-            </div>
-            <div class="chapter-item" data-section="future">
-                <i class="fas fa-radiation"></i>
-                <span>2045</span>
-            </div>
-            <div class="chapter-item" data-section="epilogue">
-                <i class="fas fa-question"></i>
-                <span>La Fine?</span>
             </div>
         </div>
-    </aside>
+    </section>
 
+    <!-- Chapter 2: I Dinosauri -->
+    <section id="dinosauri" class="chapter right-layout" data-chapter="2">
+        <div class="chapter-image">
+            <img src="../assets/dinosauri.jpg" alt="Era dei Dinosauri">
+            <div class="image-caption">230-65 Milioni di Anni Fa</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">02</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">I Giganti della Preistoria</h2>
+                <div class="divider" data-aos="fade-left" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        Finalmente, la <span class="highlight">vita</span>! Che delusione...
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        <em>Dinosauri</em>. Un Tirannosauro come animale domestico. Pochi anni, poi morto.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        Ruggiti, sibili. Nessun linguaggio. Compagni inadeguati.
+                    </p>
+                    <blockquote data-aos="fade-up" data-aos-delay="600">
+                        "Parlare della solitudine con creature che non comprendono è urlare nel vuoto."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 3: Primi Umani -->
+    <section id="umani" class="chapter left-layout" data-chapter="3">
+        <div class="chapter-image">
+            <img src="../assets/umani.jpg" alt="Primi Umani">
+            <div class="image-caption">2 Milioni di Anni Fa</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">03</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">L'Alba dell'Umanità</h2>
+                <div class="divider" data-aos="fade-right" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        Le scimmie <span class="highlight">camminarono erette</span>. Qualcosa cambiò...
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Prima: grugniti. Poi parole. Frasi. Strumenti. Fuochi. Storie.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        Per la prima volta in <em>miliardi di anni</em>: conversazione. Risate. Pensieri condivisi.
+                    </p>
+                    <blockquote data-aos="fade-up" data-aos-delay="600">
+                        "La voce umana è il suono più bello che le mie orecchie immortali abbiano mai udito."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 4: Roma -->
+    <section id="roma" class="chapter right-layout" data-chapter="4">
+        <div class="chapter-image">
+            <img src="../assets/roma.jpg" alt="Impero Romano">
+            <div class="image-caption">753 a.C. - 476 d.C.</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">04</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">La Gloria di Roma</h2>
+                <div class="divider" data-aos="fade-left" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        Roma! <span class="highlight">Vino</span>. Banchetti infiniti.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Liquido rosso sangue. Oblio promesso. Cinque anni di sbornia. Voleva dimenticare.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        L'alcol non aveva potere. Rimaneva lucido. Roma cadde. Un'altra civiltà morta.
+                    </p>
+                    <blockquote data-aos="fade-up" data-aos-delay="600">
+                        "Il vino promette dimenticanza, ma l'immortalità nega anche questo conforto."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 5: Giappone -->
+    <section id="giappone" class="chapter left-layout" data-chapter="5">
+        <div class="chapter-image">
+            <img src="../assets/giappone.jpg" alt="Giappone Feudale">
+            <div class="image-caption">1600-1700 d.C.</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">05</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">Il Sonno del Commerciante</h2>
+                <div class="divider" data-aos="fade-right" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        Kyoto. <span class="highlight">Seta</span> e <span class="highlight">oro</span>.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Commerciante ricco. Donne invecchiavano. Figli morivano. Lui immutabile.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        Malattia. Letargo. Un secolo. "Finalmente, la fine!" Sbagliato. Risveglio nel barocco.
+                    </p>
+                    <blockquote data-aos="fade-up" data-aos-delay="600">
+                        "Un secolo di sonno è un battito di ciglia per chi vive miliardi di anni."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 6: Era Moderna -->
+    <section id="moderna" class="chapter right-layout" data-chapter="6">
+        <div class="chapter-image">
+            <img src="../assets/moderna.jpg" alt="Era Moderna">
+            <div class="image-caption">1900-2000 d.C.</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">06</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">Il Ventesimo Secolo</h2>
+                <div class="divider" data-aos="fade-left" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        Auto. Aerei. <span class="highlight">Computer</span>. Esplosione di novità.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Ma anche orrori. Due guerre mondiali. Milioni di morti. La violenza scioccava.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        Ogni professione provata. Amato e perso migliaia di volte. Osservatore eterno.
+                    </p>
+                    <blockquote data-aos="fade-up" data-aos-delay="600">
+                        "Il progresso dell'umanità è meraviglioso e terrificante."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 7: 2045 Apocalisse -->
+    <section id="apocalisse" class="chapter dark-chapter left-layout" data-chapter="7">
+        <div class="chapter-image">
+            <img src="../assets/nuclear.jpg" alt="Apocalisse Nucleare">
+            <div class="image-caption red-caption">2045 d.C.</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">07</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">2045: Il Giorno Finale</h2>
+                <div class="divider red-divider" data-aos="fade-right" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        Sirene. Cielo <span class="red-text">rosso</span>.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        2045. Collasso. Tokyo Tower. Missili. Bomba nucleare. Luce accecante. Calore.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        Risveglio. Cratere. Nudo. Cenere. Dolore. Terra desolata.
+                    </p>
+                    <blockquote class="red-quote" data-aos="fade-up" data-aos-delay="600">
+                        "Anche la fine del mondo non dà pace a chi è veramente immortale."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 8: La Verità -->
+    <section id="verita" class="chapter final-chapter right-layout" data-chapter="8">
+        <div class="chapter-image">
+            <img src="../assets/fine.jpg" alt="La Fine?">
+            <div class="image-caption red-caption">La Fine?</div>
+        </div>
+        <div class="chapter-text">
+            <div class="chapter-number">08</div>
+            <div class="content-wrapper reveal">
+                <h2 class="chapter-title" data-aos="fade-up">Poveri Bastardi...</h2>
+                <div class="divider red-divider" data-aos="fade-left" data-aos-delay="200"></div>
+                <div class="story-text">
+                    <p class="lead-text first-letter" data-aos="fade-up" data-aos-delay="300">
+                        "Se solo <span class="red-text">sapessero</span>..."
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Pochi sopravvissuti. Villaggio morto. Pozzo contaminato. La verità: delirio.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        <em>"Credono di essere immortali."</em> Pensa: <strong>"Poveri bastardi."</strong>
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="600">
+                        Ricordi: professore neozelandese. Casa. Moglie. Vita normale. Mortale. Rifiutati come
+                        allucinazione.
+                    </p>
+                    <p data-aos="fade-up" data-aos-delay="700">
+                        Credendo nella sua immortalità - o follia - si getta al sole. Tutti credono di essere
+                        <em>Immortali</em>.
+                    </p>
+                    <blockquote class="red-quote final-quote" data-aos="fade-up" data-aos-delay="800">
+                        "Forse la vera immortalità è la follia di chi non può accettare la propria fine."
+                    </blockquote>
+                    <div class="final-message" data-aos="zoom-in" data-aos-delay="1000">
+                        Era davvero immortale? O solo un uomo impazzito? La risposta è persa nel deserto.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    Era davvero immortale? O solo un uomo impazzito? La risposta è persa nel deserto.
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-quote">"Il tempo è un cerchio infinito..."</p>
+            <p class="footer-credit">Gli Immortali © 2045</p>
+        </div>
+        <a href="http://www.freepik.com">Designed by rawpixel.com / Freepik</a>
+        <a href="http://www.freepik.com">
+            Designed by
+            macrovector / Freepik
+        </a>
+    </footer>
+
+    <!-- AOS - Animate On Scroll Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="Immortali.js"></script>
+
 </body>
+
 </html>

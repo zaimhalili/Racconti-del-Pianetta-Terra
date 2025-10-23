@@ -1,440 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bambini Bonsai - Racconti del Pianeta Terra</title>
-    <link rel="stylesheet" href="../Bambini Bonsai/styleBambiniBonsai.css" />
-    <!-- Futuristic Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Remix Icons -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Hero Section -->
-    <header class="hero">
-      <!-- Animated Grid Background -->
-      <div class="grid-overlay"></div>
-      <div class="scan-line"></div>
 
-      <nav class="nav">
-        <div class="logo">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bambini Bonsai - Racconti del Pianeta Terra</title>
+  <link rel="stylesheet" href="../Bambini Bonsai/styleBambiniBonsai.css" />
+  <!-- Futuristic Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+    rel="stylesheet" />
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Audio Control -->
+  <button class="audio-toggle" id="audioToggle" title="Toggle Music">
+    <i class="ri-volume-mute-line"></i>
+  </button>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <!-- Animated Grid Background -->
+    <div class="grid-overlay"></div>
+    <div class="scan-line"></div>
+
+    <nav class="nav">
+      <div class="logo">
+        <i class="ri-plant-line"></i>
+        <span>BAMBINI BONSAI</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#intro"><i class="ri-file-text-line"></i> Storia</a>
+        </li>
+        <li>
+          <a href="#dome"><i class="ri-community-line"></i> Cupola</a>
+        </li>
+        <li>
+          <a href="#journey"><i class="ri-walk-line"></i> Viaggio</a>
+        </li>
+        <li>
+          <a href="#encounter"><i class="ri-user-heart-line"></i> Incontro</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <div class="glitch-container">
+        <h1 class="hero-title glitch" data-text="BAMBINI BONSAI">
+          BAMBINI BONSAI
+        </h1>
+      </div>
+      <p class="hero-subtitle">
+        <i class="ri-earth-line"></i> Racconti della Terra
+      </p>
+      <p class="hero-description">
+        Una storia di libertà impossibile in un mondo distopico
+      </p>
+      <a href="#intro" class="cta-button">
+        <span>Inizia il Racconto</span>
+        <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>SCORRI</span>
+      <i class="ri-arrow-down-line"></i>
+    </div>
+  </header>
+
+  <!-- Story Chapter 1: Introduction -->
+  <section id="intro" class="story-chapter chapter-1">
+    <div class="chapter-split">
+      <!-- Left: Image with data overlay -->
+      <div class="chapter-visual">
+        <div class="chapter-image">
+          <img src="https://www.afadoc.it/wp22/wp-content/uploads/2020/09/bonsai_gemma_edizioni.jpg" alt="Bonsai" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="data-overlay">
+          <div class="stat-card">
+            <i class="ri-seedling-line"></i>
+            <div class="stat-info">
+              <span class="stat-value">SOSPENSIONE</span>
+              <span class="stat-label">Stato Bambini</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i class="ri-time-line"></i>
+            <div class="stat-info">
+              <span class="stat-value">∞</span>
+              <span class="stat-label">Durata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="chapter-content-split">
+        <div class="chapter-header">
+          <span class="chapter-number">
+            <i class="ri-book-open-line"></i> CAPITOLO I
+          </span>
+          <h2>Il Bambino Bonsai</h2>
+          <div class="chapter-line"></div>
+        </div>
+
+        <div class="chapter-text">
+          <p>
+            <i class="ri-user-line icon-inline"></i>
+            Un ragazzo chiamato <strong>Pepe</strong> ricorda un periodo in
+            cui stava vivendo in un mondo distopico. Come un bonsai tenuto in
+            sospensione, alcuni bambini venivano svegliati solo per occasioni
+            speciali - oggetti di famiglia mai liberi di crescere, plasmati
+            dalla volontà degli adulti.
+          </p>
+          <p>
+            Ma questa è la storia di quando Pepe incontrò una di queste
+            bambine, e come cercò di darle un momento di vera libertà...
+          </p>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#dome" class="chapter-next">
+            <span>Prossimo Capitolo</span>
+            <i class="ri-arrow-right-s-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Chapter 2: The Dome -->
+  <section id="dome" class="story-chapter chapter-2">
+    <div class="chapter-fullscreen">
+      <div class="chapter-image">
+        <img
+          src="https://thumbs.dreamstime.com/b/aerial-view-autonomous-city-protected-shimmering-defense-dome-amid-surrounding-wasteland-perspective-reveals-395128801.jpg"
+          alt="Dome City" />
+        <div class="image-overlay"></div>
+        <!-- Animated SVG Dome -->
+        <svg class="dome-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#00f2fe" stroke-width="0.5" opacity="0.3" />
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#00f2fe" stroke-width="0.3" opacity="0.5" />
+          <circle cx="50" cy="50" r="35" fill="none" stroke="#00f2fe" stroke-width="0.2" opacity="0.7" />
+        </svg>
+      </div>
+
+      <div class="chapter-content-overlay">
+        <div class="chapter-header">
+          <span class="chapter-number">
+            <i class="ri-building-line"></i> CAPITOLO II
+          </span>
+          <h2>La Cupola e il Cielo Finto</h2>
+          <div class="chapter-line"></div>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <i class="ri-contrast-2-line"></i>
+            <h3>Fuori</h3>
+            <p>Cielo bianco • Anidride solforosa</p>
+          </div>
+          <div class="info-card">
+            <i class="ri-sun-line"></i>
+            <h3>Dentro</h3>
+            <p>Finto cielo blu • Temperatura controllata</p>
+          </div>
+        </div>
+
+        <div class="chapter-text">
+          <p>
+            <i class="ri-cloud-line icon-inline"></i>
+            Fuori dalla cupola, il cielo era bianco a causa dell'anidride
+            solforosa. Ma dentro la cupola, gli adulti avevano creato un
+            <em>finto cielo blu</em>.
+          </p>
+          <p>
+            <i class="ri-flight-takeoff-line icon-inline"></i>
+            Pepe ricordava le belle memorie quando a sei-sette anni fuggì dal
+            suo paese per arrivare in Giappone, un paese colonizzato, ma
+            contento della sua cultura e tradizioni.
+          </p>
+          <p>
+            <i class="ri-thunderstorms-line icon-inline"></i>
+            Gli adulti consideravano impossibile uscire - anzi, un suicidio.
+            Ma per i bambini, con la loro forza e volontà, la pioggia era
+            un'avventura.
+          </p>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#journey" class="chapter-next">
+            <span>Prossimo Capitolo</span>
+            <i class="ri-arrow-right-s-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Chapter 3: The Journey -->
+  <section id="journey" class="story-chapter chapter-3">
+    <div class="chapter-split reverse">
+      <!-- Left: Content -->
+      <div class="chapter-content-split">
+        <div class="chapter-header">
+          <span class="chapter-number">
+            <i class="ri-map-pin-line"></i> CAPITOLO III
+          </span>
+          <h2>L'Avventura sotto la Pioggia</h2>
+          <div class="chapter-line"></div>
+        </div>
+
+        <!-- Character Cards -->
+        <div class="character-cards">
+          <div class="character-card">
+            <i class="ri-user-3-line"></i>
+            <div class="character-info">
+              <h4>Matissa</h4>
+              <span>Immigrante Spagnolo</span>
+            </div>
+          </div>
+          <div class="character-card">
+            <i class="ri-user-smile-line"></i>
+            <div class="character-info">
+              <h4>Doraemon</h4>
+              <span>Bambino Giapponese</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-text">
+          <p>
+            <i class="ri-group-line icon-inline"></i>
+            Durante uno dei giorni in Giappone, Pepe incontrò
+            <strong>Matissa</strong>, un altro ragazzo immigrante spagnolo.
+            Decisero di fare un giro vicino all'Arcadia Station Neighborhood.
+          </p>
+          <p>
+            <i class="ri-shield-line icon-inline"></i>
+            Durante il giro capirono che li stavano seguendo un gruppo di
+            altri bambini giapponesi. Paurosi della pioggia, trovarono rifugio
+            in un posto tra le torri di Microsoft.
+          </p>
+          <p class="highlight-text">
+            <i class="ri-alert-line icon-inline"></i>
+            Fu allora che un bambino chiamato <strong>Doraemon</strong> disse
+            a Pepe che doveva aiutare sua sorella: una
+            <em>bambina bonsai</em>.
+          </p>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#encounter" class="chapter-next">
+            <span>Capitolo Finale</span>
+            <i class="ri-arrow-right-s-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Image with timeline -->
+      <div class="chapter-visual">
+        <div class="chapter-image">
+          <img src="https://yamatomagazine.home.blog/wp-content/uploads/2021/01/cyberpunk_2077_screen_6.0.jpg"
+            alt="Cyberpunk Japan" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="timeline-overlay">
+          <div class="timeline-item active">
+            <i class="ri-map-pin-2-fill"></i>
+            <span>Arcadia Station</span>
+          </div>
+          <div class="timeline-line"></div>
+          <div class="timeline-item active">
+            <i class="ri-building-2-fill"></i>
+            <span>Torri Microsoft</span>
+          </div>
+          <div class="timeline-line"></div>
+          <div class="timeline-item">
+            <i class="ri-plant-fill"></i>
+            <span>Giardino Segreto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Chapter 4: Candy Candy -->
+  <section id="encounter" class="story-chapter chapter-4">
+    <div class="chapter-fullscreen">
+      <div class="chapter-image">
+        <img
+          src="https://www.shutterstock.com/image-vector/vintage-engraving-style-vector-illustration-600w-2517531693.jpg"
+          alt="Garden Scene" />
+        <div class="image-overlay"></div>
+        <!-- Animated particles -->
+        <div class="particle-system"></div>
+      </div>
+
+      <div class="chapter-content-center">
+        <div class="chapter-header-center">
+          <span class="chapter-number">
+            <i class="ri-heart-pulse-line"></i> CAPITOLO IV
+          </span>
+          <h2>Candy Candy e la Libertà Impossibile</h2>
+          <div class="chapter-line-center"></div>
+        </div>
+
+        <!-- Key moment visualization -->
+        <div class="moment-visual">
+          <div class="moment-card">
+            <div class="moment-icon">
+              <i class="ri-user-heart-line"></i>
+            </div>
+            <h3>Candy Candy</h3>
+            <p class="moment-desc">La Bambina Bonsai</p>
+          </div>
+        </div>
+
+        <div class="chapter-text-center">
+          <p>
+            <i class="ri-seedling-line icon-inline"></i>
+            Arrivarono in un giardino, nel mezzo della struttura. Pepe
+            incontrò una bambina bellissima - <strong>Candy Candy</strong>, la
+            sorella di Doraemon.
+          </p>
+          <p>
+            <i class="ri-pause-circle-line icon-inline"></i>
+            I genitori di Candy Candy la mettevano sempre nel centro della
+            loro attenzione perché era sempre brava, gentile. Una
+            <em>'bambina bonsai'</em> - tenuta in sospensione, svegliata solo
+            per occasioni speciali, come un oggetto di famiglia mai libera di
+            crescere.
+          </p>
+          <p>
+            <i class="ri-run-line icon-inline"></i>
+            Pepe la prese nelle sue mani e corse. Candy Candy sorrideva,
+            volendo questo momento, questa sensazione di libertà...
+          </p>
+
+          <div class="final-moment">
+            <div class="final-line">
+              <i class="ri-drop-line icon-inline"></i>
+              Però mentre la pioggia finiva, Candy Candy perdeva forza. Pepe
+              capì che una bambina bonsai non poteva vivere fuori dal suo
+              mondo.
+            </div>
+            <div class="final-statement">
+              <i class="ri-lock-line"></i>
+              <strong>LA LIBERTÀ PER LEI ERA IMPOSSIBILE</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Epilogue -->
+  <section class="epilogue">
+    <div class="container">
+      <div class="epilogue-content fade-in">
+        <div class="epilogue-icon">
+          <i class="ri-lightbulb-flash-line"></i>
+        </div>
+        <h2>Riflessione</h2>
+        <div class="reflection-cards">
+          <div class="reflection-card">
+            <i class="ri-scissors-cut-line"></i>
+            <p>
+              Come i bonsai sono alberi tenuti piccoli dalla mano umana, così
+              alcuni bambini vengono plasmati e controllati, mai liberi di
+              crescere secondo la propria natura.
+            </p>
+          </div>
+          <div class="reflection-card">
+            <i class="ri-seedling-line"></i>
+            <p>
+              La storia di Candy Candy è un promemoria: la vera bellezza non
+              sta nel controllo, ma nella libertà di crescere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
           <i class="ri-plant-line"></i>
           <span>BAMBINI BONSAI</span>
         </div>
-        <ul class="nav-links">
-          <li>
-            <a href="#intro"><i class="ri-file-text-line"></i> Storia</a>
-          </li>
-          <li>
-            <a href="#dome"><i class="ri-community-line"></i> Cupola</a>
-          </li>
-          <li>
-            <a href="#journey"><i class="ri-walk-line"></i> Viaggio</a>
-          </li>
-          <li>
-            <a href="#encounter"><i class="ri-user-heart-line"></i> Incontro</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="hero-content">
-        <div class="glitch-container">
-          <h1 class="hero-title glitch" data-text="BAMBINI BONSAI">
-            BAMBINI BONSAI
-          </h1>
-        </div>
-        <p class="hero-subtitle">
-          <i class="ri-earth-line"></i> Racconti della Terra
-        </p>
-        <p class="hero-description">
-          Una storia di libertà impossibile in un mondo distopico
-        </p>
-        <a href="#intro" class="cta-button">
-          <span>Inizia il Racconto</span>
-          <i class="ri-arrow-right-line"></i>
-        </a>
+        <p><i class="ri-earth-line"></i> Racconti della Terra • 2025</p>
       </div>
+    </div>
+  </footer>
 
-      <div class="scroll-indicator">
-        <span>SCORRI</span>
-        <i class="ri-arrow-down-line"></i>
-      </div>
-    </header>
+  <script src="../Bambini Bonsai/scriptBambiniBonsai.js"></script>
+</body>
 
-    <!-- Story Chapter 1: Introduction -->
-    <section id="intro" class="story-chapter chapter-1">
-      <div class="chapter-split">
-        <!-- Left: Image with data overlay -->
-        <div class="chapter-visual">
-          <div class="chapter-image">
-            <img
-              src="https://www.afadoc.it/wp22/wp-content/uploads/2020/09/bonsai_gemma_edizioni.jpg"
-              alt="Bonsai"
-            />
-            <div class="image-overlay"></div>
-          </div>
-          <div class="data-overlay">
-            <div class="stat-card">
-              <i class="ri-seedling-line"></i>
-              <div class="stat-info">
-                <span class="stat-value">SOSPENSIONE</span>
-                <span class="stat-label">Stato Bambini</span>
-              </div>
-            </div>
-            <div class="stat-card">
-              <i class="ri-time-line"></i>
-              <div class="stat-info">
-                <span class="stat-value">∞</span>
-                <span class="stat-label">Durata</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Content -->
-        <div class="chapter-content-split">
-          <div class="chapter-header">
-            <span class="chapter-number">
-              <i class="ri-book-open-line"></i> CAPITOLO I
-            </span>
-            <h2>Il Bambino Bonsai</h2>
-            <div class="chapter-line"></div>
-          </div>
-
-          <div class="chapter-text">
-            <p>
-              <i class="ri-user-line icon-inline"></i>
-              Un ragazzo chiamato <strong>Pepe</strong> ricorda un periodo in
-              cui stava vivendo in un mondo distopico. Come un bonsai tenuto in
-              sospensione, alcuni bambini venivano svegliati solo per occasioni
-              speciali - oggetti di famiglia mai liberi di crescere, plasmati
-              dalla volontà degli adulti.
-            </p>
-            <p>
-              Ma questa è la storia di quando Pepe incontrò una di queste
-              bambine, e come cercò di darle un momento di vera libertà...
-            </p>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#dome" class="chapter-next">
-              <span>Prossimo Capitolo</span>
-              <i class="ri-arrow-right-s-line"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Story Chapter 2: The Dome -->
-    <section id="dome" class="story-chapter chapter-2">
-      <div class="chapter-fullscreen">
-        <div class="chapter-image">
-          <img
-            src="https://thumbs.dreamstime.com/b/aerial-view-autonomous-city-protected-shimmering-defense-dome-amid-surrounding-wasteland-perspective-reveals-395128801.jpg"
-            alt="Dome City"
-          />
-          <div class="image-overlay"></div>
-          <!-- Animated SVG Dome -->
-          <svg
-            class="dome-svg"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              r="45"
-              fill="none"
-              stroke="#00f2fe"
-              stroke-width="0.5"
-              opacity="0.3"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="#00f2fe"
-              stroke-width="0.3"
-              opacity="0.5"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="35"
-              fill="none"
-              stroke="#00f2fe"
-              stroke-width="0.2"
-              opacity="0.7"
-            />
-          </svg>
-        </div>
-
-        <div class="chapter-content-overlay">
-          <div class="chapter-header">
-            <span class="chapter-number">
-              <i class="ri-building-line"></i> CAPITOLO II
-            </span>
-            <h2>La Cupola e il Cielo Finto</h2>
-            <div class="chapter-line"></div>
-          </div>
-
-          <div class="info-cards">
-            <div class="info-card">
-              <i class="ri-contrast-2-line"></i>
-              <h3>Fuori</h3>
-              <p>Cielo bianco • Anidride solforosa</p>
-            </div>
-            <div class="info-card">
-              <i class="ri-sun-line"></i>
-              <h3>Dentro</h3>
-              <p>Finto cielo blu • Temperatura controllata</p>
-            </div>
-          </div>
-
-          <div class="chapter-text">
-            <p>
-              <i class="ri-cloud-line icon-inline"></i>
-              Fuori dalla cupola, il cielo era bianco a causa dell'anidride
-              solforosa. Ma dentro la cupola, gli adulti avevano creato un
-              <em>finto cielo blu</em>.
-            </p>
-            <p>
-              <i class="ri-flight-takeoff-line icon-inline"></i>
-              Pepe ricordava le belle memorie quando a sei-sette anni fuggì dal
-              suo paese per arrivare in Giappone, un paese colonizzato, ma
-              contento della sua cultura e tradizioni.
-            </p>
-            <p>
-              <i class="ri-thunderstorms-line icon-inline"></i>
-              Gli adulti consideravano impossibile uscire - anzi, un suicidio.
-              Ma per i bambini, con la loro forza e volontà, la pioggia era
-              un'avventura.
-            </p>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#journey" class="chapter-next">
-              <span>Prossimo Capitolo</span>
-              <i class="ri-arrow-right-s-line"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Story Chapter 3: The Journey -->
-    <section id="journey" class="story-chapter chapter-3">
-      <div class="chapter-split reverse">
-        <!-- Left: Content -->
-        <div class="chapter-content-split">
-          <div class="chapter-header">
-            <span class="chapter-number">
-              <i class="ri-map-pin-line"></i> CAPITOLO III
-            </span>
-            <h2>L'Avventura sotto la Pioggia</h2>
-            <div class="chapter-line"></div>
-          </div>
-
-          <!-- Character Cards -->
-          <div class="character-cards">
-            <div class="character-card">
-              <i class="ri-user-3-line"></i>
-              <div class="character-info">
-                <h4>Matissa</h4>
-                <span>Immigrante Spagnolo</span>
-              </div>
-            </div>
-            <div class="character-card">
-              <i class="ri-user-smile-line"></i>
-              <div class="character-info">
-                <h4>Doraemon</h4>
-                <span>Bambino Giapponese</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chapter-text">
-            <p>
-              <i class="ri-group-line icon-inline"></i>
-              Durante uno dei giorni in Giappone, Pepe incontrò
-              <strong>Matissa</strong>, un altro ragazzo immigrante spagnolo.
-              Decisero di fare un giro vicino all'Arcadia Station Neighborhood.
-            </p>
-            <p>
-              <i class="ri-shield-line icon-inline"></i>
-              Durante il giro capirono che li stavano seguendo un gruppo di
-              altri bambini giapponesi. Paurosi della pioggia, trovarono rifugio
-              in un posto tra le torri di Microsoft.
-            </p>
-            <p class="highlight-text">
-              <i class="ri-alert-line icon-inline"></i>
-              Fu allora che un bambino chiamato <strong>Doraemon</strong> disse
-              a Pepe che doveva aiutare sua sorella: una
-              <em>bambina bonsai</em>.
-            </p>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#encounter" class="chapter-next">
-              <span>Capitolo Finale</span>
-              <i class="ri-arrow-right-s-line"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Image with timeline -->
-        <div class="chapter-visual">
-          <div class="chapter-image">
-            <img
-              src="https://yamatomagazine.home.blog/wp-content/uploads/2021/01/cyberpunk_2077_screen_6.0.jpg"
-              alt="Cyberpunk Japan"
-            />
-            <div class="image-overlay"></div>
-          </div>
-          <div class="timeline-overlay">
-            <div class="timeline-item active">
-              <i class="ri-map-pin-2-fill"></i>
-              <span>Arcadia Station</span>
-            </div>
-            <div class="timeline-line"></div>
-            <div class="timeline-item active">
-              <i class="ri-building-2-fill"></i>
-              <span>Torri Microsoft</span>
-            </div>
-            <div class="timeline-line"></div>
-            <div class="timeline-item">
-              <i class="ri-plant-fill"></i>
-              <span>Giardino Segreto</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Story Chapter 4: Candy Candy -->
-    <section id="encounter" class="story-chapter chapter-4">
-      <div class="chapter-fullscreen">
-        <div class="chapter-image">
-          <img
-            src="https://www.shutterstock.com/image-vector/vintage-engraving-style-vector-illustration-600w-2517531693.jpg"
-            alt="Garden Scene"
-          />
-          <div class="image-overlay"></div>
-          <!-- Animated particles -->
-          <div class="particle-system"></div>
-        </div>
-
-        <div class="chapter-content-center">
-          <div class="chapter-header-center">
-            <span class="chapter-number">
-              <i class="ri-heart-pulse-line"></i> CAPITOLO IV
-            </span>
-            <h2>Candy Candy e la Libertà Impossibile</h2>
-            <div class="chapter-line-center"></div>
-          </div>
-
-          <!-- Key moment visualization -->
-          <div class="moment-visual">
-            <div class="moment-card">
-              <div class="moment-icon">
-                <i class="ri-user-heart-line"></i>
-              </div>
-              <h3>Candy Candy</h3>
-              <p class="moment-desc">La Bambina Bonsai</p>
-            </div>
-          </div>
-
-          <div class="chapter-text-center">
-            <p>
-              <i class="ri-seedling-line icon-inline"></i>
-              Arrivarono in un giardino, nel mezzo della struttura. Pepe
-              incontrò una bambina bellissima - <strong>Candy Candy</strong>, la
-              sorella di Doraemon.
-            </p>
-            <p>
-              <i class="ri-pause-circle-line icon-inline"></i>
-              I genitori di Candy Candy la mettevano sempre nel centro della
-              loro attenzione perché era sempre brava, gentile. Una
-              <em>'bambina bonsai'</em> - tenuta in sospensione, svegliata solo
-              per occasioni speciali, come un oggetto di famiglia mai libera di
-              crescere.
-            </p>
-            <p>
-              <i class="ri-run-line icon-inline"></i>
-              Pepe la prese nelle sue mani e corse. Candy Candy sorrideva,
-              volendo questo momento, questa sensazione di libertà...
-            </p>
-
-            <div class="final-moment">
-              <div class="final-line">
-                <i class="ri-drop-line icon-inline"></i>
-                Però mentre la pioggia finiva, Candy Candy perdeva forza. Pepe
-                capì che una bambina bonsai non poteva vivere fuori dal suo
-                mondo.
-              </div>
-              <div class="final-statement">
-                <i class="ri-lock-line"></i>
-                <strong>LA LIBERTÀ PER LEI ERA IMPOSSIBILE</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Epilogue -->
-    <section class="epilogue">
-      <div class="container">
-        <div class="epilogue-content fade-in">
-          <div class="epilogue-icon">
-            <i class="ri-lightbulb-flash-line"></i>
-          </div>
-          <h2>Riflessione</h2>
-          <div class="reflection-cards">
-            <div class="reflection-card">
-              <i class="ri-scissors-cut-line"></i>
-              <p>
-                Come i bonsai sono alberi tenuti piccoli dalla mano umana, così
-                alcuni bambini vengono plasmati e controllati, mai liberi di
-                crescere secondo la propria natura.
-              </p>
-            </div>
-            <div class="reflection-card">
-              <i class="ri-seedling-line"></i>
-              <p>
-                La storia di Candy Candy è un promemoria: la vera bellezza non
-                sta nel controllo, ma nella libertà di crescere.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <i class="ri-plant-line"></i>
-            <span>BAMBINI BONSAI</span>
-          </div>
-          <p><i class="ri-earth-line"></i> Racconti della Terra • 2025</p>
-        </div>
-      </div>
-    </footer>
-
-    <script src="../Bambini Bonsai/scriptBambiniBonsai.js"></script>
-  </body>
 </html>

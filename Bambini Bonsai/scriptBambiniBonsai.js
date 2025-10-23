@@ -84,9 +84,8 @@ function initParallax() {
           if (scrollPercent > -0.2 && scrollPercent < 1.2) {
             const image = chapter.querySelector(".chapter-image img");
             if (image) {
-              image.style.transform = `scale(1.1) translateY(${
-                scrollPercent * 30
-              }px)`;
+              image.style.transform = `scale(1.1) translateY(${scrollPercent * 30
+                }px)`;
             }
           }
         });
@@ -282,7 +281,7 @@ function initCursorGlow() {
 function initScanlineEffect() {
   // Make scan line more visible on important sections
   const chapters = document.querySelectorAll(".story-chapter");
-  
+
   chapters.forEach((chapter, index) => {
     const scanline = document.createElement("div");
     scanline.style.cssText = `
@@ -317,11 +316,11 @@ function initScanlineEffect() {
 function animateScanline(scanline) {
   let position = 0;
   scanline.style.opacity = "0.8";
-  
+
   const interval = setInterval(() => {
     position += 5;
     scanline.style.top = position + "%";
-    
+
     if (position >= 100) {
       scanline.style.opacity = "0";
       scanline.style.top = "0";
@@ -346,7 +345,7 @@ window.addEventListener("load", () => {
     const text = subtitle.textContent;
     subtitle.textContent = "";
     subtitle.style.opacity = "1";
-    
+
     let i = 0;
     const typeInterval = setInterval(() => {
       if (i < text.length) {
@@ -357,6 +356,56 @@ window.addEventListener("load", () => {
       }
     }, 50);
   }
+});
+
+// ============================================
+// AUDIO SYSTEM - CYBERPUNK MUSIC
+// ============================================
+function initAudioSystem() {
+  const audioToggle = document.getElementById('audioToggle');
+  let audioEnabled = false;
+  let audio = null;
+
+  // Cyberpunk/Electronic music URL
+  // Futuristic dystopian ambient - moody, rainy, blade runner vibes
+  const musicUrl = 'https://cdn.pixabay.com/audio/2023/10/03/audio_c43c97d3d5.mp3'; // Future Dystopia - Moody Synth Ambient
+
+  audioToggle.addEventListener('click', () => {
+    audioEnabled = !audioEnabled;
+    audioToggle.classList.toggle('active');
+
+    const icon = audioToggle.querySelector('i');
+    icon.className = audioEnabled ? 'ri-volume-up-line' : 'ri-volume-mute-line';
+
+    if (audioEnabled) {
+      playMusic();
+    } else {
+      stopMusic();
+    }
+  });
+
+  function playMusic() {
+    if (!audio) {
+      audio = new Audio(musicUrl);
+      audio.loop = true;
+      audio.volume = 0.25; // 25% volume for cyberpunk ambience
+    }
+    audio.play().catch(err => {
+      console.log('Audio playback failed:', err);
+    });
+  }
+
+  function stopMusic() {
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
+}
+
+// Initialize audio on page load
+document.addEventListener("DOMContentLoaded", () => {
+  initAudioSystem();
 });
 
 // ============================================

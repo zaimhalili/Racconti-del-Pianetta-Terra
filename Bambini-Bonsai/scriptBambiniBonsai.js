@@ -368,58 +368,32 @@ function initAudioSystem() {
   let audio = null;
 
   // Cyberpunk/Electronic music URL
-  // Free Music Archive - Cyberpunk ambient with CORS enabled
-  const musicUrl = 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kevin_MacLeod/Impact/Kevin_MacLeod_-_03_-_Volatile_Reaction.mp3'; // Dystopian Electronic
+  // SoundHelix - Darker electronic ambient track for cyberpunk atmosphere
+  const musicUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3';
 
-  audioToggle.addEventListener('click', (e) => {
-    e.preventDefault();
+  audioToggle.addEventListener('click', () => {
     audioEnabled = !audioEnabled;
+    audioToggle.classList.toggle('active');
+
+    const icon = audioToggle.querySelector('i');
+    icon.className = audioEnabled ? 'ri-volume-up-line' : 'ri-volume-mute-line';
 
     if (audioEnabled) {
-      audioToggle.classList.add('active');
-      const icon = audioToggle.querySelector('i');
-      icon.className = 'ri-volume-up-line';
       playMusic();
     } else {
-      audioToggle.classList.remove('active');
-      const icon = audioToggle.querySelector('i');
-      icon.className = 'ri-volume-mute-line';
       stopMusic();
     }
   });
 
   function playMusic() {
-    try {
-      if (!audio) {
-        audio = new Audio();
-        audio.crossOrigin = "anonymous";
-        audio.src = musicUrl;
-        audio.loop = true;
-        audio.volume = 0.3;
-        audio.preload = "auto";
-      }
-
-      // Reset audio if it was stopped
-      if (audio.paused) {
-        audio.currentTime = 0;
-      }
-
-      // Play audio - must be triggered by user interaction
-      audio.play()
-        .then(() => {
-          console.log('✓ Music playing');
-        })
-        .catch(err => {
-          console.error('Playback error:', err.message);
-          // Try reloading the audio
-          audio.load();
-          setTimeout(() => {
-            audio.play().catch(e => console.error('Retry failed:', e.message));
-          }, 100);
-        });
-    } catch (error) {
-      console.error('Audio error:', error);
+    if (!audio) {
+      audio = new Audio(musicUrl);
+      audio.loop = true;
+      audio.volume = 0.3;
     }
+    audio.play().catch(err => {
+      console.log('Audio playback failed:', err);
+    });
   }
 
   function stopMusic() {

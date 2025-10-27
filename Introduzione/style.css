@@ -71,7 +71,7 @@ body {
 
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     animation: fadeInDown 1s ease-out;
 }
 
@@ -86,15 +86,50 @@ body {
 .logo-icon {
     font-size: 3rem;
     color: var(--accent-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 .title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    animation: expand-line 2s ease-out forwards;
+}
+
+@keyframes expand-line {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60%;
+    }
 }
 
 .subtitle {
@@ -102,6 +137,16 @@ body {
     color: var(--text-secondary);
     letter-spacing: 2px;
     text-transform: uppercase;
+    animation: fadeIn 1.5s ease-out 0.5s backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* ========================================
@@ -120,12 +165,14 @@ body {
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 2.5rem 2rem;
     text-decoration: none;
     color: var(--text-primary);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     animation: fadeInUp 0.8s ease-out backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .story-card[data-story="1"] {
@@ -142,8 +189,8 @@ body {
 
 .story-card:hover {
     border-color: var(--hover-accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
     background: #333;
 }
 
@@ -152,12 +199,47 @@ body {
 }
 
 .story-card:hover .card-icon {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg);
     color: var(--hover-accent);
 }
 
 .story-card:hover .card-arrow {
     transform: translateX(10px);
+}
+
+.story-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.story-card:hover .image-overlay {
+    opacity: 0.3;
+}
+
+/* Card Image */
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #000;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(26, 26, 26, 0.8) 100%);
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
 }
 
 .card-border {
@@ -169,34 +251,67 @@ body {
     border: 1px solid var(--hover-accent);
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 .card-content {
     position: relative;
     z-index: 1;
+    padding: 2rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-icon {
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: var(--accent-color);
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.story-card[data-story="1"] .card-icon {
+    animation-delay: 0s;
+}
+
+.story-card[data-story="2"] .card-icon {
+    animation-delay: 0.5s;
+}
+
+.story-card[data-story="3"] .card-icon {
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 .card-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
     letter-spacing: 1px;
     color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.story-card:hover .card-title {
+    color: var(--hover-accent);
 }
 
 .card-desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
+    flex: 1;
 }
 
 .card-tags {
@@ -210,13 +325,19 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.7rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.story-card:hover .tag {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
 }
 
 .card-arrow {
@@ -228,11 +349,29 @@ body {
     font-size: 0.9rem;
     color: var(--accent-color);
     letter-spacing: 2px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .card-arrow i {
     font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.story-card:hover .card-arrow {
+    color: var(--hover-accent);
+}
+
+.story-card:hover .card-arrow i {
+    animation: bounce-right 0.6s ease infinite;
+}
+
+@keyframes bounce-right {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
 }
 
 /* ========================================

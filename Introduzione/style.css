@@ -23,8 +23,8 @@ body {
     font-family: 'Rajdhani', sans-serif;
     background: var(--bg-dark);
     color: var(--text-primary);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -43,6 +43,19 @@ body {
         repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px);
     pointer-events: none;
     z-index: 1;
+    animation: grid-pulse 4s ease-in-out infinite;
+}
+
+@keyframes grid-pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 .scanline {
@@ -58,8 +71,8 @@ body {
     z-index: 2;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 3rem 4rem;
-    height: 100vh;
+    padding: 4rem 4rem;
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,10 +103,13 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.8;
         transform: scale(1);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.05);
@@ -127,6 +143,7 @@ body {
     from {
         width: 0;
     }
+
     to {
         width: 60%;
     }
@@ -144,6 +161,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -284,9 +302,12 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-8px);
     }
@@ -366,12 +387,35 @@ body {
 }
 
 @keyframes bounce-right {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0);
     }
+
     50% {
         transform: translateX(5px);
     }
+}
+
+/* Card Number Overlay */
+.card-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.story-card:hover .card-number {
+    color: rgba(255, 255, 255, 0.08);
+    transform: scale(1.2) rotate(-5deg);
 }
 
 /* ========================================

@@ -427,11 +427,12 @@ body {
     padding-top: 3rem;
     border-top: 1px solid var(--border-color);
     animation: fadeIn 1s ease-out 0.8s backwards;
+    overflow: visible;
 }
 
 .team-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .team-title {
@@ -450,41 +451,72 @@ body {
     text-transform: uppercase;
 }
 
+/* Carousel Container */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     margin-bottom: 3rem;
+    padding: 3rem 0;
+}
+
+/* Carousel Track */
+.team-grid::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(to right, var(--bg-dark), transparent);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.team-grid::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(to left, var(--bg-dark), transparent);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2.5rem;
+    animation: scroll-left 30s linear infinite;
+    will-change: transform;
+}
+
+.team-grid:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-280px * 5 - 2.5rem * 5));
+    }
 }
 
 .team-member {
+    flex-shrink: 0;
+    width: 280px;
     text-align: center;
-    transition: transform 0.3s ease;
-    animation: fadeInUp 0.6s ease-out backwards;
-}
-
-.team-member[data-member="1"] {
-    animation-delay: 0.2s;
-}
-
-.team-member[data-member="2"] {
-    animation-delay: 0.3s;
-}
-
-.team-member[data-member="3"] {
-    animation-delay: 0.4s;
-}
-
-.team-member[data-member="4"] {
-    animation-delay: 0.5s;
-}
-
-.team-member[data-member="5"] {
-    animation-delay: 0.6s;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .team-member:hover {
-    transform: translateY(-8px);
+    transform: scale(1.15);
+    z-index: 20;
 }
 
 .member-image-wrapper {

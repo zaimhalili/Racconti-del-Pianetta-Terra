@@ -1,25 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I racconti del pianeta Terra</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Racconti del Pianeta Terra</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <!-- Futuristic Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
 
-  <body>
-    <header>
-      <h1>I racconti del pianeta Terra</h1>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-container">
+        <i class="ri-earth-line logo-icon"></i>
+        <h1 class="title">RACCONTI DEL PIANETA TERRA</h1>
+      </div>
+      <p class="subtitle">Tre Storie Distopiche • Un Mondo Perduto</p>
     </header>
-    <main>
-      <a href="../Bambini-Bonsai/BambiniBonsai.html">Bambini Bonsai</a>
-      <a href="/Gli-Immortali/Immortali.html">Gli Immortali</a>
-      <a href="../bocca-dell-inferno/BoccaInferno.html"
-        >La bocca dell'inferno</a
-      >
-    </main>
-    <!-- Pagina Centrale -->
 
-    <script src="./script.js"></script>
-  </body>
+    <!-- Story Cards -->
+    <main class="stories-grid">
+      
+      <!-- Story 1: Bambini Bonsai -->
+      <a href="../Bambini-Bonsai/BambiniBonsai.html" class="story-card" data-story="1">
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-seedling-line"></i>
+          </div>
+          <h2 class="card-title">BAMBINI BONSAI</h2>
+          <p class="card-desc">Una bambina intrappolata in sospensione. Un ragazzo che cerca di darle libertà. Un mondo sotto la cupola dove crescere è impossibile.</p>
+          <div class="card-tags">
+            <span class="tag"><i class="ri-plant-line"></i> Cyberpunk</span>
+            <span class="tag"><i class="ri-cloud-line"></i> Cupola</span>
+            <span class="tag"><i class="ri-heart-line"></i> Libertà</span>
+          </div>
+          <div class="card-arrow">
+            <span>LEGGI</span>
+            <i class="ri-arrow-right-line"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Story 2: Gli Immortali -->
+      <a href="../Gli-Immortali/Immortali.html" class="story-card" data-story="2">
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-time-line"></i>
+          </div>
+          <h2 class="card-title">GLI IMMORTALI</h2>
+          <p class="card-desc">4.5 miliardi di anni di solitudine. Un testimone eterno della Terra. Dalla nascita del pianeta all'apocalisse nucleare del 2045.</p>
+          <div class="card-tags">
+            <span class="tag"><i class="ri-history-line"></i> Eternità</span>
+            <span class="tag"><i class="ri-eye-line"></i> Testimone</span>
+            <span class="tag"><i class="ri-skull-line"></i> Apocalisse</span>
+          </div>
+          <div class="card-arrow">
+            <span>LEGGI</span>
+            <i class="ri-arrow-right-line"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Story 3: La Bocca Dell'Inferno -->
+      <a href="../bocca-dell-inferno/BoccaInferno.html" class="story-card" data-story="3">
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-fire-line"></i>
+          </div>
+          <h2 class="card-title">LA BOCCA DELL'INFERNO</h2>
+          <p class="card-desc">Un portale verso l'abisso. Segreti sepolti sotto la terra. Il confine tra il mondo dei vivi e l'oscurità eterna.</p>
+          <div class="card-tags">
+            <span class="tag"><i class="ri-flashlight-line"></i> Mistero</span>
+            <span class="tag"><i class="ri-door-line"></i> Portale</span>
+            <span class="tag"><i class="ri-contrast-2-line"></i> Oscurità</span>
+          </div>
+          <div class="card-arrow">
+            <span>LEGGI</span>
+            <i class="ri-arrow-right-line"></i>
+          </div>
+        </div>
+      </a>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>

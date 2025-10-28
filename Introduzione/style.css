@@ -189,6 +189,88 @@ body {
     position: relative;
 }
 
+/* Team Philosophy Section */
+.team-philosophy {
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--bg-dark) 0%, #0f0f0f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-philosophy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0.3;
+}
+
+.philosophy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(138, 138, 138, 0.1);
+    border: 2px solid var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+.philosophy-icon i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.philosophy-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.philosophy-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.philosophy-text em {
+    color: var(--accent-color);
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+.philosophy-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.philosophy-tagline {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    margin-top: 2rem;
+}
+
 @keyframes shine {
     to {
         background-position: 200% center;

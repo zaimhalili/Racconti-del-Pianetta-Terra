@@ -1,7 +1,64 @@
-// Gli Immortali - Fun & Interactive!
+﻿// Gli Immortali - Fun & Interactive with Typewriter Effect!
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('⏳ Gli Immortali - Interactive Mode Activated!');
+document.addEventListener('DOMContentLoaded', function () {
+  console.log(' Gli Immortali - Interactive Mode Activated!');
+
+  // Typewriter effect function
+  const typewriterEffect = (element, text, speed = 30) => {
+    element.textContent = '';
+    let i = 0;
+
+    const type = () => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      }
+    };
+
+    type();
+  };
+
+  // Typewriter for main title on load
+  const mainTitle = document.querySelector('.title');
+  if (mainTitle) {
+    const titleText = mainTitle.textContent;
+    setTimeout(() => {
+      typewriterEffect(mainTitle, titleText, 80);
+    }, 500);
+  }
+
+  // Apply typewriter to card descriptions when visible
+  const typewriterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const desc = entry.target.querySelector('.card-desc');
+        const quote = entry.target.querySelector('.card-quote');
+
+        if (desc && !desc.hasAttribute('data-typed')) {
+          const originalText = desc.textContent;
+          desc.setAttribute('data-typed', 'true');
+          setTimeout(() => {
+            typewriterEffect(desc, originalText, 20);
+          }, 300);
+        }
+
+        if (quote && !quote.hasAttribute('data-typed')) {
+          const quoteText = quote.textContent.trim();
+          quote.setAttribute('data-typed', 'true');
+          setTimeout(() => {
+            typewriterEffect(quote, quoteText, 25);
+          }, 800);
+        }
+
+        typewriterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Observe all chapter cards for typewriter
+  const allCards = document.querySelectorAll('.chapter-card');
+  allCards.forEach(card => typewriterObserver.observe(card));
 
   // Animated number counter for stats
   const animateCounter = (element) => {
@@ -53,20 +110,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Timeline point interaction
   const timelinePoints = document.querySelectorAll('.timeline-point');
-  const chapterCards = document.querySelectorAll('.chapter-card');
 
   timelinePoints.forEach(point => {
-    point.addEventListener('click', function() {
+    point.addEventListener('click', function () {
       const chapter = this.getAttribute('data-chapter');
       const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
-      
+
       if (targetCard) {
         targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Highlight effect
+
         targetCard.style.transform = 'translateY(-10px) scale(1.05)';
         targetCard.style.boxShadow = '0 20px 60px rgba(212, 175, 55, 0.5)';
-        
+
         setTimeout(() => {
           targetCard.style.transform = '';
           targetCard.style.boxShadow = '';
@@ -74,8 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Hover effect on timeline
-    point.addEventListener('mouseenter', function() {
+    point.addEventListener('mouseenter', function () {
       const chapter = this.getAttribute('data-chapter');
       const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
       if (targetCard) {
@@ -84,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    point.addEventListener('mouseleave', function() {
+    point.addEventListener('mouseleave', function () {
       const chapter = this.getAttribute('data-chapter');
       const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
       if (targetCard) {
@@ -95,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Chapter card hover effects
-  chapterCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+  allCards.forEach(card => {
+    card.addEventListener('mouseenter', function () {
       const chapter = this.getAttribute('data-chapter');
       const timelinePoint = document.querySelector(`.timeline-point[data-chapter="${chapter}"]`);
       if (timelinePoint) {
@@ -106,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    card.addEventListener('mouseleave', function() {
+    card.addEventListener('mouseleave', function () {
       const chapter = this.getAttribute('data-chapter');
       const timelinePoint = document.querySelector(`.timeline-point[data-chapter="${chapter}"]`);
       if (timelinePoint) {
@@ -126,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Random glitch effect on chapter numbers
+  // Random glitch effect
   function randomGlitch() {
     const chapterNumbers = document.querySelectorAll('.chapter-number');
     const randomNumber = chapterNumbers[Math.floor(Math.random() * chapterNumbers.length)];
@@ -138,7 +192,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Trigger glitch every 5 seconds
   setInterval(randomGlitch, 5000);
 
   // Add glitch keyframe
@@ -155,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
   document.head.appendChild(style);
 
-  // Interactive quote - click to change
+  // Interactive quote
   const quotes = [
     "L'immortalità non è un dono.<br/>È la più crudele delle prigioni.",
     "Ogni generazione mi lascia indietro.<br/>Ogni amicizia è una condanna.",
@@ -166,13 +219,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let currentQuote = 0;
   const quoteText = document.querySelector('.quote-text');
-  
+
   if (quoteText) {
     quoteText.style.cursor = 'pointer';
-    quoteText.addEventListener('click', function() {
+    quoteText.addEventListener('click', function () {
       this.style.opacity = '0';
       this.style.transform = 'scale(0.9)';
-      
+
       setTimeout(() => {
         currentQuote = (currentQuote + 1) % quotes.length;
         this.innerHTML = quotes[currentQuote];
@@ -183,16 +236,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Easter egg - click logo icon 5 times
+  // Easter egg
   let clickCount = 0;
   const logoIcon = document.querySelector('.logo-icon');
-  
+
   if (logoIcon) {
     logoIcon.style.cursor = 'pointer';
-    logoIcon.addEventListener('click', function() {
+    logoIcon.addEventListener('click', function () {
       clickCount++;
       this.style.transform = `rotate(${clickCount * 360}deg) scale(${1 + clickCount * 0.1})`;
-      
+
       if (clickCount >= 5) {
         this.style.animation = 'float 0.5s ease-in-out infinite';
         setTimeout(() => {
@@ -203,24 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-
-  // Smooth reveal on scroll for cards
-  const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '0';
-        entry.target.style.transform = 'translateY(30px)';
-        
-        setTimeout(() => {
-          entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, 100);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  chapterCards.forEach(card => cardObserver.observe(card));
 
   console.log('✨ Tutto pronto! Clicca, esplora, divertiti!');
   console.log('💡 Suggerimento: Prova a cliccare l\'icona infinito 5 volte...');

@@ -2,281 +2,341 @@
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gli Immortali - Racconti del Pianeta Terra</title>
-    <link rel="stylesheet" href="Immortali.css" />
-    <!-- Futuristic / Distopic Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet" />
-    <!-- Remix Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gli Immortali - Racconti del Pianeta Terra</title>
+  <link rel="stylesheet" href="Immortali.css" />
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <!-- Futuristic Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="grid-overlay"></div>
-        <div class="scan-line"></div>
-
-        <nav class="nav">
-            <div class="logo">
-                <i class="ri-infinity-line"></i>
-                <span>GLI IMMORTALI</span>
-            </div>
-            <a class="home-btn" href="../Introduzione/index.html" title="Torna alla home">
-                <i class="ri-home-4-line"></i>
-            </a>
-        </nav>
-
-        <div class="hero-content">
-            <div class="glitch-container">
-                <h1 class="hero-title glitch" data-text="GLI IMMORTALI">GLI IMMORTALI</h1>
-            </div>
-            <p class="hero-subtitle"><i class="ri-time-line"></i> Un Viaggio Attraverso 4.5 Miliardi di Anni</p>
-            <p class="hero-description">Il tempo è un cerchio infinito, e io sono il suo unico testimone eterno</p>
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="header">
+      <a href="../Introduzione/index.html" class="back-btn">
+        <i class="ri-arrow-left-line"></i> HOME
+      </a>
+      <div class="logo-container">
+        <i class="ri-infinity-line logo-icon"></i>
+        <h1 class="title">GLI IMMORTALI</h1>
+      </div>
+      <p class="subtitle">4.5 Miliardi di Anni • Un Testimone Eterno</p>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <i class="ri-time-line"></i>
+          <span class="stat-label">8 ERE</span>
         </div>
+        <div class="stat-item">
+          <i class="ri-user-line"></i>
+          <span class="stat-label">1 IMMORTALE</span>
+        </div>
+        <div class="stat-item">
+          <i class="ri-skull-line"></i>
+          <span class="stat-label">∞ MORTI</span>
+        </div>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
+    <!-- Interactive Timeline -->
+    <section class="timeline-section">
+      <h2 class="section-title">
+        <i class="ri-map-pin-time-line"></i>
+        VIAGGIO NEL TEMPO
+      </h2>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <!-- Timeline Points -->
+        <div class="timeline-point" data-chapter="1" style="left: 2%;">
+          <div class="point-circle">01</div>
+          <div class="point-label">4.5B ANNI FA</div>
+        </div>
+        
+        <div class="timeline-point" data-chapter="2" style="left: 16%;">
+          <div class="point-circle">02</div>
+          <div class="point-label">230M ANNI FA</div>
+        </div>
+        
+        <div class="timeline-point" data-chapter="3" style="left: 30%;">
+          <div class="point-circle">03</div>
+          <div class="point-label">2M ANNI FA</div>
+        </div>
+        
+        <div class="timeline-point" data-chapter="4" style="left: 44%;">
+          <div class="point-circle">04</div>
+          <div class="point-label">753 a.C.</div>
+        </div>
+        
+        <div class="timeline-point" data-chapter="5" style="left: 58%;">
+          <div class="point-circle">05</div>
+          <div class="point-label">1600 d.C.</div>
+        </div>
+        
+        <div class="timeline-point" data-chapter="6" style="left: 72%;">
+          <div class="point-circle">06</div>
+          <div class="point-label">1900 d.C.</div>
+        </div>
+        
+        <div class="timeline-point apocalypse" data-chapter="7" style="left: 86%;">
+          <div class="point-circle">07</div>
+          <div class="point-label">2045</div>
+        </div>
+        
+        <div class="timeline-point truth" data-chapter="8" style="left: 98%;">
+          <div class="point-circle">?</div>
+          <div class="point-label">FINE?</div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Chapter 1: La Nascita -->
-        <section id="nascita" class="chapter">
-            <div class="chapter-header">
-                <span class="chapter-number">01</span>
-                <h2 class="chapter-title">La Nascita della Terra</h2>
-                <span class="chapter-time"><i class="ri-time-line"></i> 4.5 Miliardi di Anni Fa</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    In principio: <strong class="highlight">vuoto</strong> e <strong class="highlight">fuoco</strong>.
-                </p>
-                <p>
-                    Roccia fusa nel cosmo. Silenzio assordante. Terreno rovente, desolato. Esisteva, e basta.
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    La noia del vuoto primordiale è un peso che nessuna anima dovrebbe portare.
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-            </div>
-        </section>
+    <!-- Chapter Cards Grid -->
+    <main class="chapters-grid">
 
-        <!-- Chapter 2: I Dinosauri -->
-        <section id="dinosauri" class="chapter">
-            <div class="chapter-header">
-                <span class="chapter-number">02</span>
-                <h2 class="chapter-title">I Giganti della Preistoria</h2>
-                <span class="chapter-time"><i class="ri-time-line"></i> 230-65 Milioni di Anni Fa</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    Finalmente, la <strong class="highlight">vita</strong>! Che delusione...
-                </p>
-                <p>
-                    <em>Dinosauri</em>. Un Tirannosauro come animale domestico. Pochi anni, poi morto.
-                </p>
-                <p>
-                    Ruggiti, sibili. Nessun linguaggio. Compagni inadeguati.
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    Parlare della solitudine con creature che non comprendono è urlare nel vuoto.
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-            </div>
-        </section>
+      <!-- Chapter 1: Nascita -->
+      <div class="chapter-card" data-chapter="1">
+        <div class="card-image">
+          <img src="../assets/vuoto.jpg" alt="Nascita" />
+          <div class="image-overlay"></div>
+          <div class="chapter-number">01</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-space-ship-line"></i>
+          </div>
+          <h3 class="card-title">LA NASCITA</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> 4.5 Miliardi di Anni Fa</p>
+          <p class="card-desc">Vuoto e fuoco. Roccia fusa. Silenzio assordante. La noia del vuoto primordiale.</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Un peso che nessuna anima dovrebbe portare"
+          </div>
+        </div>
+      </div>
 
-        <!-- Chapter 3: Primi Umani -->
-        <section id="umani" class="chapter">
-            <div class="chapter-header">
-                <span class="chapter-number">03</span>
-                <h2 class="chapter-title">L'Alba dell'Umanità</h2>
-                <span class="chapter-time"><i class="ri-time-line"></i> 2 Milioni di Anni Fa</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    Le scimmie <strong class="highlight">camminarono erette</strong>. Qualcosa cambiò...
-                </p>
-                <p>
-                    Prima: grugniti. Poi parole. Frasi. Strumenti. Fuochi. Storie.
-                </p>
-                <p>
-                    Per la prima volta in <em>miliardi di anni</em>: conversazione. Risate. Pensieri condivisi.
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    "La compagnia umana è il primo dono autentico che la Terra mi ha offerto."
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-                <p>
-                    Tribù. Cacce. Leggende attorno al fuoco. Non ero più solo.
-                </p>
-            </div>
-        </section>
+      <!-- Chapter 2: Dinosauri -->
+      <div class="chapter-card" data-chapter="2">
+        <div class="card-image">
+          <img src="../assets/dinosauri.jpg" alt="Dinosauri" />
+          <div class="image-overlay"></div>
+          <div class="chapter-number">02</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-skull-line"></i>
+          </div>
+          <h3 class="card-title">I DINOSAURI</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> 230-65 Milioni di Anni Fa</p>
+          <p class="card-desc">Finalmente vita! Che delusione. Tirannosauro domestico. Nessun linguaggio.</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Urlare nel vuoto"
+          </div>
+        </div>
+      </div>
 
-        <!-- Chapter 4: Roma -->
-        <section id="roma" class="chapter">
-            <div class="chapter-header">
-                <span class="chapter-number">04</span>
-                <h2 class="chapter-title">L'Impero Romano</h2>
-                <span class="chapter-time"><i class="ri-time-line"></i> 753 a.C. - 476 d.C.</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    <strong class="highlight">Roma</strong>. Civiltà. Legge. Arte. Potenza.
-                </p>
-                <p>
-                    Camminai tra le colonne del Foro. Ascoltai oratori. Vidi gladiatori.
-                </p>
-                <p>
-                    Amici senatori. Intellettuali. Poeti. Ma tutti invecchiarono. Morirono.
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    Ogni generazione mi lascia indietro. Ogni amicizia è una condanna a morte differita.
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-                <p>
-                    L'impero cadde. Io rimasi. Sempre.
-                </p>
-            </div>
-        </section>
+      <!-- Chapter 3: Primi Umani -->
+      <div class="chapter-card" data-chapter="3">
+        <div class="card-image">
+          <img src="../assets/umani.jpg" alt="Primi Umani" />
+          <div class="image-overlay"></div>
+          <div class="chapter-number">03</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-user-3-line"></i>
+          </div>
+          <h3 class="card-title">PRIMI UMANI</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> 2 Milioni di Anni Fa</p>
+          <p class="card-desc">Le scimmie camminarono erette. Parole! Storie! Conversazione! Non ero più solo.</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Il primo dono autentico della Terra"
+          </div>
+        </div>
+      </div>
 
-        <!-- Chapter 5: Giappone Feudale -->
-        <section id="giappone" class="chapter">
-            <div class="chapter-header">
-                <span class="chapter-number">05</span>
-                <h2 class="chapter-title">Il Giappone Feudale</h2>
-                <span class="chapter-time"><i class="ri-time-line"></i> 1600 d.C.</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    Nuove terre. <strong class="highlight">Samurai</strong>. Codice d'onore.
-                </p>
-                <p>
-                    Monasteri Zen. Meditazione. Calma. Cercavo pace interiore.
-                </p>
-                <p>
-                    Un monaco mi disse: <em>"Accetta l'eternità. Non combatterla."</em>
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    Come si accetta ciò che non ha fine? Come si trova pace nel caos infinito del tempo?
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-                <p>
-                    Anche quella saggezza svanì con i secoli.
-                </p>
-            </div>
-        </section>
+      <!-- Chapter 4: Roma -->
+      <div class="chapter-card" data-chapter="4">
+        <div class="card-image">
+          <img src="../assets/roma.jpg" alt="Roma" />
+          <div class="image-overlay"></div>
+          <div class="chapter-number">04</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-goblet-line"></i>
+          </div>
+          <h3 class="card-title">L'IMPERO ROMANO</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> 753 a.C. - 476 d.C.</p>
+          <p class="card-desc">Civiltà! Arte! Vino! 5 anni di sbornia costante. Ma tutti morirono...</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Ogni amicizia è una condanna"
+          </div>
+        </div>
+      </div>
 
-        <!-- Chapter 6: Era Moderna -->
-        <section id="moderna" class="chapter">
-            <div class="chapter-header">
-                <span class="chapter-number">06</span>
-                <h2 class="chapter-title">L'Era Moderna</h2>
-                <span class="chapter-time"><i class="ri-time-line"></i> 1900-2020 d.C.</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    <strong class="highlight">Tecnologia</strong>. Velocità. Connessione globale.
-                </p>
-                <p>
-                    Guerre mondiali. Rivoluzioni. Internet. Intelligenza artificiale.
-                </p>
-                <p>
-                    Il mondo cambiò più velocemente che mai. L'umanità divenne potente. Pericolosa.
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    Osservavo con terrore: stavano costruendo la loro stessa fine.
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-                <p>
-                    Avvertii. Nessuno ascoltò. Mai.
-                </p>
-            </div>
-        </section>
+      <!-- Chapter 5: Giappone -->
+      <div class="chapter-card" data-chapter="5">
+        <div class="card-image">
+          <img src="../assets/giappone.jpg" alt="Giappone" />
+          <div class="image-overlay"></div>
+          <div class="chapter-number">05</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-money-dollar-circle-line"></i>
+          </div>
+          <h3 class="card-title">COMMERCIANTE</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> Periodo Edo</p>
+          <p class="card-desc">Ricchezza. Lusso estremo. Malattia. Letargo centenario. Mi svegliai nel Barocco!</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Dormii un secolo"
+          </div>
+        </div>
+      </div>
 
-        <!-- Chapter 7: L'Apocalisse -->
-        <section id="apocalisse" class="chapter apocalypse">
-            <div class="chapter-header">
-                <span class="chapter-number">07</span>
-                <h2 class="chapter-title">2045 - L'Apocalisse</h2>
-                <span class="chapter-time"><i class="ri-skull-line"></i> La Fine</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    <strong class="highlight-red">Tutto finì</strong>.
-                </p>
-                <p>
-                    Non importa come. Guerra nucleare. Collasso climatico. IA impazzita.
-                </p>
-                <p>
-                    Città in rovina. Silenzi mortali. Cenere ovunque.
-                </p>
-                <blockquote>
-                    <i class="ri-double-quotes-l"></i>
-                    Sopravvissi. Come sempre. Ma questa volta, non c'era più nessuno.
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-                <p>
-                    Solo io. Di nuovo. Per sempre.
-                </p>
-            </div>
-        </section>
+      <!-- Chapter 6: Era Moderna -->
+      <div class="chapter-card" data-chapter="6">
+        <div class="card-image">
+          <img src="../assets/moderna.jpg" alt="Era Moderna" />
+          <div class="image-overlay"></div>
+          <div class="chapter-number">06</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-settings-3-line"></i>
+          </div>
+          <h3 class="card-title">RIVOLUZIONE</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> 1700-2020 d.C.</p>
+          <p class="card-desc">Macchinari! Magnificenza! Ma anche... costruivano la loro fine.</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Osservavo con terrore"
+          </div>
+        </div>
+      </div>
 
-        <!-- Chapter 8: La Verità -->
-        <section id="verita" class="chapter truth">
-            <div class="chapter-header">
-                <span class="chapter-number">08</span>
-                <h2 class="chapter-title">La Verità</h2>
-                <span class="chapter-time"><i class="ri-question-line"></i> Dopo la Fine</span>
-            </div>
-            <div class="chapter-content">
-                <p class="lead-text">
-                    Camminai tra le rovine. Anni. Decenni. Secoli.
-                </p>
-                <p>
-                    Poi capii: <strong class="highlight">non ero immortale per privilegio</strong>.
-                </p>
-                <p>
-                    Ero immortale per <em>condanna</em>.
-                </p>
-                <blockquote class="final-quote">
-                    <i class="ri-double-quotes-l"></i>
-                    La Terra voleva un testimone. Qualcuno che vedesse tutto. Ricordasse tutto.
-                    Soffrisse tutto. Io ero il suo occhio eterno, costretto a guardare mentre tutto
-                    ciò che amavo svaniva nel tempo.
-                    <i class="ri-double-quotes-r"></i>
-                </blockquote>
-                <p class="final-line">
-                    <strong>L'immortalità non è un dono. È la più crudele delle prigioni.</strong>
-                </p>
-            </div>
-        </section>
+      <!-- Chapter 7: Apocalisse -->
+      <div class="chapter-card apocalypse" data-chapter="7">
+        <div class="card-image">
+          <img src="../assets/nuclear.jpg" alt="Apocalisse" />
+          <div class="image-overlay red"></div>
+          <div class="chapter-number">07</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-fire-line"></i>
+          </div>
+          <h3 class="card-title">APOCALISSE 2045</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> Tokyo Tower</p>
+          <p class="card-desc">Guerra nucleare. Cercai di morire. Nucleare a pieno impatto. Solo mal di testa.</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Non c'era più nessuno"
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 8: La Verità -->
+      <div class="chapter-card truth" data-chapter="8">
+        <div class="card-image">
+          <img src="../assets/fine.jpg" alt="La Fine" />
+          <div class="image-overlay dark"></div>
+          <div class="chapter-number">?</div>
+        </div>
+        <div class="card-border"></div>
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="ri-question-line"></i>
+          </div>
+          <h3 class="card-title">LA VERITÀ</h3>
+          <p class="card-time"><i class="ri-calendar-line"></i> Dopo la Fine</p>
+          <p class="card-desc">"Credono di essere immortali. Poveri bastardi." Forse ero un professore. Forse... delirio.</p>
+          <div class="card-quote">
+            <i class="ri-quote-text"></i>
+            "Tutti si gettarono al sole"
+          </div>
+        </div>
+      </div>
 
     </main>
 
+    <!-- Fun Interactive Stats -->
+    <section class="stats-section">
+      <h2 class="section-title">
+        <i class="ri-bar-chart-box-line"></i>
+        STATISTICHE DELL'IMMORTALE
+      </h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="ri-calendar-2-line"></i></div>
+          <div class="stat-number" data-target="4500000000">0</div>
+          <div class="stat-label">ANNI VISSUTI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="ri-user-unfollow-line"></i></div>
+          <div class="stat-number" data-target="999999">0</div>
+          <div class="stat-label">AMICI PERSI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="ri-goblet-fill"></i></div>
+          <div class="stat-number" data-target="1825">0</div>
+          <div class="stat-label">GIORNI DI SBORNIA</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="ri-skull-2-line"></i></div>
+          <div class="stat-number" data-target="1">0</div>
+          <div class="stat-label">MORTI TENTATE</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+      <div class="quote-container">
+        <i class="ri-double-quotes-l quote-mark"></i>
+        <p class="quote-text">L'immortalità non è un dono.<br/>È la più crudele delle prigioni.</p>
+        <i class="ri-double-quotes-r quote-mark"></i>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-links">
-            <a href="../Introduzione/index.html"><i class="ri-home-line"></i> Home</a>
-            <a href="../Bambini-Bonsai/BambiniBonsai.html"><i class="ri-flask-line"></i> Bambini Bonsai</a>
-            <a href="../bocca-dell-inferno/BoccaInferno.html"><i class="ri-fire-line"></i> La Bocca Dell'Inferno</a>
-            <a href="../SonnoNewton/IlSonnoDiNewton.html"><i class="ri-rocket-2-line"></i> Il Sonno di Newton</a>
-        </div>
-        <p class="footer-team"><i class="ri-group-line"></i> <strong>#nonetropptardi</strong></p>
-        <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
+      <div class="footer-links">
+        <a href="../Introduzione/index.html"><i class="ri-home-line"></i> Home</a>
+        <a href="../Bambini-Bonsai/BambiniBonsai.html"><i class="ri-flask-line"></i> Bambini Bonsai</a>
+        <a href="../bocca-dell-inferno/BoccaInferno.html"><i class="ri-fire-line"></i> La Bocca Dell'Inferno</a>
+        <a href="../SonnoNewton/IlSonnoDiNewton.html"><i class="ri-rocket-2-line"></i> Il Sonno di Newton</a>
+      </div>
+      <p class="footer-team"><i class="ri-group-line"></i> <strong>#nonetropptardi</strong></p>
+      <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
     </footer>
 
-    <script src="Immortali.js"></script>
+  </div>
+
+  <script src="Immortali.js"></script>
 </body>
 
 </html>

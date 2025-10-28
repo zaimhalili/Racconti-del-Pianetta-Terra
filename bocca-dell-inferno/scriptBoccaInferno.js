@@ -2,11 +2,63 @@
 document.addEventListener('DOMContentLoaded', function(){
 		const container = document.getElementById('summaryContainer');
 		const title = document.querySelector('.hero-title');
+			// Background audio toggle (button + audio element)
+			const audioBtn = document.querySelector('.audio-toggle');
+			const audioEl = document.getElementById('bg-audio');
+			const audioIcon = audioBtn ? audioBtn.querySelector('i') : null;
+			const AUDIO_KEY = 'bgAudioPlaying';
+			let audioPlaying = false;
+			function setAudioState(playing){
+				audioPlaying = !!playing;
+				if(!audioBtn) return;
+				audioBtn.classList.toggle('playing', audioPlaying);
+				audioBtn.setAttribute('aria-pressed', audioPlaying ? 'true' : 'false');
+				if(audioIcon){
+					if(audioPlaying){ audioIcon.classList.remove('ri-music-2-line'); audioIcon.classList.add('ri-music-2-fill'); }
+					else { audioIcon.classList.remove('ri-music-2-fill'); audioIcon.classList.add('ri-music-2-line'); }
+				}
+				try{ localStorage.setItem(AUDIO_KEY, audioPlaying ? '1' : '0'); }catch(e){}
+			}
+
+			if(audioBtn && audioEl){
+				// reflect actual audio element state
+				setAudioState(!audioEl.paused && !audioEl.ended);
+
+				// If user previously enabled audio, attempt to play on next interaction (autoplay policy)
+				if(localStorage.getItem(AUDIO_KEY) === '1'){
+					// mark visually as enabled, actual play will be attempted on user gesture
+					audioBtn.classList.add('playing');
+					const startOnInteraction = ()=>{ audioEl.play().catch(()=>{}); document.removeEventListener('click', startOnInteraction, true); };
+					document.addEventListener('click', startOnInteraction, true);
+				}
+
+				// keep icon in sync if audio is played/paused elsewhere
+				audioEl.addEventListener('play', ()=> setAudioState(true));
+				audioEl.addEventListener('pause', ()=> setAudioState(false));
+
+				audioBtn.addEventListener('click', async function(e){
+					e.preventDefault();
+					if(!audioEl) return;
+					if(!audioEl.paused){
+						audioEl.pause();
+						// setAudioState(false) will be triggered by 'pause' event
+					} else {
+						try{
+							await audioEl.play();
+							// setAudioState(true) will be triggered by 'play' event
+						} catch(err){
+							console.warn('Impossibile avviare la riproduzione audio:', err);
+							audioBtn.classList.add('error');
+							setTimeout(()=> audioBtn.classList.remove('error'), 900);
+						}
+					}
+				});
+			}
 		if(!container) return;
 
-	// summary nav links
-		// nav links: scroll to section and mark active
-		const navLinks = Array.from(document.querySelectorAll('.summary-nav a'));
+		// summary nav links (only anchors that target panels via hashes)
+		// navLinks must align in order with the .panel elements -> select only anchors with href starting with '#'
+		const navLinks = Array.from(document.querySelectorAll('.summary-nav a[href^="#"]'));
 		navLinks.forEach(a=>{
 			a.addEventListener('click', function(e){
 				e.preventDefault();

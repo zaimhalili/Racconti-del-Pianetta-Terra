@@ -45,6 +45,17 @@ body{height:100%;margin:0}
 .nav-links{list-style:none;display:flex;gap:1rem;margin:0;padding:0;justify-content:center}
 .nav-links a{color:rgba(223,238,227,0.9);text-decoration:none;font-weight:600}
 
+/* Audio toggle button in the header nav */
+.audio-toggle{position:relative;z-index:4;display:inline-flex;align-items:center;justify-content:center;gap:0.4rem;border:0;background:transparent;color:var(--panel);cursor:pointer;padding:0.45rem 0.6rem;border-radius:8px;font-size:1.15rem;transition:transform 180ms ease, background 160ms ease, color 160ms ease}
+.audio-toggle i{font-size:1.2rem}
+.audio-toggle:hover{transform:translateY(-3px);background:rgba(255,255,255,0.03)}
+.audio-toggle.playing{color:var(--green-d);background:linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));box-shadow:0 8px 22px rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.06)}
+.audio-toggle.error{animation:shake 420ms ease}
+/* When placed inside the summary nav, make it sit inline with links */
+.summary-nav{position:fixed;top:22px;left:50%;transform:translateX(-50%);z-index:90;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:0.6rem;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.25));padding:0.6rem 1rem;border-radius:12px;backdrop-filter:blur(6px);box-shadow:0 6px 18px rgba(0,0,0,0.45);overflow:auto;white-space:nowrap}
+.summary-nav .audio-toggle{margin-left:0.4rem;flex:0 0 auto}
+@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}100%{transform:translateX(0)}}
+
 .hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:2rem 1rem}
 .hero-title{font-family:'Orbitron', sans-serif;font-size:3.6rem;margin:0;color:var(--green-d);letter-spacing:1px}
 .hero-subtitle{margin:.5rem 0;color:rgba(200,230,200,0.9)}
@@ -67,7 +78,17 @@ pre{white-space:pre-wrap;font-family:inherit;line-height:1.5;color:rgba(220,235,
 .summary-nav{position:fixed;top:22px;left:50%;transform:translateX(-50%);z-index:90;display:flex;flex-direction:row;gap:0.6rem;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.25));padding:0.6rem 1rem;border-radius:12px;backdrop-filter:blur(6px);box-shadow:0 6px 18px rgba(0,0,0,0.45)}
 .summary-nav a{color:var(--text);padding:0.6rem 1rem;text-decoration:none;font-weight:900;opacity:1;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:10px;font-size:1.15rem}
 .summary-nav a:hover{transform:translateY(-4px);transition:transform 160ms ease}
-.summary-nav a.active{background:linear-gradient(180deg,rgba(40,90,50,0.35),rgba(20,60,30,0.25));color:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.45)}
+.summary-nav a{color:var(--text);padding:0.6rem 1rem;text-decoration:none;font-weight:900;opacity:1;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:10px;font-size:1.15rem;transition:transform 160ms ease, box-shadow 200ms ease, background 200ms ease, color 200ms ease}
+.summary-nav a.active{background:linear-gradient(180deg,#2b6b3d,#1f5a33);color:#ffffff;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.06);transform:translateY(-4px) scale(1.02)}
+
+/* Controls area inside summary nav (kept visible and visually separated) */
+.summary-controls{margin-left:auto;display:flex;gap:0.5rem;align-items:center;flex:0 0 auto}
+.summary-nav a{flex:0 0 auto}
+.summary-controls .home-btn{display:inline-flex;align-items:center;justify-content:center;padding:0.45rem 0.6rem;border-radius:8px;color:var(--panel);background:transparent;border:0;cursor:pointer;text-decoration:none;transition:background 160ms ease, transform 140ms ease;box-shadow:none}
+.summary-controls .home-btn i{font-size:1.15rem}
+.summary-controls .home-btn:hover{background:rgba(255,255,255,0.03);transform:translateY(-3px)}
+.summary-controls .home-btn.primary{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04)}
+.summary-controls .audio-toggle{margin-left:0}
 /* Summary container centered box: panels share available height so all are visible */
 .container{display:block;max-width:1100px;margin:0 auto;padding:0}
 .panel{position:relative;background-repeat:no-repeat;background-size:cover;background-position:center}

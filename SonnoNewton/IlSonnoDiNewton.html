@@ -12,236 +12,239 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Background Elements -->
-    <div class="stars"></div>
-    <div class="scanline"></div>
+    <!-- Cosmic Background -->
+    <div class="stars-layer"></div>
+    <div class="nebula-layer"></div>
+    <div class="scan-overlay"></div>
 
-    <!-- Audio Toggle -->
-    <button id="audioToggle" class="audio-toggle" aria-label="Toggle Music">
-        <i class="ri-volume-up-line"></i>
-    </button>
+    <!-- Navigation -->
+    <nav class="space-nav">
+        <a href="../Introduzione/index.html" class="nav-home"><i class="ri-home-line"></i></a>
+        <div class="nav-title">
+            <i class="ri-rocket-2-line"></i>
+            <span>STAZIONE SPES</span>
+        </div>
+    </nav>
 
-    <!-- Control Panel -->
-    <div class="control-panel">
-        <button id="darkModeToggle" class="control-btn" title="Toggle Dark Mode">
-            <i class="ri-moon-line"></i>
-        </button>
-        <button id="infoToggle" class="control-btn" title="Story Info">
-            <i class="ri-information-line"></i>
-        </button>
-    </div>
-
-    <!-- Header -->
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo">
-                <i class="ri-rocket-2-line"></i>
+    <!-- Hero Section -->
+    <header class="cosmic-hero">
+        <img src="https://img.freepik.com/premium-photo/futuristic-space-station-orbiting-planet_1106399-56095.jpg"
+            alt="Space Station" class="hero-bg" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="mission-badge">
+                <i class="ri-spaceship-line"></i>
+                <span>MISSIONE SPES</span>
             </div>
-            <h1 class="main-title">IL SONNO DI NEWTON</h1>
-            <p class="subtitle">Quando la realtà si dissolve tra le stelle</p>
-            <div class="header-stats">
-                <div class="stat">
-                    <i class="ri-spaceship-line"></i>
-                    <span>Stazione SPES</span>
-                </div>
-                <div class="stat">
+            <h1 class="story-title">IL SONNO DI NEWTON</h1>
+            <p class="story-tagline">Quando la realtà si dissolve tra le stelle</p>
+            <div class="hero-stats">
+                <div class="stat-item">
                     <i class="ri-user-3-line"></i>
                     <span>Coloni</span>
                 </div>
-                <div class="stat">
+                <div class="stat-item">
+                    <i class="ri-ghost-line"></i>
+                    <span>Apparizioni</span>
+                </div>
+                <div class="stat-item">
                     <i class="ri-eye-line"></i>
-                    <span>Visioni</span>
+                    <span>Illusioni</span>
                 </div>
             </div>
         </div>
+        <div class="scroll-hint">
+            <span>SCORRI</span>
+            <i class="ri-arrow-down-line"></i>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="story-container">
+    <!-- Story Chapters -->
+    <main class="story-flow">
 
-        <!-- Chapter 1: La Fuga -->
-        <section class="chapter" data-chapter="1">
-            <div class="chapter-header">
-                <span class="chapter-number">01</span>
-                <h2 class="chapter-title"><i class="ri-earth-line"></i> LA FUGA</h2>
+        <!-- Chapter 1 -->
+        <section class="chapter-block split-layout">
+            <div class="chapter-image">
+                <img src="https://img.freepik.com/premium-photo/earth-from-space-with-city-lights_905510-7990.jpg"
+                    alt="Earth from Space" />
+                <div class="chapter-overlay">
+                    <div class="chapter-number">01</div>
+                    <h2>LA FUGA</h2>
+                </div>
             </div>
-            <div class="chapter-content">
-                <div class="info-card">
+            <div class="chapter-story">
+                <div class="story-badge danger">
                     <i class="ri-government-line"></i>
-                    <div>
-                        <h3>Il Golpe</h3>
-                        <p>Governo dell'Unione Atlantica</p>
-                    </div>
+                    <span>Golpe • Governo dell'Unione Atlantica</span>
                 </div>
-                <p class="story-text">
-                    Dopo la <strong>caduta del governo dell'Unione Atlantica</strong>, creatore della società SPES, a
+                <p>Dopo la <strong>caduta del governo dell'Unione Atlantica</strong>, creatore della società SPES, a
                     causa di un golpe, una spedizione raggiunse la <em>California</em> per la creazione di una stazione
-                    spaziale con l'obiettivo di salvare l'umanità e fuggire dal Pianeta Terra.
-                </p>
-                <div class="alert-box danger">
-                    <i class="ri-error-warning-line"></i>
-                    <p>Continue guerre • Riscaldamento climatico • Epidemia devastante</p>
+                    spaziale con l'obiettivo di salvare l'umanità e fuggire dal Pianeta Terra.</p>
+
+                <div class="crisis-grid">
+                    <div class="crisis-item"><i class="ri-sword-line"></i> Guerre Continue</div>
+                    <div class="crisis-item"><i class="ri-temp-hot-line"></i> Riscaldamento</div>
+                    <div class="crisis-item"><i class="ri-virus-line"></i> Epidemia</div>
                 </div>
-                <p class="story-text">
-                    Dopo anni di costruzione, la spedizione partì verso lo spazio, e sulla stazione spaziale,
-                    <strong>Ike</strong>, <strong>Noah</strong> e <strong>Esther</strong>, i figli di Ike e sua moglie,
-                    iniziarono una discussione sul perché più persone sulla Terra non siano partite con loro.
-                </p>
-                <div class="ia-screen">
-                    <div class="screen-header">
-                        <i class="ri-robot-line"></i>
-                        <span>IA Sistema</span>
-                    </div>
-                    <div class="screen-content">
-                        <p>Immagini del pianeta devastato: malattie, guerre, cambiamento climatico</p>
-                    </div>
-                </div>
-                <p class="story-text">
-                    La discussione terminò con Ike che fece notare che gli altri non erano stati abbastanza
-                    <em>razionali</em>, e che i coloni presenti fecero tutti la <strong>scelta</strong> di essere sulla
-                    nave.
-                </p>
+
+                <p>Dopo anni di costruzione, la spedizione partì verso lo spazio. <strong>Ike</strong>,
+                    <strong>Noah</strong> e <strong>Esther</strong> iniziarono una discussione sul perché più persone
+                    sulla Terra non siano partite con loro.</p>
+
+                <blockquote class="ai-display">
+                    <i class="ri-robot-line"></i>
+                    <span>IA SISTEMA: Immagini del pianeta devastato visualizzate</span>
+                </blockquote>
+
+                <p class="highlight">Ike: "Gli altri non erano abbastanza <em>razionali</em>. Noi facemmo la
+                    <strong>scelta</strong> di essere qui."</p>
             </div>
         </section>
 
-        <!-- Chapter 2: L'Assemblea -->
-        <section class="chapter" data-chapter="2">
-            <div class="chapter-header">
-                <span class="chapter-number">02</span>
-                <h2 class="chapter-title"><i class="ri-team-line"></i> L'ASSEMBLEA</h2>
+        <!-- Chapter 2 -->
+        <section class="chapter-block centered-layout">
+            <div class="space-bg">
+                <img src="https://img.freepik.com/premium-photo/interior-spaceship-futuristic-space-station_1028277-114926.jpg"
+                    alt="Space Station Interior" />
             </div>
-            <div class="chapter-content">
-                <div class="timeline-marker">
+            <div class="chapter-content-center">
+                <div class="timeline-badge">
                     <i class="ri-time-line"></i>
-                    <span>1 anno e mezzo dopo</span>
+                    <span>1 ANNO E MEZZO DOPO</span>
                 </div>
-                <p class="story-text">
-                    Un'assemblea che avrebbe dovuto rivedere il <em>Curriculum scolastico</em> finì per diventare un
+                <div class="chapter-header-inline">
+                    <span class="num">02</span>
+                    <h2>L'ASSEMBLEA</h2>
+                </div>
+                <p>Un'assemblea che avrebbe dovuto rivedere il <em>Curriculum scolastico</em> finì per diventare un
                     dibattito politico. Ike si rese conto della presenza di un forte <strong>antisemitismo</strong>,
-                    problemi nella composizione etnica e della natura conservatrice della colonia.
-                </p>
-                <div class="warning-grid">
-                    <div class="warning-item">
-                        <i class="ri-user-forbid-line"></i>
-                        <span>Antisemitismo</span>
-                    </div>
-                    <div class="warning-item">
-                        <i class="ri-group-line"></i>
-                        <span>Tensioni Etniche</span>
-                    </div>
-                    <div class="warning-item">
-                        <i class="ri-shield-cross-line"></i>
-                        <span>Conservatorismo</span>
-                    </div>
+                    problemi nella composizione etnica e della natura conservatrice della colonia.</p>
+
+                <div class="warning-row">
+                    <div class="warning-chip"><i class="ri-user-forbid-line"></i> Antisemitismo</div>
+                    <div class="warning-chip"><i class="ri-group-line"></i> Tensioni Etniche</div>
+                    <div class="warning-chip"><i class="ri-shield-cross-line"></i> Conservatorismo</div>
                 </div>
             </div>
         </section>
 
-        <!-- Chapter 3: Le Apparizioni -->
-        <section class="chapter" data-chapter="3">
-            <div class="chapter-header">
-                <span class="chapter-number">03</span>
-                <h2 class="chapter-title"><i class="ri-ghost-line"></i> LE APPARIZIONI</h2>
-            </div>
-            <div class="chapter-content">
-                <div class="alert-box mystery">
-                    <i class="ri-eye-2-line"></i>
-                    <p>Un evento sconvolse i ragazzi della Colonia...</p>
+        <!-- Chapter 3 -->
+        <section class="chapter-block split-layout reverse">
+            <div class="chapter-story">
+                <div class="chapter-header-inline">
+                    <span class="num">03</span>
+                    <h2>LE APPARIZIONI</h2>
                 </div>
-                <p class="story-text">
-                    L'apparizione di una <strong>"donna bruciata"</strong>. Alcune bambine la chiamarono così a causa di
-                    alcuni video di storia. Esther capì che si trattava di una <em>donna nera</em>.
-                </p>
-                <div class="character-card">
+
+                <div class="story-badge mystery">
+                    <i class="ri-ghost-line"></i>
+                    <span>Un evento sconvolse i ragazzi della Colonia</span>
+                </div>
+
+                <p>L'apparizione di una <strong>"donna bruciata"</strong>. Alcune bambine la chiamarono così a causa di
+                    alcuni video di storia. Esther capì che si trattava di una <em>donna nera</em>.</p>
+
+                <div class="character-intro">
                     <i class="ri-user-heart-line"></i>
-                    <div class="character-info">
-                        <h3>Esther</h3>
+                    <div>
+                        <h4>Esther</h4>
                         <p>Una ragazza che aveva vissuto la Terra, seppur per poco</p>
                     </div>
                 </div>
-                <p class="story-text">
-                    Tornando a casa, vide sua madre piangere. Suo zio era morto a causa di una malattia chiamata <strong
-                        class="disease">RMV</strong>.
-                </p>
-                <p class="story-text">
-                    Dopo averla consolata, Esther chiese alla madre il permesso per andare a vivere nel <em>dormitorio
+
+                <p>Tornando a casa, vide sua madre piangere. Suo zio era morto a causa di una malattia chiamata <strong
+                        class="disease-text">RMV</strong>.</p>
+                <p>Dopo averla consolata, Esther chiese alla madre il permesso per andare a vivere nel <em>dormitorio
                         della Colonia</em>. Nonostante sapesse quale sarebbe stata la reazione del padre, la incoraggiò.
                 </p>
             </div>
+            <div class="chapter-image">
+                <img src="https://img.freepik.com/premium-photo/dark-corridor-with-light-end-it_1260445-31853.jpg"
+                    alt="Space Station Corridor" />
+                <div class="chapter-overlay">
+                    <div class="chapter-number">03</div>
+                </div>
+            </div>
         </section>
 
-        <!-- Chapter 4: Il Trapianto -->
-        <section class="chapter" data-chapter="4">
-            <div class="chapter-header">
-                <span class="chapter-number">04</span>
-                <h2 class="chapter-title"><i class="ri-eye-close-line"></i> IL TRAPIANTO</h2>
-            </div>
-            <div class="chapter-content">
-                <p class="story-text">
-                    Ike accettò la richiesta della figlia e comunicò che in <strong>30 giorni</strong> avrebbe potuto
-                    avere un <em>trapianto oculare</em> per sistemare i suoi occhi.
-                </p>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-number">30</span>
-                        <span class="countdown-label">giorni</span>
-                    </div>
+        <!-- Chapter 4 -->
+        <section class="chapter-block split-layout">
+            <div class="chapter-image">
+                <img src="https://img.freepik.com/premium-photo/futuristic-medical-room-with-advanced-technology-equipment_1288657-6251.jpg"
+                    alt="Medical Bay" />
+                <div class="chapter-overlay">
+                    <div class="chapter-number">04</div>
+                    <h2>IL TRAPIANTO</h2>
                 </div>
-                <p class="story-text">
-                    Durante la preparazione, <strong>Noah</strong> andò dalla sorella raccontandole dell'avvistamento di
-                    una <em>"strega"</em> con gli occhi asiatici, e la aggiornò sulla "donna bruciata": persone nere
-                    erano state avvistate sedute ad un tavolo durante una riunione.
-                </p>
-                <div class="alert-box warning">
+            </div>
+            <div class="chapter-story">
+                <p>Ike accettò la richiesta della figlia e comunicò che in <strong>30 giorni</strong> avrebbe potuto
+                    avere un <em>trapianto oculare</em> per sistemare i suoi occhi.</p>
+
+                <div class="countdown-display">
+                    <div class="countdown-num">30</div>
+                    <div class="countdown-label">giorni</div>
+                </div>
+
+                <p>Durante la preparazione, <strong>Noah</strong> andò dalla sorella raccontandole dell'avvistamento di
+                    una <em>"strega"</em> con gli occhi asiatici. Persone nere erano state avvistate sedute ad un tavolo
+                    durante una riunione.</p>
+
+                <div class="medical-warning">
                     <i class="ri-medicine-bottle-line"></i>
-                    <p><strong>Avviso medico:</strong> Piccola possibilità di rigetto. Il corpo potrebbe rifiutare i
+                    <p><strong>AVVISO MEDICO:</strong> Piccola possibilità di rigetto. Il corpo potrebbe rifiutare i
                         nuovi occhi, rendendo la paziente cieca fino ad una nuova operazione.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Chapter 5: I Fantasmi -->
-        <section class="chapter" data-chapter="5">
-            <div class="chapter-header">
-                <span class="chapter-number">05</span>
-                <h2 class="chapter-title"><i class="ri-ghost-2-line"></i> I FANTASMI AUMENTANO</h2>
+        <!-- Chapter 5 -->
+        <section class="chapter-block centered-layout dark">
+            <div class="space-bg">
+                <img src="https://img.freepik.com/premium-photo/dark-empty-hallway-with-window-light-shining-through-it_1249303-29934.jpg"
+                    alt="Dark Corridor" />
             </div>
-            <div class="chapter-content">
-                <p class="story-text">
-                    Ike, dirigendosi verso il centro medico, vide assieme a <strong>Laxness</strong> un ragazzo simile
+            <div class="chapter-content-center">
+                <div class="chapter-header-inline">
+                    <span class="num">05</span>
+                    <h2>I FANTASMI AUMENTANO</h2>
+                </div>
+
+                <p>Ike, dirigendosi verso il centro medico, vide assieme a <strong>Laxness</strong> un ragazzo simile
                     alle figure avvistate in precedenza. Laxness iniziò a spaventarsi ma Ike gli assicurò che la
-                    questione sarebbe stata discussa.
-                </p>
-                <div class="discussion-box">
+                    questione sarebbe stata discussa.</p>
+
+                <div class="theory-box">
                     <i class="ri-tools-line"></i>
-                    <h3>In Officina - Teorie sulle apparizioni</h3>
+                    <h4>In Officina - Teorie sulle apparizioni</h4>
                     <ul>
                         <li>Alcune persone affermano di averne viste</li>
                         <li>Sembrano provenire dalla Terra</li>
                         <li>Natura sconosciuta</li>
                     </ul>
                 </div>
-                <p class="story-text">
-                    Esther pian piano riprese la vista. Ike continuava a opporsi all'idea che qualcun altro, a parte i
-                    coloni, fosse presente sulla nave, affermando che le apparizioni non erano altro che
-                    <em>allucinazioni condivise</em>.
-                </p>
-                <div class="vision-list">
-                    <h3><i class="ri-stack-line"></i> Le Visioni Aumentano</h3>
-                    <div class="vision-item">
+
+                <p>Esther pian piano riprese la vista. Ike continuava a opporsi all'idea che qualcun altro fosse
+                    presente sulla nave, affermando che le apparizioni non erano altro che <em>allucinazioni
+                        condivise</em>.</p>
+
+                <div class="vision-progression">
+                    <div class="vision-step">
                         <i class="ri-user-line"></i>
                         <span>Persone</span>
                     </div>
-                    <div class="vision-item">
+                    <div class="arrow">→</div>
+                    <div class="vision-step">
                         <i class="ri-bear-smile-line"></i>
                         <span>Animali</span>
                     </div>
-                    <div class="vision-item">
+                    <div class="arrow">→</div>
+                    <div class="vision-step">
                         <i class="ri-plant-line"></i>
                         <span>Piante</span>
                     </div>
@@ -249,97 +252,89 @@
             </div>
         </section>
 
-        <!-- Chapter 6: Il Dubbio -->
-        <section class="chapter" data-chapter="6">
-            <div class="chapter-header">
-                <span class="chapter-number">06</span>
-                <h2 class="chapter-title"><i class="ri-question-line"></i> IL DUBBIO</h2>
-            </div>
-            <div class="chapter-content">
-                <div class="character-card susan">
+        <!-- Chapter 6 -->
+        <section class="chapter-block split-layout reverse">
+            <div class="chapter-story">
+                <div class="chapter-header-inline">
+                    <span class="num">06</span>
+                    <h2>IL DUBBIO</h2>
+                </div>
+
+                <div class="character-intro susan">
                     <i class="ri-user-smile-line"></i>
-                    <div class="character-info">
-                        <h3>Susan</h3>
+                    <div>
+                        <h4>Susan</h4>
                         <p>Iniziò a riflettere sul senso di queste apparizioni</p>
                     </div>
                 </div>
-                <p class="story-text important">
-                    Susan si convinse che l'idea di lasciare la Terra fosse in realtà un <strong>errore</strong>. Ike
-                    però rimase ragionevole, e Susan se ne andò.
-                </p>
-                <div class="warnings-sequence">
-                    <p class="story-text">
-                        Mentre andava al centro medico, Ike continuava a venire avvertito dagli altri coloni:
-                    </p>
-                    <div class="sequence-item">
-                        <i class="ri-contrast-drop-2-line"></i>
-                        <span>Si sta dirigendo verso un gregge di pecore</span>
-                    </div>
-                    <div class="sequence-item">
-                        <i class="ri-fire-line"></i>
-                        <span>Sta andando verso una tribù di selvaggi</span>
-                    </div>
-                    <div class="sequence-item">
-                        <i class="ri-water-flash-line"></i>
-                        <span>C'è una palude davanti</span>
-                    </div>
+
+                <p class="important-line">Susan si convinse che l'idea di lasciare la Terra fosse in realtà un
+                    <strong>errore</strong>. Ike però rimase ragionevole, e Susan se ne andò.</p>
+
+                <p>Mentre andava al centro medico, Ike continuava a venire avvertito dagli altri coloni:</p>
+
+                <div class="warning-sequence">
+                    <div class="warning-line"><i class="ri-contrast-drop-2-line"></i> Si sta dirigendo verso un gregge
+                        di pecore</div>
+                    <div class="warning-line"><i class="ri-fire-line"></i> Sta andando verso una tribù di selvaggi</div>
+                    <div class="warning-line"><i class="ri-water-flash-line"></i> C'è una palude davanti</div>
                 </div>
-                <p class="story-text emphasis">
-                    Lui però <strong>non vedeva nulla</strong>.
-                </p>
+
+                <p class="emphasis-text">Lui però <strong>NON VEDEVA NULLA</strong>.</p>
+            </div>
+            <div class="chapter-image">
+                <img src="https://img.freepik.com/premium-photo/futuristic-corridor-with-light-end_1057389-127652.jpg"
+                    alt="Station Corridor" />
+                <div class="chapter-overlay">
+                    <div class="chapter-number">06</div>
+                </div>
             </div>
         </section>
 
-        <!-- Chapter 7: La Montagna -->
-        <section class="chapter final-chapter" data-chapter="7">
-            <div class="chapter-header">
-                <span class="chapter-number">07</span>
-                <h2 class="chapter-title"><i class="ri-mountain-line"></i> LA MONTAGNA</h2>
+        <!-- Chapter 7 - Final -->
+        <section class="chapter-block full-screen climax">
+            <div class="space-bg">
+                <img src="https://img.freepik.com/premium-photo/mountain-peaks-with-stars-sky_1151490-30987.jpg"
+                    alt="Mountain Peaks" />
             </div>
-            <div class="chapter-content">
-                <div class="alert-box danger">
+            <div class="chapter-content-center final">
+                <div class="chapter-header-inline">
+                    <span class="num">07</span>
+                    <h2>LA MONTAGNA</h2>
+                </div>
+
+                <div class="urgent-message">
                     <i class="ri-mail-line"></i>
                     <p><strong>Lettera dall'infermiera:</strong> Esther se n'era andata. È andata in montagna.</p>
                 </div>
-                <p class="story-text">
-                    Destabilizzato, Ike se ne andò a fare due passi, ma misteriosamente <em>inciampò</em> come su una
-                    superficie ruvida, rocciosa e irregolare.
-                </p>
-                <div class="sensation-grid">
-                    <div class="sensation">
-                        <i class="ri-contrast-drop-line"></i>
-                        <span>Sangue</span>
-                    </div>
-                    <div class="sensation">
-                        <i class="ri-hard-drive-2-line"></i>
-                        <span>Roccia</span>
-                    </div>
-                    <div class="sensation">
-                        <i class="ri-footprint-line"></i>
-                        <span>Superficie irregolare</span>
-                    </div>
+
+                <p>Destabilizzato, Ike se ne andò a fare due passi, ma misteriosamente <em>inciampò</em> come su una
+                    superficie ruvida, rocciosa e irregolare.</p>
+
+                <div class="sensation-display">
+                    <div class="sensation"><i class="ri-contrast-drop-line"></i> Sangue</div>
+                    <div class="sensation"><i class="ri-hard-drive-2-line"></i> Roccia</div>
+                    <div class="sensation"><i class="ri-footprint-line"></i> Irregolare</div>
                 </div>
-                <p class="story-text">
-                    Iniziò a chiamare <strong>Esther</strong>, ma senza risposta. Continuò a camminare finché non sentì
-                    la voce della madre che lo chiamava, e iniziò a seguirla.
-                </p>
-                <p class="story-text emphasis">
-                    Gli pareva di stare <em>scalando una montagna</em>.
-                </p>
-                <div class="mountain-scene">
+
+                <p>Iniziò a chiamare <strong>Esther</strong>, ma senza risposta. Continuò a camminare finché non sentì
+                    la voce della madre che lo chiamava.</p>
+
+                <p class="revelation">Gli pareva di stare <em>scalando una montagna</em>.</p>
+
+                <div class="mountain-vision">
                     <i class="ri-snowy-line"></i>
-                    <div class="scene-text">
-                        <p>Trovò Esther vicino a quello che pareva granito</p>
-                        <p>Vide uno strapiombo, vette innevate</p>
-                    </div>
+                    <p>Trovò Esther vicino a quello che pareva granito</p>
+                    <p>Vide uno strapiombo, vette innevate</p>
                 </div>
-                <div class="final-dialogue">
+
+                <div class="final-words">
                     <i class="ri-chat-quote-line"></i>
-                    <p class="dialogue">
-                        La ragazza lo guardò e gli disse: <strong>"Ora possiamo scendere."</strong>
-                    </p>
+                    <p class="dialogue">La ragazza lo guardò e gli disse:</p>
+                    <p class="quote">"Ora possiamo scendere."</p>
                 </div>
-                <div class="ending-card">
+
+                <div class="epilogue-box">
                     <i class="ri-moon-foggy-line"></i>
                     <p>Quando la realtà si dissolve tra le stelle, anche la montagna diventa possibile.</p>
                 </div>
@@ -349,17 +344,16 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
+    <footer class="space-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
                 <a href="../Introduzione/index.html"><i class="ri-home-line"></i> Home</a>
                 <a href="../Bambini-Bonsai/BambiniBonsai.html"><i class="ri-flask-line"></i> Bambini Bonsai</a>
                 <a href="../Gli-Immortali/Immortali.html"><i class="ri-infinity-line"></i> Gli Immortali</a>
                 <a href="../bocca-dell-inferno/BoccaInferno.html"><i class="ri-fire-line"></i> La Bocca Dell'Inferno</a>
             </div>
-            <p class="footer-text">
-                <i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra
-            </p>
+            <p class="footer-team"><i class="ri-group-line"></i> <strong>nØnètroppotardi</strong></p>
+            <p class="footer-copy"><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
         </div>
     </footer>
 

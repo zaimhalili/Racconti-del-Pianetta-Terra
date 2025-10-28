@@ -1,0 +1,1055 @@
+/* ==========================================
+   IL SONNO DI NEWTON - DYSTOPIAN SPACE THEME
+   ========================================== */
+
+:root {
+    /* Dystopian Space Colors */
+    --space-black: #0a0a0f;
+    --space-dark: #1a1a2e;
+    --space-darker: #16161f;
+    --space-blue: #00d9ff;
+    --space-purple: #9d00ff;
+    --space-red: #ff0055;
+    --space-gold: #ffd700;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0c0;
+    --text-muted: #606070;
+
+    /* Component colors */
+    --card-bg: rgba(26, 26, 46, 0.8);
+    --card-border: rgba(0, 217, 255, 0.3);
+    --glow-blue: rgba(0, 217, 255, 0.5);
+    --glow-purple: rgba(157, 0, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--space-black);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   BACKGROUND EFFECTS
+   ========================================== */
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(1px 1px at 15% 90%, white, transparent);
+    background-size: 200% 200%;
+    animation: twinkle 10s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to bottom, transparent, var(--space-blue), transparent);
+    z-index: 100;
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* ==========================================
+   CONTROLS
+   ========================================== */
+
+.audio-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 2px solid var(--space-blue);
+    border-radius: 50%;
+    color: var(--space-blue);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--glow-blue);
+}
+
+.audio-toggle:hover {
+    background: var(--space-blue);
+    color: var(--space-black);
+    transform: scale(1.1);
+}
+
+.audio-toggle.playing {
+    border-color: var(--space-purple);
+    color: var(--space-purple);
+    box-shadow: 0 0 20px var(--glow-purple);
+}
+
+.control-panel {
+    position: fixed;
+    top: 5rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--space-blue);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    border-color: var(--space-blue);
+    box-shadow: 0 0 15px var(--glow-blue);
+    transform: translateX(-5px);
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.main-header {
+    position: relative;
+    z-index: 10;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--space-darker) 0%, transparent 100%);
+    border-bottom: 2px solid var(--space-blue);
+}
+
+.logo {
+    font-size: 4rem;
+    color: var(--space-blue);
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px var(--glow-blue);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.header-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--space-blue);
+}
+
+.stat i {
+    font-size: 1.5rem;
+}
+
+/* ==========================================
+   STORY CONTAINER
+   ========================================== */
+
+.story-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* ==========================================
+   CHAPTERS
+   ========================================== */
+
+.chapter {
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+    clip-path: polygon(15px 0,
+            100% 0,
+            100% calc(100% - 15px),
+            calc(100% - 15px) 100%,
+            0 100%,
+            0 15px);
+}
+
+.chapter:hover {
+    border-color: var(--space-blue);
+    box-shadow: 0 0 40px var(--glow-blue);
+}
+
+.final-chapter {
+    border-color: var(--space-red);
+}
+
+.final-chapter:hover {
+    box-shadow: 0 0 40px rgba(255, 0, 85, 0.5);
+}
+
+.chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--card-border);
+}
+
+.chapter-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--space-blue);
+    text-shadow: 0 0 20px var(--glow-blue);
+}
+
+.chapter-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.chapter-title i {
+    color: var(--space-blue);
+}
+
+.chapter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.story-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.story-text strong {
+    color: var(--space-blue);
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--glow-blue);
+}
+
+.story-text em {
+    color: var(--space-purple);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.story-text.important {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.story-text.emphasis {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--space-blue);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 20px var(--glow-blue);
+}
+
+/* ==========================================
+   COMPONENT CARDS
+   ========================================== */
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border-left: 4px solid var(--space-blue);
+    border-radius: 8px;
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    color: var(--space-blue);
+}
+
+.info-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+}
+
+.info-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.alert-box {
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid;
+}
+
+.alert-box i {
+    font-size: 2rem;
+}
+
+.alert-box.danger {
+    background: rgba(255, 0, 85, 0.1);
+    border-color: var(--space-red);
+    color: var(--space-red);
+}
+
+.alert-box.warning {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--space-gold);
+    color: var(--space-gold);
+}
+
+.alert-box.mystery {
+    background: rgba(157, 0, 255, 0.1);
+    border-color: var(--space-purple);
+    color: var(--space-purple);
+}
+
+.alert-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.alert-box strong {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   IA SCREEN
+   ========================================== */
+
+.ia-screen {
+    background: var(--space-darker);
+    border: 2px solid var(--space-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px var(--glow-blue);
+}
+
+.screen-header {
+    background: var(--space-blue);
+    color: var(--space-black);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.screen-header i {
+    font-size: 1.5rem;
+}
+
+.screen-content {
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    color: var(--space-blue);
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   TIMELINE
+   ========================================== */
+
+.timeline-marker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(157, 0, 255, 0.2);
+    border: 2px solid var(--space-purple);
+    border-radius: 50px;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: var(--space-purple);
+}
+
+.timeline-marker i {
+    font-size: 1.3rem;
+}
+
+/* ==========================================
+   WARNING GRID
+   ========================================== */
+
+.warning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.warning-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: rgba(255, 0, 85, 0.1);
+    border: 2px solid var(--space-red);
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--space-red);
+}
+
+.warning-item i {
+    font-size: 1.5rem;
+}
+
+/* ==========================================
+   CHARACTER CARDS
+   ========================================== */
+
+.character-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: rgba(0, 217, 255, 0.05);
+    border: 2px solid var(--space-blue);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 30px var(--glow-blue);
+}
+
+.character-card i {
+    font-size: 3rem;
+    color: var(--space-blue);
+}
+
+.character-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.character-info p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.character-card.susan {
+    border-color: var(--space-purple);
+}
+
+.character-card.susan i {
+    color: var(--space-purple);
+}
+
+/* ==========================================
+   DISEASE HIGHLIGHT
+   ========================================== */
+
+.disease {
+    color: var(--space-red);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(255, 0, 85, 0.8);
+}
+
+/* ==========================================
+   COUNTDOWN
+   ========================================== */
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.countdown-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--space-blue);
+    text-shadow: 0 0 40px var(--glow-blue);
+}
+
+.countdown-label {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-secondary);
+}
+
+/* ==========================================
+   DISCUSSION BOX
+   ========================================== */
+
+.discussion-box {
+    background: rgba(157, 0, 255, 0.1);
+    border: 2px solid var(--space-purple);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.discussion-box i {
+    font-size: 2rem;
+    color: var(--space-purple);
+    margin-bottom: 1rem;
+}
+
+.discussion-box h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: var(--space-purple);
+}
+
+.discussion-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.discussion-box li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.discussion-box li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--space-purple);
+    font-weight: bold;
+}
+
+/* ==========================================
+   VISION LIST
+   ========================================== */
+
+.vision-list {
+    padding: 2rem;
+    background: rgba(0, 217, 255, 0.05);
+    border: 2px solid var(--space-blue);
+    border-radius: 8px;
+}
+
+.vision-list h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--space-blue);
+}
+
+.vision-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: rgba(0, 217, 255, 0.1);
+    border-left: 4px solid var(--space-blue);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.vision-item:hover {
+    transform: translateX(10px);
+    background: rgba(0, 217, 255, 0.2);
+}
+
+.vision-item i {
+    font-size: 1.8rem;
+    color: var(--space-blue);
+}
+
+/* ==========================================
+   WARNING SEQUENCE
+   ========================================== */
+
+.warnings-sequence {
+    padding: 2rem;
+    background: rgba(255, 215, 0, 0.05);
+    border: 2px solid var(--space-gold);
+    border-radius: 8px;
+}
+
+.sequence-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 4px solid var(--space-gold);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: var(--space-gold);
+}
+
+.sequence-item i {
+    font-size: 1.8rem;
+}
+
+/* ==========================================
+   SENSATION GRID
+   ========================================== */
+
+.sensation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.sensation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    background: rgba(255, 0, 85, 0.1);
+    border: 2px solid var(--space-red);
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--space-red);
+}
+
+.sensation i {
+    font-size: 2rem;
+}
+
+/* ==========================================
+   MOUNTAIN SCENE
+   ========================================== */
+
+.mountain-scene {
+    padding: 3rem;
+    background: linear-gradient(to bottom, rgba(0, 217, 255, 0.1) 0%, rgba(157, 0, 255, 0.1) 100%);
+    border: 2px solid var(--space-blue);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.mountain-scene i {
+    font-size: 5rem;
+    color: var(--space-blue);
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.scene-text p {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* ==========================================
+   FINAL DIALOGUE
+   ========================================== */
+
+.final-dialogue {
+    padding: 2rem;
+    background: rgba(157, 0, 255, 0.1);
+    border: 3px solid var(--space-purple);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.final-dialogue i {
+    font-size: 3rem;
+    color: var(--space-purple);
+    margin-bottom: 1rem;
+}
+
+.dialogue {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+.dialogue strong {
+    color: var(--space-purple);
+    font-size: 1.7rem;
+    text-shadow: 0 0 20px var(--glow-purple);
+}
+
+/* ==========================================
+   ENDING CARD
+   ========================================== */
+
+.ending-card {
+    padding: 3rem;
+    background: rgba(255, 0, 85, 0.1);
+    border: 3px solid var(--space-red);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.ending-card i {
+    font-size: 4rem;
+    color: var(--space-red);
+    margin-bottom: 1.5rem;
+}
+
+.ending-card p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    position: relative;
+    z-index: 10;
+    background: var(--space-darker);
+    border-top: 2px solid var(--space-blue);
+    padding: 3rem 2rem;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--space-blue);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 15px var(--glow-blue);
+    transform: translateY(-2px);
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 1200px) {
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .chapter {
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+
+    .chapter-title {
+        font-size: 1.7rem;
+    }
+
+    .chapter-number {
+        font-size: 2.5rem;
+    }
+
+    .audio-toggle,
+    .control-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .warning-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 4rem 1.5rem 2rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .logo {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .header-stats {
+        gap: 1.5rem;
+    }
+
+    .story-container {
+        padding: 2rem 1rem;
+    }
+
+    .chapter {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .chapter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .chapter-title {
+        font-size: 1.5rem;
+    }
+
+    .story-text {
+        font-size: 1.1rem;
+    }
+
+    .countdown-number {
+        font-size: 4rem;
+    }
+
+    .audio-toggle {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .control-panel {
+        top: 4rem;
+        right: 1.5rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.7rem;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .chapter {
+        padding: 1.5rem;
+    }
+
+    .chapter-number {
+        font-size: 2rem;
+    }
+
+    .chapter-title {
+        font-size: 1.3rem;
+    }
+
+    .story-text {
+        font-size: 1rem;
+    }
+
+    .character-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sensation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .countdown-number {
+        font-size: 3rem;
+    }
+
+    .mountain-scene i {
+        font-size: 3.5rem;
+    }
+}

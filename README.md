@@ -348,7 +348,7 @@ Questo progetto è un'opera creativa. Tutti i diritti sui racconti e sul design 
 
 ### 🌟 Esplora i Racconti del Pianetta Terra
 
-**[Visita il Sito](https://your-vercel-url.vercel.app)**
+**[Visita il Sito](https://nonetroppotardi.vercel.app)**
 
 *Made with 💜 by #nonetropptardi*
 

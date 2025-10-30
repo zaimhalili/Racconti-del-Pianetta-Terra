@@ -1,185 +1,175 @@
-// Interattività: toggle del testo completo + piccolo effetto glitch per tema distopico
-document.addEventListener('DOMContentLoaded', function(){
-		const container = document.getElementById('summaryContainer');
-		const title = document.querySelector('.hero-title');
-			// Background audio toggle (button + audio element)
-			const audioBtn = document.querySelector('.audio-toggle');
-			const audioEl = document.getElementById('bg-audio');
-			const audioIcon = audioBtn ? audioBtn.querySelector('i') : null;
-			const AUDIO_KEY = 'bgAudioPlaying';
-			let audioPlaying = false;
-			function setAudioState(playing){
-				audioPlaying = !!playing;
-				if(!audioBtn) return;
-				audioBtn.classList.toggle('playing', audioPlaying);
-				audioBtn.setAttribute('aria-pressed', audioPlaying ? 'true' : 'false');
-				if(audioIcon){
-					if(audioPlaying){ audioIcon.classList.remove('ri-music-2-line'); audioIcon.classList.add('ri-music-2-fill'); }
-					else { audioIcon.classList.remove('ri-music-2-fill'); audioIcon.classList.add('ri-music-2-line'); }
-				}
-				try{ localStorage.setItem(AUDIO_KEY, audioPlaying ? '1' : '0'); }catch(e){}
+﻿// Forest-themed interactive page
+document.addEventListener('DOMContentLoaded', function () {
+	// Fade-in animations
+	const fadeElements = document.querySelectorAll('.fade-in, .story-section, .reveal');
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
 			}
-
-			if(audioBtn && audioEl){
-				// reflect actual audio element state
-				setAudioState(!audioEl.paused && !audioEl.ended);
-
-				// If user previously enabled audio, attempt to play on next interaction (autoplay policy)
-				if(localStorage.getItem(AUDIO_KEY) === '1'){
-					// mark visually as enabled, actual play will be attempted on user gesture
-					audioBtn.classList.add('playing');
-					const startOnInteraction = ()=>{ audioEl.play().catch(()=>{}); document.removeEventListener('click', startOnInteraction, true); };
-					document.addEventListener('click', startOnInteraction, true);
-				}
-
-				// keep icon in sync if audio is played/paused elsewhere
-				audioEl.addEventListener('play', ()=> setAudioState(true));
-				audioEl.addEventListener('pause', ()=> setAudioState(false));
-
-				audioBtn.addEventListener('click', async function(e){
-					e.preventDefault();
-					if(!audioEl) return;
-					if(!audioEl.paused){
-						audioEl.pause();
-						// setAudioState(false) will be triggered by 'pause' event
-					} else {
-						try{
-							await audioEl.play();
-							// setAudioState(true) will be triggered by 'play' event
-						} catch(err){
-							console.warn('Impossibile avviare la riproduzione audio:', err);
-							audioBtn.classList.add('error');
-							setTimeout(()=> audioBtn.classList.remove('error'), 900);
-						}
-					}
-				});
-			}
-		if(!container) return;
-
-		// summary nav links (only anchors that target panels via hashes)
-		// navLinks must align in order with the .panel elements -> select only anchors with href starting with '#'
-		const navLinks = Array.from(document.querySelectorAll('.summary-nav a[href^="#"]'));
-		navLinks.forEach(a=>{
-			a.addEventListener('click', function(e){
-				e.preventDefault();
-				const targetId = this.getAttribute('href').slice(1);
-				const target = document.getElementById(targetId);
-				// If we have a scrollable #viewport, scroll within it. Otherwise fallback to window
-				const scrollContainer = document.getElementById('viewport') || window;
-				if(scrollContainer === window){
-					target.scrollIntoView({behavior:'smooth', block:'start'});
-				} else {
-					// compute top of target relative to the viewport container and scroll
-					const containerRect = scrollContainer.getBoundingClientRect();
-					const targetRect = target.getBoundingClientRect();
-					const offset = targetRect.top - containerRect.top + scrollContainer.scrollTop;
-					scrollContainer.scrollTo({top: offset, behavior: 'smooth'});
-				}
-				// tiny glitch feedback
-				if(title){ title.classList.add('glitch-active'); setTimeout(()=> title.classList.remove('glitch-active'), 700);}    
-			});
 		});
-
-		// highlight active link based on scroll position
-		const panels = Array.from(document.querySelectorAll('.panel'));
-		const viewport = document.getElementById('viewport');
-
-		// Use IntersectionObserver to detect which panel is most visible inside the scroll container.
-		// Root is the #viewport element when present, otherwise the browser viewport (null).
-		const observerRoot = viewport || null;
-		const observerOptions = {
-			root: observerRoot,
-			rootMargin: '0px',
-			threshold: [0.45, 0.6]
-		};
-
-		let currentActive = -1;
-		const io = new IntersectionObserver((entries)=>{
-			// Find the entry with highest intersectionRatio above threshold
-			let bestEntry = null;
-			entries.forEach(e=>{
-				if(e.isIntersecting){
-					if(!bestEntry || e.intersectionRatio > bestEntry.intersectionRatio) bestEntry = e;
-				}
-			});
-			if(bestEntry){
-				const id = bestEntry.target.id;
-				const idx = panels.findIndex(p=>p.id === id);
-				if(idx !== -1 && idx !== currentActive){
-					currentActive = idx;
-					navLinks.forEach((a,i)=> a.classList.toggle('active', i===idx));
-					// make overlay visible for the active panel and hide others
-					panels.forEach((p,i)=>{
-						const overlay = p.querySelector('.panel-overlay');
-						if(overlay) overlay.classList.toggle('visible', i===idx);
-						// also toggle active class on panel for image animations
-						p.classList.toggle('active', i===idx);
-					});
-				}
-			}
-		}, observerOptions);
-
-		panels.forEach(p=> io.observe(p));
-
-		// Fallback: keep a cheap updateActive for older browsers or immediate sync
-		function updateActiveFallback(){
-			let midlineY = observerRoot ? (observerRoot.getBoundingClientRect().top + observerRoot.getBoundingClientRect().height/2) : window.innerHeight/2;
-			let idx = panels.findIndex(p=>{
-				const r = p.getBoundingClientRect();
-				return r.top <= midlineY && r.bottom >= midlineY;
-			});
-			if(idx === -1) idx = 0;
-			currentActive = idx;
-			navLinks.forEach((a,i)=> a.classList.toggle('active', i===idx));
-			panels.forEach((p,i)=>{
-				const overlay = p.querySelector('.panel-overlay');
-				if(overlay) overlay.classList.toggle('visible', i===idx);
-				// toggle active class for image transitions
-				p.classList.toggle('active', i===idx);
-			});
-		}
-		if(viewport){
-			viewport.addEventListener('scroll', updateActiveFallback, {passive:true});
-			new ResizeObserver(updateActiveFallback).observe(viewport);
-		} else {
-			window.addEventListener('scroll', updateActiveFallback, {passive:true});
-			window.addEventListener('resize', updateActiveFallback);
-		}
-		// initial sync
-		updateActiveFallback();
-
-	// Optional: keyboard navigation
-	document.addEventListener('keydown', function(e){
-		if(container.classList.contains('hidden')) return;
-		const panels = Array.from(document.querySelectorAll('.panel'));
-		// find current index relative to viewport midline
-		let midlineY = viewport ? (viewport.getBoundingClientRect().top + viewport.getBoundingClientRect().height/2) : window.innerHeight/2;
-		const current = panels.findIndex(p=>{
-			const r = p.getBoundingClientRect();
-			return r.top <= midlineY && r.bottom >= midlineY;
-		});
-		const scrollContainer = viewport || window;
-		if(e.key === 'ArrowDown' && current < panels.length-1){
-			const target = panels[current+1];
-			if(scrollContainer === window) target.scrollIntoView({behavior:'smooth'});
-			else {
-				const rect = scrollContainer.getBoundingClientRect();
-				const targetRect = target.getBoundingClientRect();
-				const offset = targetRect.top - rect.top + scrollContainer.scrollTop;
-				scrollContainer.scrollTo({top: offset, behavior: 'smooth'});
-			}
-		} else if(e.key === 'ArrowUp' && current > 0){
-			const target = panels[current-1];
-			if(scrollContainer === window) target.scrollIntoView({behavior:'smooth'});
-			else {
-				const rect = scrollContainer.getBoundingClientRect();
-				const targetRect = target.getBoundingClientRect();
-				const offset = targetRect.top - rect.top + scrollContainer.scrollTop;
-				scrollContainer.scrollTo({top: offset, behavior: 'smooth'});
-			}
-		}
+	}, {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
 	});
 
+	fadeElements.forEach(el => observer.observe(el));
+
+	// Audio toggle
+	const audioBtn = document.querySelector('.audio-toggle');
+	const audioEl = document.getElementById('bg-audio');
+
+	if (audioBtn && audioEl) {
+		audioBtn.addEventListener('click', function () {
+			if (audioEl.paused) {
+				audioEl.play().catch(err => console.log('Audio play failed:', err));
+				audioBtn.classList.add('active');
+			} else {
+				audioEl.pause();
+				audioBtn.classList.remove('active');
+			}
+		});
+	}
+
+	// Smooth scroll for navigation
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const target = document.querySelector(this.getAttribute('href'));
+			if (target) {
+				target.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start'
+				});
+			}
+		});
+	});
+
+	// Floating Leaves
+	const leavesContainer = document.querySelector('.leaves-container');
+	if (leavesContainer) {
+		const leafCount = 25;
+		for (let i = 0; i < leafCount; i++) {
+			const leaf = document.createElement('div');
+			leaf.className = 'leaf';
+			leaf.style.left = Math.random() * 100 + 'vw';
+			leaf.style.animationDelay = (Math.random() * 12).toFixed(2) + 's';
+			leaf.style.setProperty('--drift', (Math.random() * 100 - 50).toFixed(0) + 'px');
+			leaf.style.setProperty('--rotate', (Math.random() * 720 - 360).toFixed(0) + 'deg');
+			leavesContainer.appendChild(leaf);
+		}
+	}
+
+	// Fireflies
+	const firefliesContainer = document.querySelector('.fireflies');
+	if (firefliesContainer) {
+		const fireflyCount = 20;
+		for (let i = 0; i < fireflyCount; i++) {
+			const firefly = document.createElement('div');
+			firefly.className = 'firefly';
+			firefly.style.left = Math.random() * 100 + 'vw';
+			firefly.style.top = Math.random() * 100 + 'vh';
+			firefly.style.animationDelay = (Math.random() * 10).toFixed(2) + 's';
+			firefly.style.setProperty('--fx', (Math.random() * 80 - 40).toFixed(0) + 'px');
+			firefly.style.setProperty('--fy', (Math.random() * 60 - 30).toFixed(0) + 'px');
+			firefliesContainer.appendChild(firefly);
+		}
+	}
+
+	// Active nav link and trail marker on scroll
+	const sections = document.querySelectorAll('.story-section');
+	const navLinks = document.querySelectorAll('.summary-nav a[href^="#"]');
+	const trailMarkers = document.querySelectorAll('.trail-marker');
+
+	window.addEventListener('scroll', function () {
+		let current = '';
+		sections.forEach(section => {
+			const sectionTop = section.offsetTop;
+			const sectionHeight = section.clientHeight;
+			if (window.pageYOffset >= sectionTop - 200) {
+				current = section.getAttribute('id');
+			}
+		});
+
+		navLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) {
+				link.classList.add('active');
+			}
+		});
+
+		trailMarkers.forEach(marker => {
+			marker.classList.remove('active');
+			if (marker.getAttribute('data-section') === current) {
+				marker.classList.add('active');
+			}
+		});
+	});
+
+	// Trail marker clicks
+	trailMarkers.forEach(marker => {
+		marker.addEventListener('click', function () {
+			const sectionId = this.getAttribute('data-section');
+			const section = document.getElementById(sectionId);
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		});
+	});
+
+	// Parallax layers
+	const layers = Array.from(document.querySelectorAll('.parallax-layer'));
+	let ticking = false;
+	function updateParallax() {
+		const y = window.scrollY || window.pageYOffset;
+		layers.forEach(layer => {
+			const depth = parseFloat(layer.getAttribute('data-depth') || '0');
+			const translate = Math.min(y * depth, 150);
+			layer.style.transform = `translateY(${translate}px)`;
+		});
+		ticking = false;
+	}
+
+	function onScroll() {
+		if (!ticking) {
+			window.requestAnimationFrame(updateParallax);
+			ticking = true;
+		}
+	}
+	if (layers.length) {
+		window.addEventListener('scroll', onScroll, { passive: true });
+		updateParallax();
+	}
+
+	// Tilt effect for cards
+	const tiltEls = document.querySelectorAll('.tilt');
+	tiltEls.forEach(el => {
+		const strength = 12;
+		el.addEventListener('mousemove', (e) => {
+			const rect = el.getBoundingClientRect();
+			const px = (e.clientX - rect.left) / rect.width;
+			const py = (e.clientY - rect.top) / rect.height;
+			const rx = (0.5 - py) * strength;
+			const ry = (px - 0.5) * strength;
+			el.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+		});
+		el.addEventListener('mouseleave', () => {
+			el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+		});
+	});
+
+	// Magnetic button
+	document.querySelectorAll('.magnetic').forEach(btn => {
+		const strength = 20;
+		btn.addEventListener('mousemove', (e) => {
+			const rect = btn.getBoundingClientRect();
+			const dx = e.clientX - (rect.left + rect.width / 2);
+			const dy = e.clientY - (rect.top + rect.height / 2);
+			btn.style.transform = `translate(${dx / strength}px, ${dy / strength}px)`;
+		});
+		btn.addEventListener('mouseleave', () => {
+			btn.style.transform = 'translate(0,0)';
+		});
+	});
 });
-
-

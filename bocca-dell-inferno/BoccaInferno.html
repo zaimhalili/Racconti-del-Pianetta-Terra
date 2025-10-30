@@ -19,100 +19,151 @@
 
 <body>
 
-    <div id="viewport">
+    <!-- Navigation -->
+    <nav class="summary-nav" aria-label="Navigazione riassunto">
+        <a class="home-btn" href="../index.html" title="Torna alla home" aria-label="Torna alla home">
+            <i class="ri-home-4-line" aria-hidden="true"></i>
+        </a>
+        <a href="#para1">Introduzione</a>
+        <a href="#para2">L'Incontro</a>
+        <a href="#para3">Lo Sfruttamento</a>
+        <a href="#para4">Epilogo</a>
+        <div class="summary-controls" role="group" aria-label="Controlli pagina">
+            <button class="audio-toggle" aria-pressed="false" aria-label="Attiva o disattiva sottofondo musicale"
+                title="Musica">
+                <i class="ri-music-2-line" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
 
-        <header class="hero">
-            <div class="grid-overlay"></div>
-            <div class="scan-line"></div>
+    <!-- Hero Section with Forest Background -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
 
-            <nav class="nav">
-                <div class="logo">
-                    <i class="ri-plant-line"></i>
-                    <span>LA BOCCA DELL'INFERNO</span>
-                </div>
-            </nav>
+        <!-- Mystical Forest Fog -->
+        <div class="fog fog-1" aria-hidden="true"></div>
+        <div class="fog fog-2" aria-hidden="true"></div>
+        <div class="fog fog-3" aria-hidden="true"></div>
 
-            <div class="hero-content">
-                <div class="glitch-container">
-                    <h1 class="hero-title glitch" data-text="LA BOCCA DELL'INFERNO">LA BOCCA DELL'INFERNO</h1>
-                </div>
-                <p class="hero-subtitle"><i class="ri-earth-line"></i> Racconti della Terra</p>
-                <p class="hero-description">Un racconto di segreti del bosco e di ciò che inghiotte chi trasgredisce</p>
+        <!-- Forest Light Rays -->
+        <div class="light-rays" aria-hidden="true">
+            <div class="light-ray ray-1"></div>
+            <div class="light-ray ray-2"></div>
+            <div class="light-ray ray-3"></div>
+        </div>
+
+        <!-- Parallax Forest Layers -->
+        <div class="parallax" aria-hidden="true">
+            <div class="parallax-layer layer-back" data-depth="0.1"></div>
+            <div class="parallax-layer layer-mid" data-depth="0.25"></div>
+            <div class="parallax-layer layer-front" data-depth="0.45"></div>
+        </div>
+
+        <!-- Floating Leaves -->
+        <div class="leaves-container" aria-hidden="true"></div>
+
+        <!-- Fireflies -->
+        <div class="fireflies" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <div class="forest-icon">
+                <i class="ri-seedling-line"></i>
             </div>
-        </header>
+            <h1 class="hero-title forest-gradient">La Bocca dell'Inferno</h1>
+            <p class="hero-subtitle">Racconti della Terra</p>
+            <p class="hero-description">Un racconto di segreti del bosco e di ciò che inghiotte chi trasgredisce</p>
+        </div>
 
-        <main class="container">
-            <!-- Summary navigation always visible -->
-            <nav class="summary-nav" aria-label="Navigazione riassunto">
-                <!-- Home button on the left of chapter links -->
-                <a class="home-btn" href="../index.html" title="Torna alla home" aria-label="Torna alla home">
-                    <i class="ri-home-4-line" aria-hidden="true"></i>
-                </a>
-                <a href="#para1">Introduzione</a>
-                <a href="#para2">L'Incontro</a>
-                <a href="#para3">Lo Sfruttamento</a>
-                <a href="#para4">Epilogo</a>
-                <!-- Controls group: only audio here, kept separated and pushed to the end. -->
-                <div class="summary-controls" role="group" aria-label="Controlli pagina">
-                    <button class="audio-toggle" aria-pressed="false"
-                        aria-label="Attiva o disattiva sottofondo musicale" title="Musica">
-                        <i class="ri-music-2-line" aria-hidden="true"></i>
-                    </button>
+        <a href="#para1" class="scroll-cue forest-themed" aria-label="Scorri alla storia">
+            <span class="scroll-cue-dot"></span>
+        </a>
+    </header>
+
+    <!-- Story Content -->
+    <main class="story-container">
+
+        <!-- Interactive Trail -->
+        <div class="trail-path" aria-hidden="true">
+            <div class="trail-marker active" data-section="para1"></div>
+            <div class="trail-marker" data-section="para2"></div>
+            <div class="trail-marker" data-section="para3"></div>
+            <div class="trail-marker" data-section="para4"></div>
+        </div>
+
+        <section id="para1" class="story-section fade-in">
+            <div class="section-content card glass tilt forest-card">
+                <div class="section-icon"><i class="ri-map-pin-line"></i></div>
+                <h2>Introduzione</h2>
+                <p>In un novembre grigio il guardacaccia Creel, cavalcando lungo i sentieri, incrocia un uomo appena
+                    tornato da una battuta di caccia in una zona protetta. Alla richiesta della licenza, l'uomo porge un
+                    biglietto che lo presenta come un reverendo: un dettaglio che non convince Creel. Decide allora di
+                    tenere gli occhi aperti e osservare con cautela.</p>
+            </div>
+        </section>
+
+        <section id="para2" class="story-section fade-in">
+            <div class="section-grid">
+                <div class="section-content card glass tilt forest-card">
+                    <div class="section-icon"><i class="ri-alert-line"></i></div>
+                    <h2>L'Incontro e la Voragine</h2>
+                    <p>Mentre Creel prende nota, l'uomo scivola e scompare in una voragine che si spalanca sotto i suoi
+                        piedi. In un istante la terra si richiude come se nulla fosse accaduto: chi assiste rimane
+                        sbalordito. Quell'apertura improvvisa lascia un'ombra di inquietudine nella mente del
+                        guardacaccia.
+                    </p>
+                    <div class="chips">
+                        <span class="chip forest-chip"><i class="ri-flashlight-line"></i> Improvviso</span>
+                        <span class="chip forest-chip"><i class="ri-question-line"></i> Inspiegabile</span>
+                        <span class="chip forest-chip"><i class="ri-eye-line"></i> Inquietudine</span>
+                    </div>
                 </div>
-            </nav>
+                <aside class="voragine-card reveal forest-voragine" aria-hidden="true">
+                    <div class="vortex-ring ring-1"></div>
+                    <div class="vortex-ring ring-2"></div>
+                    <div class="vortex-ring ring-3"></div>
+                    <div class="hole"></div>
+                    <div class="ripple ripple-1"></div>
+                    <div class="ripple ripple-2"></div>
+                    <div class="ripple ripple-3"></div>
+                </aside>
+            </div>
+        </section>
 
-            <!-- Summary container: visible by default -->
-            <div id="summaryContainer">
+        <section id="para3" class="story-section fade-in">
+            <div class="section-content card glass tilt forest-card">
+                <div class="section-icon"><i class="ri-eye-close-line"></i></div>
+                <h2>Lo Sfruttamento</h2>
+                <p>Nell'arco di pochi giorni la voragine si apre di nuovo: tre uomini, tutti senza licenza, spariscono
+                    nello stesso punto. La voce si propaga tra i guardacaccia; invece di denunciare, alcuni sfruttano il
+                    fatto per chiudere gli occhi. Tra gli alberi nasce una complicità muta, fatta di sguardi e silenzi.
+                </p>
+                <div class="badges">
+                    <span class="badge forest-badge"><i class="ri-lock-line"></i> Sfruttamento</span>
+                    <span class="badge forest-badge"><i class="ri-volume-mute-line"></i> Silenzio</span>
+                    <span class="badge forest-badge"><i class="ri-user-shared-line"></i> Complicità</span>
+                </div>
+            </div>
+        </section>
 
-                <section id="para1" class="panel bg-1">
-                    <img class="panel-bg" src="img/introduzione.jpg" alt="Bosco" />
-                    <div class="panel-overlay">
-                        <h3>Introduzione</h3>
-                        <p>In un novembre grigio il guardacaccia Creel, cavalcando lungo i sentieri, incrocia un uomo
-                            appena tornato da una battuta di caccia in una zona protetta. Alla richiesta della licenza,
-                            l'uomo porge un biglietto che lo presenta come un reverendo: un dettaglio che non convince
-                            Creel. Decide allora di tenere gli occhi aperti e osservare con cautela.</p>
-                    </div>
-                </section>
+        <section id="para4" class="story-section fade-in">
+            <div class="section-content card glass tilt forest-card">
+                <div class="section-icon"><i class="ri-book-open-line"></i></div>
+                <h2>Epilogo</h2>
+                <p>La stagione seguente gli uomini della forestale riempiono la piazzola e costruiscono un grande
+                    parcheggio: la voragine sembra sparita e il luogo perde parte del suo mistero. Creel brinda con un
+                    amico per aver scampato l'evento, ma dentro di sé conserva il dubbio su quanto davvero la terra
+                    abbia voluto occultare quel segreto.</p>
+                <div class="cta-row">
+                    <a class="cta forest-cta magnetic" href="./boccaInferno.txt" target="_blank" rel="noopener">
+                        <i class="ri-leaf-line"></i>
+                        Leggi il testo integrale
+                        <i class="ri-arrow-right-up-line"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                <section id="para2" class="panel bg-2">
-                    <img class="panel-bg" src="img/Voragine.jpeg" alt="Voragine" />
-                    <div class="panel-overlay">
-                        <h3>L'Incontro e la Voragine</h3>
-                        <p>Mentre Creel prende nota, l'uomo scivola e scompare in una voragine che si spalanca sotto i
-                            suoi piedi. In un istante la terra si richiude come se nulla fosse accaduto: chi assiste
-                            rimane sbalordito. Quell'apertura improvvisa lascia un'ombra di inquietudine nella mente del
-                            guardacaccia.</p>
-                    </div>
-                </section>
-
-                <section id="para3" class="panel bg-3">
-                    <img class="panel-bg" src="img/Guardacaccia.jpg" alt="Guardacaccia" />
-                    <div class="panel-overlay">
-                        <h3>Lo Sfruttamento</h3>
-                        <p>Nell'arco di pochi giorni la voragine si apre di nuovo: tre uomini, tutti senza licenza,
-                            spariscono nello stesso punto. La voce si propaga tra i guardacaccia; invece di denunciare,
-                            alcuni sfruttano il fatto per chiudere gli occhi. Tra gli alberi nasce una complicità muta,
-                            fatta di sguardi e silenzi.</p>
-                    </div>
-                </section>
-
-                <section id="para4" class="panel bg-4">
-                    <img class="panel-bg" src="img/Epilogo.jpg" alt="Parcheggio" />
-                    <div class="panel-overlay">
-                        <h3>Epilogo</h3>
-                        <p>La stagione seguente gli uomini della forestale riempiono la piazzola e costruiscono un
-                            grande parcheggio: la voragine sembra sparita e il luogo perde parte del suo mistero. Creel
-                            brinda con un amico per aver scampato l'evento, ma dentro di sé conserva il dubbio su quanto
-                            davvero la terra abbia voluto occultare quel segreto.</p>
-                    </div>
-                </section>
-
-            </div> <!-- /#summaryContainer -->
-
-        </main>
-
-    </div> <!-- /#viewport -->
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -128,8 +179,7 @@
         <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
     </footer>
 
-
-    <!-- Background audio element: replace ./audio/ambient.mp3 with your file (optional) -->
+    <!-- Background audio element -->
     <audio id="bg-audio" loop preload="metadata">
         <source src="./audio/ambient.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.

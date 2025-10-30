@@ -738,55 +738,10 @@ body {
 }
 
 /* ========================================
-   FOOTER
+   FOOTER - Using universal footer.css
    ======================================== */
 
-.footer {
-    text-align: center;
-    padding: 3rem 0 2rem;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    margin-top: 5rem;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-}
-
-.footer-links a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--hover-accent);
-    transform: translateY(-2px);
-}
-
-.footer-team {
-    margin: 1rem 0;
-    font-size: 1.1rem;
-}
-
-.footer-team strong {
-    color: var(--hover-accent);
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 2px;
-}
+/* Footer styles removed - see footer.css */
 
 /* ========================================
    ANIMATIONS
@@ -1045,12 +1000,6 @@ body {
         font-size: 0.75rem;
         line-height: 1.4;
     }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: center;
-    }
 }
 
 /* Mobile portrait */
@@ -1159,11 +1108,6 @@ body {
 
     .member-overlay i {
         font-size: 2.5rem;
-    }
-
-    .footer {
-        font-size: 0.75rem;
-        padding: 1rem 0;
     }
 }
 

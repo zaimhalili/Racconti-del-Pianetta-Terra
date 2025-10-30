@@ -1,14 +1,18 @@
-﻿
-/* ========================================
+﻿/* ========================================
    MINIMALISTIC FOOTER - UNIVERSAL
    ======================================== */
 
 .footer {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     text-align: center;
     padding: 2rem 1rem 1.5rem;
     margin-top: 4rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    box-sizing: border-box;
 }
 
 .footer-links {

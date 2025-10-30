@@ -360,16 +360,20 @@ window.addEventListener("load", () => {
 });
 
 // ============================================
-// AUDIO SYSTEM - CYBERPUNK MUSIC
+// AUDIO SYSTEM - SIMPLE AUDIO PLAYER
 // ============================================
 function initAudioSystem() {
   const audioToggle = document.getElementById('audioToggle');
+  const audio = document.getElementById('background-audio');
   let audioEnabled = false;
-  let audio = null;
 
-  // Cyberpunk/Electronic music URL
-  // SoundHelix - Darker electronic ambient track for cyberpunk atmosphere
-  const musicUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3';
+  if (!audio) {
+    console.log('Audio element not found');
+    return;
+  }
+
+  // Set volume to 30%
+  audio.volume = 0.3;
 
   audioToggle.addEventListener('click', () => {
     audioEnabled = !audioEnabled;
@@ -379,29 +383,13 @@ function initAudioSystem() {
     icon.className = audioEnabled ? 'ri-volume-up-line' : 'ri-volume-mute-line';
 
     if (audioEnabled) {
-      playMusic();
+      audio.play().catch(err => {
+        console.log('Audio playback failed:', err);
+      });
     } else {
-      stopMusic();
+      audio.pause();
     }
   });
-
-  function playMusic() {
-    if (!audio) {
-      audio = new Audio(musicUrl);
-      audio.loop = true;
-      audio.volume = 0.3;
-    }
-    audio.play().catch(err => {
-      console.log('Audio playback failed:', err);
-    });
-  }
-
-  function stopMusic() {
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-  }
 }
 
 // ============================================

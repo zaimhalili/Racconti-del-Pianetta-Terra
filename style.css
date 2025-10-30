@@ -42,7 +42,7 @@ body::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(107, 122, 255, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(255, 107, 205, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 40% 20%, rgba(107, 255, 212, 0.06) 0%, transparent 50%);
@@ -55,9 +55,11 @@ body::before {
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
+
     50% {
         transform: translate(-5%, 5%) rotate(180deg);
     }
+
     100% {
         transform: translate(0, 0) rotate(360deg);
     }
@@ -168,9 +170,12 @@ body::before {
 }
 
 @keyframes gradient-shift {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }

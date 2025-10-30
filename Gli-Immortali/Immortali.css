@@ -536,56 +536,8 @@ body {
   letter-spacing: 2px;
 }
 
-/* Footer - Same as Index */
-.footer {
-  background: var(--bg-darker);
-  padding: 3rem 2rem;
-  margin-top: 6rem;
-  border-top: 2px solid var(--border-color);
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.footer-links a:hover {
-  color: var(--accent-color);
-}
-
-.footer-team {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
-
-.footer-team strong {
-  color: var(--accent-color);
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: 2px;
-}
-
-.footer p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
+/* Footer - Using universal footer.css */
+/* Footer styles removed - see ../footer.css */
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -630,11 +582,6 @@ body {
 
   .quote-text {
     font-size: 1.5rem;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 1rem;
   }
 }
 

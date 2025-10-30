@@ -869,13 +869,26 @@ body {
         font-size: 0.9rem;
     }
 
+    .team-philosophy {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .philosophy-title {
+        font-size: 1.8rem;
+    }
+
+    .philosophy-text {
+        font-size: 0.95rem;
+    }
+
     .stories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
     }
 
     .card-image {
-        height: 180px;
+        height: 200px;
     }
 
     .card-icon {
@@ -917,6 +930,7 @@ body {
 
     .title {
         font-size: 1.8rem;
+        letter-spacing: 1.5px;
     }
 
     .subtitle {
@@ -924,8 +938,38 @@ body {
         letter-spacing: 1px;
     }
 
+    .team-name {
+        margin-top: 1rem;
+    }
+
+    .team-identity {
+        font-size: 1.3rem;
+    }
+
     .header {
         margin-bottom: 2rem;
+    }
+
+    .team-philosophy {
+        padding: 1.5rem 1.2rem;
+        margin: 1.5rem 0;
+    }
+
+    .philosophy-icon i {
+        font-size: 2.5rem;
+    }
+
+    .philosophy-title {
+        font-size: 1.5rem;
+    }
+
+    .philosophy-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .philosophy-tagline {
+        font-size: 0.85rem;
     }
 
     .stories-grid {
@@ -939,7 +983,7 @@ body {
     }
 
     .card-image {
-        height: 200px;
+        height: 220px;
     }
 
     .card-content {
@@ -999,6 +1043,13 @@ body {
 
     .member-desc {
         font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
     }
 }
 
@@ -1113,5 +1164,68 @@ body {
     .footer {
         font-size: 0.75rem;
         padding: 1rem 0;
+    }
+}
+
+/* Extra small screens (under 360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 1rem 0.8rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+        font-size: 0.65rem;
+    }
+
+    .team-identity {
+        font-size: 1rem;
+    }
+
+    .philosophy-title {
+        font-size: 1.1rem;
+    }
+
+    .philosophy-text,
+    .philosophy-tagline {
+        font-size: 0.8rem;
+    }
+
+    .card-image {
+        height: 160px;
+    }
+
+    .card-content {
+        padding: 1.2rem 1rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-desc {
+        font-size: 0.8rem;
+    }
+
+    .team-title {
+        font-size: 1.1rem;
+    }
+
+    .team-member {
+        width: 160px;
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-160px * 5 - 1.5rem * 5));
+        }
     }
 }

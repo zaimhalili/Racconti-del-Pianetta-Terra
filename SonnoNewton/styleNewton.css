@@ -984,68 +984,10 @@ body {
 }
 
 /* ==========================================
-   FOOTER
+   FOOTER - Using universal footer.css
    ========================================== */
 
-.space-footer {
-    position: relative;
-    z-index: 10;
-    background: linear-gradient(to top, var(--deep-space) 0%, transparent 100%);
-    padding: 4rem 2rem 2rem;
-    border-top: 2px solid var(--nebula-purple);
-    margin-top: 8rem;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footer-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
-
-.footer-nav a {
-    color: var(--star-blue);
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    transition: all 0.3s ease;
-}
-
-.footer-nav a:hover {
-    color: var(--text-bright);
-    text-shadow: 0 0 20px var(--star-blue);
-    transform: translateY(-3px);
-}
-
-.footer-team {
-    margin: 1.5rem 0;
-    font-size: 1.2rem;
-    color: var(--text-dim);
-}
-
-.footer-team strong {
-    color: var(--nebula-purple);
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 3px;
-}
-
-.footer-copy {
-    color: var(--text-faded);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
+/* Footer styles removed - see ../footer.css */
 
 /* ==========================================
    RESPONSIVE

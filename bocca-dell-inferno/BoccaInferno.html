@@ -133,7 +133,8 @@
             <div class="section-content card glass tilt forest-card">
                 <div class="section-icon"><i class="ri-eye-close-line"></i></div>
                 <h2>Lo Sfruttamento</h2>
-                <p>Nell'arco di pochi giorni la voragine si apre di nuovo: tre uomini, tutti senza licenza, spariscono
+                <p class="dark-text reveal-on-hover">Nell'arco di pochi giorni la voragine si apre di nuovo: tre uomini,
+                    tutti senza licenza, spariscono
                     nello stesso punto. La voce si propaga tra i guardacaccia; invece di denunciare, alcuni sfruttano il
                     fatto per chiudere gli occhi. Tra gli alberi nasce una complicità muta, fatta di sguardi e silenzi.
                 </p>
@@ -142,6 +143,24 @@
                     <span class="badge forest-badge"><i class="ri-volume-mute-line"></i> Silenzio</span>
                     <span class="badge forest-badge"><i class="ri-user-shared-line"></i> Complicità</span>
                 </div>
+
+                <!-- Story Choice -->
+                <div class="story-choice">
+                    <p class="choice-prompt"><i class="ri-question-line"></i> Creel deve prendere una decisione:</p>
+                    <div class="choice-buttons">
+                        <button class="choice-btn choice-silence" data-choice="silence">
+                            <i class="ri-volume-mute-fill"></i>
+                            <span>Rimanere in silenzio</span>
+                            <small>Proteggere la complicità</small>
+                        </button>
+                        <button class="choice-btn choice-report" data-choice="report">
+                            <i class="ri-alarm-warning-fill"></i>
+                            <span>Denunciare tutto</span>
+                            <small>Rivelare il segreto</small>
+                        </button>
+                    </div>
+                    <div class="choice-result" style="display: none;"></div>
+                </div>
             </div>
         </section>
 
@@ -149,18 +168,15 @@
             <div class="section-content card glass tilt forest-card">
                 <div class="section-icon"><i class="ri-book-open-line"></i></div>
                 <h2>Epilogo</h2>
-                <p>La stagione seguente gli uomini della forestale riempiono la piazzola e costruiscono un grande
+                <p class="dark-text reveal-on-hover">La stagione seguente gli uomini della forestale riempiono la
+                    piazzola e costruiscono un grande
                     parcheggio: la voragine sembra sparita e il luogo perde parte del suo mistero. Creel brinda con un
                     amico per aver scampato l'evento, ma dentro di sé conserva il dubbio su quanto davvero la terra
                     abbia voluto occultare quel segreto.</p>
-                <div class="cta-row">
-                    <a class="cta forest-cta magnetic" href="./boccaInferno.txt" target="_blank" rel="noopener">
-                        <i class="ri-leaf-line"></i>
-                        Leggi il testo integrale
-                        <i class="ri-arrow-right-up-line"></i>
-                    </a>
-                </div>
             </div>
+
+            <!-- Extra padding to ensure proper scroll detection -->
+            <div style="height: 200px;"></div>
         </section>
 
     </main>

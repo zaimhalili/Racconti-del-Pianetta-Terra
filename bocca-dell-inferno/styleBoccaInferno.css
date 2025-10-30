@@ -538,7 +538,7 @@ body {
    margin-bottom: 6rem;
    opacity: 0;
    transform: translateY(30px);
-   transition: opacity 0.6s ease, transform 0.6s ease;
+   transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .story-section.visible {
@@ -612,7 +612,7 @@ body {
 .fade-in {
    opacity: 0;
    transform: translateY(30px);
-   transition: opacity 0.6s ease, transform 0.6s ease;
+   transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .fade-in.visible {
@@ -773,6 +773,228 @@ body {
    color: var(--leaf-green);
 }
 
+/* Dark text with hover reveal - Radial Gradient Spotlight */
+.dark-text {
+   position: relative;
+   color: rgba(0, 0, 0, 1);
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(5, 5, 5, 1));
+   padding: 1.5rem;
+   border-radius: 8px;
+   cursor: crosshair;
+}
+
+.reveal-on-hover {
+   background-image:
+      radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+         rgba(232, 244, 234, 1) 0%,
+         rgba(232, 244, 234, 0.8) 25%,
+         rgba(232, 244, 234, 0.4) 60%,
+         rgba(0, 0, 0, 1) 100%),
+      linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(5, 5, 5, 1));
+   background-blend-mode: normal;
+   transition: background-image 0.05s ease-out;
+}
+
+.reveal-on-hover::before {
+   content: '🔦 Passa il mouse per illuminare il testo';
+   position: absolute;
+   top: -2.5rem;
+   left: 0;
+   font-size: 0.9rem;
+   color: var(--amber-glow);
+   opacity: 0.8;
+   font-style: italic;
+   pointer-events: none;
+   text-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
+   animation: pulse 2s ease-in-out infinite;
+}
+
+/* Story Choice Buttons */
+.story-choice {
+   margin-top: 2rem;
+   padding: 2rem;
+   background: linear-gradient(135deg, rgba(27, 58, 40, 0.4), rgba(13, 27, 15, 0.4));
+   border-radius: 12px;
+   border: 1px solid rgba(111, 187, 138, 0.2);
+}
+
+.choice-prompt {
+   font-size: 1.1rem;
+   color: var(--leaf-green);
+   margin-bottom: 1.5rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   font-weight: 600;
+}
+
+.choice-prompt i {
+   font-size: 1.3rem;
+   animation: pulse 2s ease-in-out infinite;
+}
+
+.choice-buttons {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1.5rem;
+}
+
+.choice-btn {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 1.5rem 1rem;
+   background: linear-gradient(135deg, rgba(45, 95, 63, 0.3), rgba(27, 58, 40, 0.3));
+   border: 3px solid;
+   border-image: linear-gradient(45deg,
+         var(--leaf-green),
+         var(--moss-green),
+         var(--amber-glow),
+         var(--leaf-green)) 1;
+   border-radius: 12px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   color: var(--text-primary);
+   font-family: inherit;
+   position: relative;
+   overflow: hidden;
+   animation: borderShift 3s linear infinite;
+}
+
+@keyframes borderShift {
+   0% {
+      border-image-source: linear-gradient(45deg,
+            var(--leaf-green),
+            var(--moss-green),
+            var(--amber-glow),
+            var(--leaf-green));
+   }
+
+   25% {
+      border-image-source: linear-gradient(135deg,
+            var(--moss-green),
+            var(--amber-glow),
+            var(--leaf-green),
+            var(--moss-green));
+   }
+
+   50% {
+      border-image-source: linear-gradient(225deg,
+            var(--amber-glow),
+            var(--leaf-green),
+            var(--moss-green),
+            var(--amber-glow));
+   }
+
+   75% {
+      border-image-source: linear-gradient(315deg,
+            var(--leaf-green),
+            var(--moss-green),
+            var(--amber-glow),
+            var(--leaf-green));
+   }
+
+   100% {
+      border-image-source: linear-gradient(45deg,
+            var(--leaf-green),
+            var(--moss-green),
+            var(--amber-glow),
+            var(--leaf-green));
+   }
+}
+
+.choice-btn::before {
+   content: '';
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(135deg, rgba(111, 187, 138, 0.2), transparent);
+   opacity: 0;
+   transition: opacity 0.3s ease;
+}
+
+.choice-btn:hover::before {
+   opacity: 1;
+}
+
+.choice-btn:hover {
+   border-color: var(--leaf-green);
+   transform: translateY(-4px);
+   box-shadow: 0 8px 25px rgba(111, 187, 138, 0.3);
+}
+
+.choice-btn i {
+   font-size: 2.5rem;
+   color: var(--leaf-green);
+}
+
+.choice-btn span {
+   font-size: 1.1rem;
+   font-weight: 700;
+}
+
+.choice-btn small {
+   font-size: 0.9rem;
+   color: var(--text-secondary);
+   font-style: italic;
+}
+
+.choice-btn.selected {
+   background: linear-gradient(135deg, rgba(74, 124, 89, 0.5), rgba(45, 95, 63, 0.5));
+   border-image: linear-gradient(45deg,
+         var(--amber-glow),
+         var(--leaf-green),
+         var(--amber-glow)) 1;
+   box-shadow: 0 0 30px rgba(111, 187, 138, 0.4), 0 0 50px rgba(255, 184, 77, 0.3);
+   animation: selectedGlow 2s ease-in-out infinite, borderShift 2s linear infinite;
+}
+
+@keyframes selectedGlow {
+
+   0%,
+   100% {
+      box-shadow: 0 0 30px rgba(111, 187, 138, 0.4), 0 0 50px rgba(255, 184, 77, 0.3);
+   }
+
+   50% {
+      box-shadow: 0 0 40px rgba(111, 187, 138, 0.6), 0 0 70px rgba(255, 184, 77, 0.5);
+   }
+}
+
+.choice-result {
+   margin-top: 1.5rem;
+   padding: 1.5rem;
+   background: rgba(27, 58, 40, 0.5);
+   border-left: 4px solid var(--amber-glow);
+   border-radius: 8px;
+   animation: slideIn 0.5s ease-out;
+}
+
+.choice-result h4 {
+   color: var(--amber-glow);
+   margin-bottom: 0.75rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+}
+
+.choice-result p {
+   color: var(--text-primary);
+   line-height: 1.8;
+}
+
+@keyframes slideIn {
+   from {
+      opacity: 0;
+      transform: translateY(-10px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
 /* Voragine visual card */
 .voragine-card {
    position: relative;
@@ -784,6 +1006,8 @@ body {
    box-shadow: inset 0 -60px 120px rgba(0, 0, 0, 0.4), 0 10px 40px rgba(0, 0, 0, 0.35);
    display: grid;
    place-items: center;
+   cursor: pointer;
+   transition: transform 0.3s ease;
 }
 
 .forest-voragine {
@@ -800,6 +1024,7 @@ body {
    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9) inset, 0 0 80px rgba(255, 100, 50, 0.15);
    animation: pulse 4s ease-in-out infinite;
    z-index: 2;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .forest-voragine .hole {
@@ -986,6 +1211,15 @@ body {
 
    .trail-path {
       display: none;
+   }
+
+   .choice-buttons {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+   }
+
+   .choice-btn {
+      padding: 1.2rem 1rem;
    }
 }
 

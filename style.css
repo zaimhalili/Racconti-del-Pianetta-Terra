@@ -10,13 +10,20 @@
 }
 
 :root {
-    --bg-dark: #1a1a1a;
-    --bg-card: #2a2a2a;
-    --border-color: #404040;
-    --accent-color: #8a8a8a;
+    --bg-dark: #0a0a0f;
+    --bg-card: #1a1a24;
+    --border-color: #2d2d40;
+    --accent-color: #6b7aff;
+    --accent-secondary: #ff6bcd;
+    --accent-tertiary: #6bffd4;
     --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --hover-accent: #c0c0c0;
+    --text-secondary: #b0b8d4;
+    --hover-accent: #8a9aff;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --gradient-glow: linear-gradient(90deg, #6b7aff, #ff6bcd, #6bffd4, #6b7aff);
 }
 
 body {
@@ -26,6 +33,34 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(107, 122, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 107, 205, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(107, 255, 212, 0.06) 0%, transparent 50%);
+    animation: gradient-rotate 20s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes gradient-rotate {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-5%, 5%) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
 }
 
 /* ========================================
@@ -122,9 +157,23 @@ body {
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--text-primary);
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     position: relative;
     display: inline-block;
+    animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .title::after {
@@ -133,10 +182,12 @@ body {
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 0;
+    width: 60%;
     height: 2px;
-    background: var(--accent-color);
-    animation: expand-line 2s ease-out forwards;
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    animation: gradient-shift 4s ease infinite, expand-line 2s ease-out forwards;
+    box-shadow: 0 0 10px rgba(107, 122, 255, 0.5);
 }
 
 @keyframes expand-line {
@@ -155,7 +206,22 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     animation: fadeIn 1.5s ease-out 0.5s backwards;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Enhanced tagline with gradient */
+.subtitle::after {
+    content: '• • •';
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+    letter-spacing: 1rem;
 }
 
 /* Team Name Section */
@@ -192,9 +258,13 @@ body {
 /* Team Philosophy Section */
 .team-philosophy {
     padding: 4rem 2rem;
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #0f0f0f 100%);
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.9) 0%, rgba(15, 15, 25, 1) 100%);
     position: relative;
     overflow: hidden;
+    border-top: 2px solid transparent;
+    border-image: var(--gradient-glow) 1;
+    border-bottom: 2px solid transparent;
+    border-image: var(--gradient-glow) 1;
 }
 
 .team-philosophy::before {
@@ -204,14 +274,31 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-    opacity: 0.3;
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    animation: gradient-shift 4s ease infinite;
+    opacity: 0.6;
+}
+
+.team-philosophy::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    animation: gradient-shift 4s ease infinite;
+    opacity: 0.6;
 }
 
 .philosophy-content {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .philosophy-icon {
@@ -221,33 +308,61 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: rgba(138, 138, 138, 0.1);
-    border: 2px solid var(--accent-color);
+    background: linear-gradient(135deg, rgba(107, 122, 255, 0.1), rgba(255, 107, 205, 0.1));
+    border: 2px solid;
+    border-image: var(--gradient-glow) 1;
     margin-bottom: 2rem;
+    position: relative;
+}
+
+.philosophy-icon::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: gradient-shift 4s ease infinite;
 }
 
 .philosophy-icon i {
     font-size: 2.5rem;
-    color: var(--accent-color);
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
 }
 
 .philosophy-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.5rem;
-    color: var(--text-primary);
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 2rem;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    animation: gradient-shift 4s ease infinite;
 }
 
 .philosophy-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 1.9;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 300;
 }
 
 .philosophy-text em {
@@ -315,25 +430,44 @@ body {
 
 .story-card[data-story="1"] {
     animation-delay: 0.2s;
+    border-image: var(--gradient-1) 1;
 }
 
 .story-card[data-story="2"] {
     animation-delay: 0.4s;
+    border-image: var(--gradient-2) 1;
 }
 
 .story-card[data-story="3"] {
     animation-delay: 0.6s;
+    border-image: var(--gradient-3) 1;
 }
 
 .story-card[data-story="4"] {
     animation-delay: 0.8s;
+    border-image: var(--gradient-4) 1;
 }
 
 .story-card:hover {
-    border-color: var(--hover-accent);
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-    background: #333;
+    box-shadow: 0 20px 60px rgba(107, 122, 255, 0.3);
+    background: linear-gradient(135deg, rgba(26, 26, 36, 0.95), rgba(20, 20, 30, 0.95));
+}
+
+.story-card[data-story="1"]:hover {
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+}
+
+.story-card[data-story="2"]:hover {
+    box-shadow: 0 20px 60px rgba(245, 87, 108, 0.4);
+}
+
+.story-card[data-story="3"]:hover {
+    box-shadow: 0 20px 60px rgba(0, 242, 254, 0.4);
+}
+
+.story-card[data-story="4"]:hover {
+    box-shadow: 0 20px 60px rgba(56, 249, 215, 0.4);
 }
 
 .story-card:hover .card-border {
@@ -444,19 +578,54 @@ body {
     margin-bottom: 1rem;
     letter-spacing: 1px;
     color: var(--text-primary);
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .story-card:hover .card-title {
-    color: var(--hover-accent);
+    background: var(--gradient-glow);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+}
+
+.story-card[data-story="1"]:hover .card-title {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.story-card[data-story="2"]:hover .card-title {
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.story-card[data-story="3"]:hover .card-title {
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.story-card[data-story="4"]:hover .card-title {
+    background: var(--gradient-4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .card-desc {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     flex: 1;
+    font-weight: 300;
 }
 
 .card-tags {

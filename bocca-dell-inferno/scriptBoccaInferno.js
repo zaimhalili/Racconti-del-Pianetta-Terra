@@ -84,13 +84,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('scroll', function () {
 		let current = '';
+
+		// Better scroll detection - also check if we're near bottom
+		const windowHeight = window.innerHeight;
+		const documentHeight = document.documentElement.scrollHeight;
+		const scrollTop = window.pageYOffset || window.scrollY;
+		const isNearBottom = scrollTop + windowHeight >= documentHeight - 100;
+
 		sections.forEach(section => {
 			const sectionTop = section.offsetTop;
 			const sectionHeight = section.clientHeight;
-			if (window.pageYOffset >= sectionTop - 200) {
+			// More lenient threshold for last section
+			const threshold = section.id === 'para4' ? 300 : 200;
+			if (scrollTop >= sectionTop - threshold) {
 				current = section.getAttribute('id');
 			}
 		});
+
+		// Force last section if near bottom
+		if (isNearBottom) {
+			current = 'para4';
+		}
 
 		navLinks.forEach(link => {
 			link.classList.remove('active');
@@ -172,4 +186,111 @@ document.addEventListener('DOMContentLoaded', function () {
 			btn.style.transform = 'translate(0,0)';
 		});
 	});
+
+	// Story Choice Buttons
+	const storyChoices = {
+		silence: {
+			title: "Il Silenzio del Bosco",
+			text: "Creel sceglie il silenzio. Con il passare dei giorni, la voragine continua a inghiottire chi osa sfidare le leggi della foresta. Il guardacaccia diventa complice del mistero, portando con sé il peso di un segreto che la terra custodisce gelosamente. Il bosco lo ricompensa con la sua protezione, ma il prezzo è l'eterna vigilanza sul confine tra il lecito e l'indicibile."
+		},
+		report: {
+			title: "La Rivelazione",
+			text: "Creel decide di denunciare tutto. Le autorità arrivano, ispezionano la zona, ma non trovano traccia della voragine. Gli altri guardacaccia lo evitano, sussurrando che il bosco non perdona chi tradisce i suoi segreti. Una notte, mentre torna a casa, sente la terra tremare sotto i suoi piedi. La voragine si apre davanti a lui, come un occhio che lo fissa in silenzio, poi si richiude. Da quel giorno, Creel sa che il bosco lo ha segnato."
+		}
+	};
+
+	document.querySelectorAll('.choice-btn').forEach(btn => {
+		btn.addEventListener('click', function () {
+			const choice = this.getAttribute('data-choice');
+			const resultDiv = this.closest('.story-choice').querySelector('.choice-result');
+			const allButtons = this.closest('.choice-buttons').querySelectorAll('.choice-btn');
+
+			// Mark selected
+			allButtons.forEach(b => b.classList.remove('selected'));
+			this.classList.add('selected');
+
+			// Show result
+			const story = storyChoices[choice];
+			resultDiv.innerHTML = `
+				<h4><i class="ri-book-mark-line"></i> ${story.title}</h4>
+				<p>${story.text}</p>
+			`;
+			resultDiv.style.display = 'block';
+
+			// Smooth scroll to result
+			setTimeout(() => {
+				resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+			}, 100);
+		});
+	});
+
+	// Spotlight effect for dark text reveal
+	document.querySelectorAll('.reveal-on-hover').forEach(el => {
+		el.addEventListener('mousemove', (e) => {
+			const rect = el.getBoundingClientRect();
+			const x = ((e.clientX - rect.left) / rect.width) * 100;
+			const y = ((e.clientY - rect.top) / rect.height) * 100;
+			el.style.setProperty('--mouse-x', `${x}%`);
+			el.style.setProperty('--mouse-y', `${y}%`);
+		});
+	});
+
+	// Magnetic Voragine Effect - Enhanced with cursor pull
+	const voragineCard = document.querySelector('.voragine-card');
+	const voragineHole = document.querySelector('.voragine-card .hole');
+
+	if (voragineCard && voragineHole) {
+		voragineCard.addEventListener('mousemove', (e) => {
+			const rect = voragineCard.getBoundingClientRect();
+			const centerX = rect.left + rect.width / 2;
+			const centerY = rect.top + rect.height / 2;
+			const mouseX = e.clientX;
+			const mouseY = e.clientY;
+
+			// Calculate distance from center
+			const deltaX = mouseX - centerX;
+			const deltaY = mouseY - centerY;
+			const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+			// Magnetic pull strength (inverse of distance) - more aggressive
+			const maxDistance = 400; // pixels - wider range
+			const pullStrength = Math.max(0, 1 - (distance / maxDistance));
+
+			// Exponential scaling for more aggressive pull when close
+			const intensePull = Math.pow(pullStrength, 0.5);
+
+			// Pull effect - move hole toward cursor with stronger pull
+			const pullX = deltaX * intensePull * 0.35;
+			const pullY = deltaY * intensePull * 0.35;
+
+			// Scale effect - grow much faster when cursor is close (exponential)
+			const scaleMultiplier = 1 + (Math.pow(pullStrength, 0.7) * 0.8);
+
+			// Apply transformations
+			voragineHole.style.transform = `translate(${pullX}px, ${pullY}px) scale(${scaleMultiplier})`;
+			voragineHole.style.boxShadow = `
+				0 0 ${40 + pullStrength * 40}px rgba(0, 0, 0, ${0.9 + pullStrength * 0.1}) inset,
+				0 0 ${60 + pullStrength * 80}px rgba(74, 124, 89, ${0.2 + pullStrength * 0.5})
+			`;
+
+			// Rotate vortex rings much faster when close
+			const vortexRings = voragineCard.querySelectorAll('.vortex-ring');
+			vortexRings.forEach((ring, index) => {
+				const baseSpeed = 3 + index * 2;
+				const newSpeed = baseSpeed / (1 + pullStrength * 4);
+				ring.style.animationDuration = `${newSpeed}s`;
+			});
+		});
+
+		voragineCard.addEventListener('mouseleave', () => {
+			voragineHole.style.transform = 'translate(0, 0) scale(1)';
+			voragineHole.style.boxShadow = '0 0 40px rgba(0, 0, 0, 1) inset, 0 0 60px rgba(74, 124, 89, 0.2)';
+
+			const vortexRings = voragineCard.querySelectorAll('.vortex-ring');
+			vortexRings.forEach((ring, index) => {
+				const baseSpeed = 3 + index * 2;
+				ring.style.animationDuration = `${baseSpeed}s`;
+			});
+		});
+	}
 });

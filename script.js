@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initImageReveal();
     initSparkleEffect();
     initCardNumbering();
-    initTimelineCarousel();
 });
 
 // ========================================

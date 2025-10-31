@@ -363,12 +363,17 @@ window.addEventListener("load", () => {
 // AUDIO SYSTEM - SIMPLE AUDIO PLAYER
 // ============================================
 function initAudioSystem() {
-  const audioToggle = document.getElementById('audioToggle');
+  const audioToggle = document.getElementById('globalAudioToggle');
   const audio = document.getElementById('background-audio');
   let audioEnabled = false;
 
   if (!audio) {
     console.log('Audio element not found');
+    return;
+  }
+
+  if (!audioToggle) {
+    console.log('Audio toggle button not found');
     return;
   }
 

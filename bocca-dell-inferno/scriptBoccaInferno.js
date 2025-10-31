@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	fadeElements.forEach(el => observer.observe(el));
 
-	// Audio toggle
-	const audioBtn = document.querySelector('.audio-toggle');
+	// Audio toggle - use navbar button
+	const audioBtn = document.querySelector('#globalAudioToggle');
 	const audioEl = document.getElementById('bg-audio');
 
 	if (audioBtn && audioEl) {
@@ -25,11 +25,16 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (audioEl.paused) {
 				audioEl.play().catch(err => console.log('Audio play failed:', err));
 				audioBtn.classList.add('active');
+				audioBtn.querySelector('i').className = 'ri-volume-up-line';
 			} else {
 				audioEl.pause();
 				audioBtn.classList.remove('active');
+				audioBtn.querySelector('i').className = 'ri-volume-mute-line';
 			}
 		});
+
+		// Set volume
+		audioEl.volume = 0.3;
 	}
 
 	// Smooth scroll for navigation

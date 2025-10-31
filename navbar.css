@@ -226,6 +226,16 @@
         display: none;
     }
 
+    /* Keep navbar actions visible on mobile */
+    .navbar-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .nav-action-btn {
+        display: flex;
+    }
+
     .mobile-menu-toggle {
         display: flex;
     }

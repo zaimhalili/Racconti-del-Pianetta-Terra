@@ -71,4 +71,31 @@ document.addEventListener('DOMContentLoaded', function () {
             link.classList.add('active');
         }
     });
+
+    // Global Audio Toggle
+    const audioToggle = document.querySelector('#globalAudioToggle');
+    const bgAudio = document.querySelector('#bg-audio');
+
+    if (audioToggle && bgAudio) {
+        let isPlaying = false;
+
+        audioToggle.addEventListener('click', function () {
+            if (isPlaying) {
+                bgAudio.pause();
+                audioToggle.querySelector('i').className = 'ri-volume-mute-line';
+                audioToggle.classList.remove('active');
+                isPlaying = false;
+            } else {
+                bgAudio.play().catch(err => {
+                    console.log('Audio playback failed:', err);
+                });
+                audioToggle.querySelector('i').className = 'ri-volume-up-line';
+                audioToggle.classList.add('active');
+                isPlaying = true;
+            }
+        });
+
+        // Set volume
+        bgAudio.volume = 0.3;
+    }
 });

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initImageReveal();
     initSparkleEffect();
     initCardNumbering();
+    initTimelineCarousel();
 });
 
 // ========================================
@@ -208,4 +209,109 @@ function initCardNumbering() {
         numberOverlay.textContent = `0${index + 1}`;
         card.appendChild(numberOverlay);
     });
+}
+
+// ========================================
+// TIMELINE CAROUSEL
+// ========================================
+
+function initTimelineCarousel() {
+    const track = document.querySelector('.timeline-track');
+    const items = document.querySelectorAll('.timeline-item');
+    const prevBtn = document.querySelector('.timeline-prev');
+    const nextBtn = document.querySelector('.timeline-next');
+    const indicators = document.querySelectorAll('.dot-indicator');
+
+    if (!track || items.length === 0) return;
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, totalItems - 1));
+        updateCarousel();
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+        });
+    }
+
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            // Swipe left
+            goToSlide(currentIndex + 1);
+        }
+        if (touchEndX > touchStartX + 50) {
+            // Swipe right
+            goToSlide(currentIndex - 1);
+        }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            goToSlide(currentIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            goToSlide(currentIndex + 1);
+        }
+    });
+
+    // Auto-advance every 5 seconds
+    let autoAdvance = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % totalItems;
+        goToSlide(nextIndex);
+    }, 5000);
+
+    // Pause on hover
+    const timelineSection = document.querySelector('.timeline-section');
+    if (timelineSection) {
+        timelineSection.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvance);
+        });
+
+        timelineSection.addEventListener('mouseleave', () => {
+            autoAdvance = setInterval(() => {
+                const nextIndex = (currentIndex + 1) % totalItems;
+                goToSlide(nextIndex);
+            }, 5000);
+        });
+    }
 }

@@ -97,53 +97,118 @@
 
     <!-- Interactive Timeline -->
     <section class="timeline-section">
-      <h2 class="section-title">
-        <i class="ri-map-pin-time-line"></i>
-        VIAGGIO NEL TEMPO
-      </h2>
-      <div class="timeline-container">
-        <div class="timeline-line"></div>
+      <div class="timeline-header">
+        <i class="ri-map-pin-time-line timeline-icon"></i>
+        <h2 class="section-title">VIAGGIO NEL TEMPO</h2>
+        <p class="timeline-subtitle">4.5 Miliardi di Anni in 8 Ere</p>
+      </div>
 
-        <!-- Timeline Points -->
-        <div class="timeline-point" data-chapter="1" style="left: 2%;">
-          <div class="point-circle">01</div>
-          <div class="point-label">4.5B ANNI FA</div>
+      <!-- Timeline Carousel -->
+      <div class="timeline-carousel">
+        <button class="timeline-nav timeline-prev" aria-label="Previous">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+
+        <div class="timeline-track-container">
+          <div class="timeline-track">
+
+            <div class="timeline-item" data-chapter="1">
+              <div class="timeline-dot">01</div>
+              <div class="timeline-content">
+                <span class="timeline-year">4.5B ANNI FA</span>
+                <h3 class="timeline-event">La Nascita</h3>
+                <p class="timeline-desc">Vuoto e fuoco. Roccia fusa. L'inizio dell'eternità nell'assordante silenzio
+                  primordiale.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-chapter="2">
+              <div class="timeline-dot">02</div>
+              <div class="timeline-content">
+                <span class="timeline-year">230M ANNI FA</span>
+                <h3 class="timeline-event">I Dinosauri</h3>
+                <p class="timeline-desc">Giganti che dominano. Ossessionante ripetizione della vita e della morte. I
+                  primi testimoni.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-chapter="3">
+              <div class="timeline-dot">03</div>
+              <div class="timeline-content">
+                <span class="timeline-year">2M ANNI FA</span>
+                <h3 class="timeline-event">L'Alba dell'Uomo</h3>
+                <p class="timeline-desc">Primi fuochi. Prime speranze. I primi sguardi intelligenti verso un cielo
+                  indifferente.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-chapter="4">
+              <div class="timeline-dot">04</div>
+              <div class="timeline-content">
+                <span class="timeline-year">753 a.C.</span>
+                <h3 class="timeline-event">Roma</h3>
+                <p class="timeline-desc">Imperi che sorgono. Il primo impero che prometteva l'eternità. Ma io sapevo.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-chapter="5">
+              <div class="timeline-dot">05</div>
+              <div class="timeline-content">
+                <span class="timeline-year">1600 d.C.</span>
+                <h3 class="timeline-event">Rinascimento</h3>
+                <p class="timeline-desc">Arte e scienza. L'umanità risplende. Vedo il loro genio, ma anche la fine che
+                  non vedono.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-chapter="6">
+              <div class="timeline-dot">06</div>
+              <div class="timeline-content">
+                <span class="timeline-year">1900 d.C.</span>
+                <h3 class="timeline-event">Rivoluzioni</h3>
+                <p class="timeline-desc">Industrializzazione. Guerre mondiali. L'umanità corre verso il suo destino
+                  inconsapevole.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item apocalypse" data-chapter="7">
+              <div class="timeline-dot">07</div>
+              <div class="timeline-content">
+                <span class="timeline-year">2045</span>
+                <h3 class="timeline-event">Apocalisse</h3>
+                <p class="timeline-desc">Il fungo atomico. L'ultimo respiro dell'umanità. Sopravvissi. Come sempre.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item truth" data-chapter="8">
+              <div class="timeline-dot">?</div>
+              <div class="timeline-content">
+                <span class="timeline-year">OLTRE</span>
+                <h3 class="timeline-event">La Verità</h3>
+                <p class="timeline-desc">Cosa rimane dopo la fine? Solo io. Testimone eterno di un mondo che non esiste
+                  più.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <div class="timeline-point" data-chapter="2" style="left: 16%;">
-          <div class="point-circle">02</div>
-          <div class="point-label">230M ANNI FA</div>
-        </div>
+        <button class="timeline-nav timeline-next" aria-label="Next">
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+      </div>
 
-        <div class="timeline-point" data-chapter="3" style="left: 30%;">
-          <div class="point-circle">03</div>
-          <div class="point-label">2M ANNI FA</div>
-        </div>
-
-        <div class="timeline-point" data-chapter="4" style="left: 44%;">
-          <div class="point-circle">04</div>
-          <div class="point-label">753 a.C.</div>
-        </div>
-
-        <div class="timeline-point" data-chapter="5" style="left: 58%;">
-          <div class="point-circle">05</div>
-          <div class="point-label">1600 d.C.</div>
-        </div>
-
-        <div class="timeline-point" data-chapter="6" style="left: 72%;">
-          <div class="point-circle">06</div>
-          <div class="point-label">1900 d.C.</div>
-        </div>
-
-        <div class="timeline-point apocalypse" data-chapter="7" style="left: 86%;">
-          <div class="point-circle">07</div>
-          <div class="point-label">2045</div>
-        </div>
-
-        <div class="timeline-point truth" data-chapter="8" style="left: 98%;">
-          <div class="point-circle">?</div>
-          <div class="point-label">FINE?</div>
-        </div>
+      <!-- Timeline Progress Indicator -->
+      <div class="timeline-dots-nav">
+        <span class="dot-indicator active" data-index="0"></span>
+        <span class="dot-indicator" data-index="1"></span>
+        <span class="dot-indicator" data-index="2"></span>
+        <span class="dot-indicator" data-index="3"></span>
+        <span class="dot-indicator" data-index="4"></span>
+        <span class="dot-indicator" data-index="5"></span>
+        <span class="dot-indicator" data-index="6"></span>
+        <span class="dot-indicator" data-index="7"></span>
       </div>
     </section>
 
@@ -381,6 +446,12 @@
     <p class="footer-team"><i class="ri-group-line"></i> <strong>#nonètroppotardi</strong></p>
     <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
   </footer>
+
+  <!-- Background Audio - Epic/Cinematic for Immortality Theme -->
+  <audio id="bg-audio" loop preload="metadata">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
   <script src="../navbar.js"></script>
   <script src="Immortali.js"></script>

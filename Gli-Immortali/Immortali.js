@@ -1,7 +1,10 @@
 ﻿// Gli Immortali - Fun & Interactive with Typewriter Effect!
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log(' Gli Immortali - Interactive Mode Activated!');
+  console.log('👁️ Gli Immortali - Interactive Mode Activated!');
+
+  // Initialize Timeline Carousel
+  initTimelineCarousel();
 
   // Typewriter effect function
   const typewriterEffect = (element, text, speed = 30) => {
@@ -108,65 +111,55 @@ document.addEventListener('DOMContentLoaded', function () {
     statsObserver.observe(statsSection);
   }
 
-  // Timeline point interaction
-  const timelinePoints = document.querySelectorAll('.timeline-point');
+  // Timeline carousel item click to scroll to chapter card
+  const timelineItems = document.querySelectorAll('.timeline-item');
 
-  timelinePoints.forEach(point => {
-    point.addEventListener('click', function () {
-      const chapter = this.getAttribute('data-chapter');
-      const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
+  timelineItems.forEach(item => {
+    const content = item.querySelector('.timeline-content');
+    if (content) {
+      content.style.cursor = 'pointer';
+      content.addEventListener('click', function () {
+        const chapter = item.getAttribute('data-chapter');
+        const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
 
-      if (targetCard) {
-        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        targetCard.style.transform = 'translateY(-10px) scale(1.05)';
-        targetCard.style.boxShadow = '0 20px 60px rgba(212, 175, 55, 0.5)';
+          targetCard.style.transform = 'translateY(-10px) scale(1.05)';
+          targetCard.style.boxShadow = '0 20px 60px rgba(212, 175, 55, 0.5)';
 
-        setTimeout(() => {
-          targetCard.style.transform = '';
-          targetCard.style.boxShadow = '';
-        }, 1000);
-      }
-    });
-
-    point.addEventListener('mouseenter', function () {
-      const chapter = this.getAttribute('data-chapter');
-      const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
-      if (targetCard) {
-        targetCard.style.borderColor = 'var(--accent-color)';
-        targetCard.querySelector('.card-border').style.borderColor = 'var(--accent-color)';
-      }
-    });
-
-    point.addEventListener('mouseleave', function () {
-      const chapter = this.getAttribute('data-chapter');
-      const targetCard = document.querySelector(`.chapter-card[data-chapter="${chapter}"]`);
-      if (targetCard) {
-        targetCard.style.borderColor = '';
-        targetCard.querySelector('.card-border').style.borderColor = '';
-      }
-    });
+          setTimeout(() => {
+            targetCard.style.transform = '';
+            targetCard.style.boxShadow = '';
+          }, 1000);
+        }
+      });
+    }
   });
 
   // Chapter card hover effects
   allCards.forEach(card => {
     card.addEventListener('mouseenter', function () {
       const chapter = this.getAttribute('data-chapter');
-      const timelinePoint = document.querySelector(`.timeline-point[data-chapter="${chapter}"]`);
-      if (timelinePoint) {
-        timelinePoint.querySelector('.point-circle').style.background = 'var(--accent-color)';
-        timelinePoint.querySelector('.point-circle').style.color = 'var(--bg-dark)';
-        timelinePoint.querySelector('.point-circle').style.transform = 'scale(1.2)';
+      const timelineItem = document.querySelector(`.timeline-item[data-chapter="${chapter}"]`);
+      if (timelineItem) {
+        const dot = timelineItem.querySelector('.timeline-dot');
+        if (dot) {
+          dot.style.transform = 'scale(1.2)';
+          dot.style.boxShadow = '0 0 30px var(--accent-color)';
+        }
       }
     });
 
     card.addEventListener('mouseleave', function () {
       const chapter = this.getAttribute('data-chapter');
-      const timelinePoint = document.querySelector(`.timeline-point[data-chapter="${chapter}"]`);
-      if (timelinePoint) {
-        timelinePoint.querySelector('.point-circle').style.background = '';
-        timelinePoint.querySelector('.point-circle').style.color = '';
-        timelinePoint.querySelector('.point-circle').style.transform = '';
+      const timelineItem = document.querySelector(`.timeline-item[data-chapter="${chapter}"]`);
+      if (timelineItem) {
+        const dot = timelineItem.querySelector('.timeline-dot');
+        if (dot) {
+          dot.style.transform = '';
+          dot.style.boxShadow = '';
+        }
       }
     });
   });
@@ -260,3 +253,95 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('✨ Tutto pronto! Clicca, esplora, divertiti!');
   console.log('💡 Suggerimento: Prova a cliccare l\'icona infinito 5 volte...');
 });
+
+// Timeline Carousel Functionality
+function initTimelineCarousel() {
+  const track = document.querySelector('.timeline-track');
+  const items = document.querySelectorAll('.timeline-item');
+  const prevBtn = document.querySelector('.timeline-prev');
+  const nextBtn = document.querySelector('.timeline-next');
+  const indicators = document.querySelectorAll('.dot-indicator');
+
+  if (!track || items.length === 0) return;
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Update dot indicators
+    indicators.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function goToSlide(index) {
+    currentIndex = Math.max(0, Math.min(index, items.length - 1));
+    updateCarousel();
+  }
+
+  // Button navigation
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+  }
+
+  // Dot navigation
+  indicators.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (Math.abs(swipeDistance) > 50) {
+      if (swipeDistance > 0) {
+        goToSlide(currentIndex + 1);
+      } else {
+        goToSlide(currentIndex - 1);
+      }
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      goToSlide(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      goToSlide(currentIndex + 1);
+    }
+  });
+
+  // Auto-advance (optional - every 8 seconds for Immortali theme)
+  let autoAdvance = setInterval(() => {
+    goToSlide(currentIndex + 1 === items.length ? 0 : currentIndex + 1);
+  }, 8000);
+
+  // Pause auto-advance on hover
+  const carousel = document.querySelector('.timeline-carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(autoAdvance);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      autoAdvance = setInterval(() => {
+        goToSlide(currentIndex + 1 === items.length ? 0 : currentIndex + 1);
+      }, 8000);
+    });
+  }
+
+  console.log('⏱️ Timeline Carousel initialized with', items.length, 'eras');
+}

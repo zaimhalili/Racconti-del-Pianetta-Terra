@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Il Sonno di Newton • Racconti del Pianeta Terra</title>
+    <link rel="stylesheet" href="../navbar.css" />
     <link rel="stylesheet" href="styleNewton.css" />
     <link rel="stylesheet" href="../footer.css" />
     <!-- Remix Icons -->
@@ -18,6 +19,45 @@
 </head>
 
 <body>
+    <!-- Unified Floating Navbar -->
+    <nav class="unified-navbar">
+        <div class="navbar-content">
+            <a href="../index.html" class="navbar-brand">
+                <i class="ri-time-line"></i>
+                <span class="navbar-brand-text">#NONETROPPTARDI</span>
+            </a>
+
+            <div class="navbar-links">
+                <a href="../index.html" class="nav-link">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../Bambini-Bonsai/BambiniBonsai.html" class="nav-link">
+                    <i class="ri-flask-line"></i>
+                    <span>Bambini Bonsai</span>
+                </a>
+                <a href="../Gli-Immortali/Immortali.html" class="nav-link">
+                    <i class="ri-infinity-line"></i>
+                    <span>Gli Immortali</span>
+                </a>
+                <a href="../bocca-dell-inferno/BoccaInferno.html" class="nav-link">
+                    <i class="ri-fire-line"></i>
+                    <span>Bocca Dell'Inferno</span>
+                </a>
+                <a href="./IlSonnoDiNewton.html" class="nav-link">
+                    <i class="ri-rocket-2-line"></i>
+                    <span>Sonno di Newton</span>
+                </a>
+            </div>
+
+            <div class="navbar-actions">
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <!-- Cosmic Background -->
     <div class="stars-layer"></div>
     <div class="nebula-layer"></div>
@@ -361,6 +401,7 @@
         <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
     </footer>
 
+    <script src="../navbar.js"></script>
     <script src="scriptNewton.js"></script>
 </body>
 

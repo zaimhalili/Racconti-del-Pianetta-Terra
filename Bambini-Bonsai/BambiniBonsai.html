@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bambini Bonsai - Racconti del Pianeta Terra</title>
+  <link rel="stylesheet" href="../navbar.css" />
   <link rel="stylesheet" href="styleBambiniBonsai.css" />
   <link rel="stylesheet" href="../footer.css" />
   <!-- Futuristic Fonts -->
@@ -18,6 +19,45 @@
 </head>
 
 <body>
+  <!-- Unified Floating Navbar -->
+  <nav class="unified-navbar">
+    <div class="navbar-content">
+      <a href="../index.html" class="navbar-brand">
+        <i class="ri-time-line"></i>
+        <span class="navbar-brand-text">#NONETROPPTARDI</span>
+      </a>
+
+      <div class="navbar-links">
+        <a href="../index.html" class="nav-link">
+          <i class="ri-home-4-line"></i>
+          <span>Home</span>
+        </a>
+        <a href="./BambiniBonsai.html" class="nav-link">
+          <i class="ri-flask-line"></i>
+          <span>Bambini Bonsai</span>
+        </a>
+        <a href="../Gli-Immortali/Immortali.html" class="nav-link">
+          <i class="ri-infinity-line"></i>
+          <span>Gli Immortali</span>
+        </a>
+        <a href="../bocca-dell-inferno/BoccaInferno.html" class="nav-link">
+          <i class="ri-fire-line"></i>
+          <span>Bocca Dell'Inferno</span>
+        </a>
+        <a href="../SonnoNewton/IlSonnoDiNewton.html" class="nav-link">
+          <i class="ri-rocket-2-line"></i>
+          <span>Sonno di Newton</span>
+        </a>
+      </div>
+
+      <div class="navbar-actions">
+        <button class="mobile-menu-toggle" aria-label="Menu">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
   <!-- Audio Control -->
   <button class="audio-toggle" id="audioToggle" title="Toggle Music">
     <i class="ri-volume-mute-line"></i>
@@ -28,30 +68,6 @@
     <!-- Animated Grid Background -->
     <div class="grid-overlay"></div>
     <div class="scan-line"></div>
-
-    <nav class="nav">
-      <div class="logo">
-        <i class="ri-plant-line"></i>
-        <span>BAMBINI BONSAI</span>
-      </div>
-      <ul class="nav-links">
-        <li>
-          <a href="../index.html"><i class="ri-home-4-line"></i> Home</a>
-        </li>
-        <li>
-          <a href="#intro"><i class="ri-file-text-line"></i> Storia</a>
-        </li>
-        <li>
-          <a href="#dome"><i class="ri-community-line"></i> Cupola</a>
-        </li>
-        <li>
-          <a href="#journey"><i class="ri-walk-line"></i> Viaggio</a>
-        </li>
-        <li>
-          <a href="#encounter"><i class="ri-user-heart-line"></i> Incontro</a>
-        </li>
-      </ul>
-    </nav>
 
     <div class="hero-content">
       <div class="glitch-container">
@@ -414,6 +430,7 @@
     <p><i class="ri-copyright-line"></i> 2025 • Racconti del Pianeta Terra</p>
   </footer>
 
+  <script src="../navbar.js"></script>
   <script src="scriptBambiniBonsai.js"></script>
 </body>
 

@@ -83,29 +83,12 @@ body {
 /* Header */
 .header {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 4rem;
   position: relative;
 }
 
 .back-btn {
-  position: absolute;
-  top: 2rem;
-  left: 0;
-  color: var(--accent-color);
-  text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-  color: var(--accent-light);
-  transform: translateX(-5px);
+  display: none;
 }
 
 .logo-container {

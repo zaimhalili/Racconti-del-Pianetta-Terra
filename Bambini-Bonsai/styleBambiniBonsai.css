@@ -87,92 +87,17 @@ h4 {
    NAVIGATION
    ======================================== */
 
+/* Old nav hidden - using unified navbar */
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  background: var(--cyber-darker);
-  border-bottom: 2px solid var(--border-color);
-  backdrop-filter: blur(10px);
-  animation: slideDown 0.6s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  display: none;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 900;
-  color: var(--cyber-blue);
-  text-shadow: 0 0 10px var(--accent-glow);
-}
-
-.logo i {
-  font-size: 1.8rem;
+  display: none;
 }
 
 .nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.95rem;
-  position: relative;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.nav-links a i {
-  font-size: 1.1rem;
-}
-
-.nav-links a::before {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--cyber-blue);
-  box-shadow: 0 0 8px var(--cyber-blue);
-  transition: width 0.3s;
-}
-
-.nav-links a:hover {
-  color: var(--cyber-blue);
-  transform: translateY(-2px);
-}
-
-.nav-links a:hover::before {
-  width: 100%;
+  display: none;
 }
 
 /* ========================================

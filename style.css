@@ -108,7 +108,7 @@ body::before {
     z-index: 2;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 4rem 4rem;
+    padding: 6rem 4rem 4rem;
     min-height: 95vh;
     display: flex;
     flex-direction: column;

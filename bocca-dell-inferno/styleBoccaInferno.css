@@ -43,54 +43,9 @@ body {
    overflow-x: hidden;
 }
 
-/* NAVIGATION */
+/* NAVIGATION - Hidden in favor of unified navbar */
 .summary-nav {
-   position: fixed;
-   top: 1.5rem;
-   left: 50%;
-   transform: translateX(-50%);
-   z-index: 100;
-   display: flex;
-   align-items: center;
-   gap: 1rem;
-   background: rgba(10, 26, 18, 0.95);
-   padding: 0.8rem 1.5rem;
-   border-radius: 50px;
-   backdrop-filter: blur(10px);
-   border: 1px solid rgba(43, 107, 61, 0.3);
-   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-.summary-nav a {
-   color: var(--text-secondary);
-   text-decoration: none;
-   font-weight: 500;
-   font-size: 0.95rem;
-   padding: 0.5rem 1rem;
-   border-radius: 25px;
-   transition: all 0.3s ease;
-}
-
-.summary-nav a:hover,
-.summary-nav a.active {
-   color: var(--text-primary);
-   background: rgba(43, 107, 61, 0.2);
-}
-
-.home-btn {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 35px;
-   height: 35px;
-   padding: 0 !important;
-   border-radius: 50% !important;
-}
-
-.summary-controls {
-   margin-left: 0.5rem;
-   padding-left: 0.5rem;
-   border-left: 1px solid rgba(255, 255, 255, 0.1);
+   display: none;
 }
 
 .audio-toggle {

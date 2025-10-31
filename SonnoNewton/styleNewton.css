@@ -123,55 +123,7 @@ body {
    ========================================== */
 
 .space-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(to bottom, rgba(13, 2, 33, 0.95) 0%, transparent 100%);
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.nav-home {
-    width: 45px;
-    height: 45px;
-    background: rgba(58, 134, 255, 0.2);
-    border: 2px solid var(--star-blue);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--star-blue);
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.nav-home:hover {
-    background: var(--star-blue);
-    color: var(--cosmic-void);
-    box-shadow: 0 0 25px var(--star-blue);
-    transform: scale(1.1);
-}
-
-.nav-title {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--text-dim);
-}
-
-.nav-title i {
-    font-size: 1.8rem;
-    color: var(--star-blue);
+    display: none;
 }
 
 /* ==========================================

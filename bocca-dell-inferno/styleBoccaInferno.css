@@ -753,15 +753,17 @@ body {
 .reveal-on-hover::before {
    content: '🔦 Passa il mouse per illuminare il testo';
    position: absolute;
-   top: -2.5rem;
+   top: -4.5rem;
    left: 0;
-   font-size: 0.9rem;
+   font-size: 1rem;
    color: var(--amber-glow);
-   opacity: 0.8;
+   opacity: 0.9;
    font-style: italic;
    pointer-events: none;
    text-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
    animation: pulse 2s ease-in-out infinite;
+   padding: 1.5rem 0;
+   margin-bottom: 2rem;
 }
 
 /* Story Choice Buttons */

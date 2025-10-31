@@ -1,29 +1,45 @@
 // Unified Navbar Functionality
 document.addEventListener('DOMContentLoaded', function () {
+    // Create sidebar overlay for mobile
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const navbarLinks = document.querySelector('.navbar-links');
 
     if (mobileToggle && navbarLinks) {
-        mobileToggle.addEventListener('click', function () {
+        mobileToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
             navbarLinks.classList.toggle('active');
             mobileToggle.classList.toggle('active');
-        });
+            overlay.classList.toggle('active');
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('.unified-navbar')) {
-                navbarLinks.classList.remove('active');
-                mobileToggle.classList.remove('active');
+            // Prevent body scroll when sidebar is open
+            if (navbarLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
             }
         });
 
-        // Close mobile menu when clicking a link
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', function () {
+            navbarLinks.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close sidebar when clicking a link
         const navLinks = navbarLinks.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function () {
                 navbarLinks.classList.remove('active');
                 mobileToggle.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
     }

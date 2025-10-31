@@ -1,8 +1,3 @@
-/* ========================================
-   RACCONTI DEL PIANETA TERRA - INTRO PAGE
-   Neutral Modern Landing Page
-   ======================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -108,7 +103,7 @@ body::before {
     z-index: 2;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 6rem 4rem 4rem;
+    padding: 10rem 4rem 4rem;
     min-height: 95vh;
     display: flex;
     flex-direction: column;
@@ -167,6 +162,7 @@ body::before {
     position: relative;
     display: inline-block;
     animation: gradient-shift 4s ease infinite;
+    padding-top: 4rem;
 }
 
 @keyframes gradient-shift {

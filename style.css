@@ -356,6 +356,7 @@ body::before {
 }
 
 .philosophy-text {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1.15rem;
     line-height: 1.9;
     color: var(--text-secondary);
@@ -363,13 +364,14 @@ body::before {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .philosophy-text em {
     color: var(--accent-color);
     font-style: italic;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    font-weight: 500;
 }
 
 .philosophy-text strong {
@@ -621,12 +623,13 @@ body::before {
 }
 
 .card-desc {
-    font-size: 0.95rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
     line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     flex: 1;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .card-tags {
@@ -1046,7 +1049,11 @@ body::before {
 /* Mobile landscape and small tablets */
 @media (max-width: 768px) {
     .container {
-        padding: 2rem 1.5rem;
+        padding: 8rem 1.5rem 2rem;
+    }
+
+    .header {
+        margin-bottom: 2rem;
     }
 
     .logo-icon {
@@ -1054,12 +1061,13 @@ body::before {
     }
 
     .title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         letter-spacing: 1.5px;
+        padding-top: 3rem;
     }
 
     .subtitle {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         letter-spacing: 1px;
     }
 
@@ -1080,21 +1088,28 @@ body::before {
         margin: 1.5rem 0;
     }
 
+    .philosophy-content {
+        padding: 1.5rem;
+    }
+
+    .philosophy-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+
     .philosophy-icon i {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .philosophy-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
 
     .philosophy-text {
-        font-size: 0.9rem;
-        line-height: 1.7;
-    }
-
-    .philosophy-tagline {
         font-size: 0.85rem;
+        line-height: 1.6;
     }
 
     .stories-grid {
@@ -1113,6 +1128,27 @@ body::before {
 
     .card-content {
         padding: 1.8rem 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-desc {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .card-tags {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.7rem;
     }
 
     .card-number {
@@ -1175,7 +1211,7 @@ body::before {
 /* Mobile portrait */
 @media (max-width: 480px) {
     .container {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0.8rem;
     }
 
     .logo-container {
@@ -1188,12 +1224,51 @@ body::before {
     }
 
     .title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         letter-spacing: 1px;
+        padding-top: 2rem;
     }
 
     .subtitle {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .team-philosophy {
+        padding: 1.2rem 0.8rem;
+        margin: 1.2rem 0;
+    }
+
+    .philosophy-content {
+        padding: 1rem;
+    }
+
+    .philosophy-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.8rem;
+    }
+
+    .philosophy-icon i {
+        font-size: 1.5rem;
+    }
+
+    .philosophy-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .philosophy-text {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .stories-grid {
+        gap: 1.2rem;
+    }
+
+    .card-image {
+        height: 200px;
     }
 
     .card-content {
@@ -1201,20 +1276,28 @@ body::before {
     }
 
     .card-icon {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
     }
 
     .card-title {
         font-size: 1.1rem;
+        margin-bottom: 0.8rem;
     }
 
     .card-desc {
         font-size: 0.85rem;
+        line-height: 1.5;
     }
 
     .tag {
         font-size: 0.7rem;
         padding: 0.3rem 0.6rem;
+    }
+
+    .card-tags {
+        gap: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .card-arrow {
@@ -1284,12 +1367,13 @@ body::before {
 /* Extra small screens (under 360px) */
 @media (max-width: 360px) {
     .container {
-        padding: 1rem 0.8rem;
+        padding: 1rem 0.6rem;
     }
 
     .title {
         font-size: 1.2rem;
         letter-spacing: 0.5px;
+        padding-top: 1.5rem;
     }
 
     .subtitle {
@@ -1300,13 +1384,31 @@ body::before {
         font-size: 1rem;
     }
 
-    .philosophy-title {
-        font-size: 1.1rem;
+    .team-philosophy {
+        padding: 1rem 0.6rem;
     }
 
-    .philosophy-text,
-    .philosophy-tagline {
-        font-size: 0.8rem;
+    .philosophy-content {
+        padding: 0.8rem;
+    }
+
+    .philosophy-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .philosophy-icon i {
+        font-size: 1.3rem;
+    }
+
+    .philosophy-title {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .philosophy-text {
+        font-size: 0.75rem;
+        line-height: 1.4;
     }
 
     .card-image {

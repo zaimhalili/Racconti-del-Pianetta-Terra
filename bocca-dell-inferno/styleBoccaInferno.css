@@ -72,6 +72,7 @@ body {
    justify-content: center;
    background: linear-gradient(rgba(10, 26, 18, 0.7), rgba(10, 26, 18, 0.7)), url('img/introduzione.jpg') center/cover no-repeat;
    overflow: hidden;
+   padding-top: 5rem;
 }
 
 .hero-overlay {
@@ -485,7 +486,7 @@ body {
 .story-container {
    max-width: 1200px;
    margin: 0 auto;
-   padding: 4rem 2rem;
+   padding: 6rem 2rem 4rem;
 }
 
 .story-section {
@@ -728,6 +729,20 @@ body {
    color: var(--leaf-green);
 }
 
+/* Instruction text for hover reveal */
+.reveal-instruction {
+   font-size: 0.95rem;
+   color: var(--amber-glow);
+   opacity: 0.9;
+   font-style: italic;
+   text-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
+   animation: pulse 2s ease-in-out infinite;
+   margin-bottom: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+}
+
 /* Dark text with hover reveal - Radial Gradient Spotlight */
 .dark-text {
    position: relative;
@@ -748,22 +763,6 @@ body {
       linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(5, 5, 5, 1));
    background-blend-mode: normal;
    transition: background-image 0.05s ease-out;
-}
-
-.reveal-on-hover::before {
-   content: '🔦 Passa il mouse per illuminare il testo';
-   position: absolute;
-   top: -4.5rem;
-   left: 0;
-   font-size: 1rem;
-   color: var(--amber-glow);
-   opacity: 0.9;
-   font-style: italic;
-   pointer-events: none;
-   text-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
-   animation: pulse 2s ease-in-out infinite;
-   padding: 1.5rem 0;
-   margin-bottom: 2rem;
 }
 
 /* Story Choice Buttons */
@@ -1146,8 +1145,28 @@ body {
       padding: 0.4rem 0.8rem;
    }
 
+   .hero {
+      min-height: 80vh;
+   }
+
    .hero-content {
       padding: 1.5rem;
+   }
+
+   .hero-title {
+      font-size: 2rem;
+   }
+
+   .hero-subtitle {
+      font-size: 0.95rem;
+   }
+
+   .hero-description {
+      font-size: 1.05rem;
+   }
+
+   .forest-icon {
+      font-size: 3rem;
    }
 
    .story-container {
@@ -1159,11 +1178,22 @@ body {
    }
 
    .section-content h2 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
    }
 
    .section-content p {
       font-size: 1rem;
+      line-height: 1.7;
+   }
+
+   .section-icon {
+      font-size: 2rem;
+   }
+
+   .reveal-instruction {
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
    }
 
    .trail-path {
@@ -1178,6 +1208,34 @@ body {
    .choice-btn {
       padding: 1.2rem 1rem;
    }
+
+   .choice-btn i {
+      font-size: 2rem;
+   }
+
+   .choice-btn span {
+      font-size: 1rem;
+   }
+
+   .voragine-card .hole {
+      width: 140px;
+      height: 140px;
+   }
+
+   .vortex-ring.ring-1 {
+      width: 100px;
+      height: 100px;
+   }
+
+   .vortex-ring.ring-2 {
+      width: 160px;
+      height: 160px;
+   }
+
+   .vortex-ring.ring-3 {
+      width: 220px;
+      height: 220px;
+   }
 }
 
 @media (max-width: 480px) {
@@ -1191,12 +1249,26 @@ body {
       padding: 0.3rem 0.6rem;
    }
 
+   .hero {
+      min-height: 70vh;
+   }
+
    .hero-title {
-      font-size: 2rem;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+   }
+
+   .hero-subtitle {
+      font-size: 0.85rem;
    }
 
    .hero-description {
-      font-size: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+   }
+
+   .forest-icon {
+      font-size: 2.5rem;
    }
 
    .story-container {
@@ -1208,6 +1280,151 @@ body {
    }
 
    .section-content h2 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+   }
+
+   .section-content p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+   }
+
+   .section-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+   }
+
+   .reveal-instruction {
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+   }
+
+   .dark-text {
+      padding: 1.2rem;
+   }
+
+   .chips {
+      gap: 0.4rem;
+      margin-top: 1rem;
+   }
+
+   .chip,
+   .forest-chip {
+      padding: 0.4rem 0.65rem;
+      font-size: 0.8rem;
+   }
+
+   .badges {
+      gap: 0.5rem;
+      margin-top: 1rem;
+   }
+
+   .badge,
+   .forest-badge {
+      padding: 0.4rem 0.65rem;
+      font-size: 0.85rem;
+   }
+
+   .story-choice {
+      padding: 1.5rem;
+   }
+
+   .choice-prompt {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+   }
+
+   .choice-btn {
+      padding: 1rem 0.75rem;
+   }
+
+   .choice-btn i {
+      font-size: 1.8rem;
+   }
+
+   .choice-btn span {
+      font-size: 0.95rem;
+   }
+
+   .choice-btn small {
+      font-size: 0.8rem;
+   }
+
+   .choice-result {
+      padding: 1.2rem;
+   }
+
+   .choice-result h4 {
+      font-size: 0.95rem;
+   }
+
+   .choice-result p {
+      font-size: 0.9rem;
+   }
+
+   .voragine-card {
+      min-height: 220px;
+   }
+
+   .voragine-card .hole {
+      width: 120px;
+      height: 120px;
+   }
+
+   .vortex-ring.ring-1 {
+      width: 80px;
+      height: 80px;
+   }
+
+   .vortex-ring.ring-2 {
+      width: 140px;
+      height: 140px;
+   }
+
+   .vortex-ring.ring-3 {
+      width: 200px;
+      height: 200px;
+   }
+
+   .scroll-cue {
+      width: 24px;
+      height: 40px;
+      bottom: 1.5rem;
+   }
+
+   .scroll-cue-dot {
+      width: 5px;
+      height: 5px;
+   }
+
+   .cta {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+   }
+}
+
+@media (max-width: 360px) {
+   .hero-title {
+      font-size: 1.4rem;
+   }
+
+   .hero-description {
+      font-size: 0.9rem;
+   }
+
+   .section-content h2 {
+      font-size: 1.25rem;
+   }
+
+   .section-content p {
+      font-size: 0.9rem;
+   }
+
+   .story-container {
+      padding: 1.5rem 0.75rem;
+   }
+
+   .section-content {
+      padding: 1.2rem 0.85rem;
    }
 }
